@@ -1,0 +1,232 @@
+{
+  "recovery_date": "2026-11-12",
+  "note": "Historical source recovery, not a license grant or successful modern build. Original bytes are preserved except explicitly recorded security/privacy edits.",
+  "files": [
+    {
+      "path": "source/original/PointsFusion/PointsFusion/AppDelegate.h",
+      "origin": "PointsFusion_v2.3.zip (January 2015 snapshot)",
+      "original_sha256": "e000c0e975ccd9343ccfc219681761c009335e71ec4be071765ad31a92edbfce",
+      "published_sha256": "e000c0e975ccd9343ccfc219681761c009335e71ec4be071765ad31a92edbfce",
+      "bytes": 420,
+      "changes": []
+    },
+    {
+      "path": "source/original/PointsFusion/PointsFusion/AppDelegate.m",
+      "origin": "PointsFusion_v2.3.zip (January 2015 snapshot)",
+      "original_sha256": "e9e363723ab10341ff4b233b1bda58af9c7f8a816789b31f5b8883779d3c4274",
+      "published_sha256": "e9e363723ab10341ff4b233b1bda58af9c7f8a816789b31f5b8883779d3c4274",
+      "bytes": 2012,
+      "changes": []
+    },
+    {
+      "path": "source/original/PointsFusion/PointsFusion/Base.lproj/Main_iPad.storyboard",
+      "origin": "PointsFusion_v2.3.zip (January 2015 snapshot)",
+      "original_sha256": "3ec3d3dd3fd35ccba503fe3c2f3eafd3c8b5fd25c5327b563a6aa2ee10e0c370",
+      "published_sha256": "3ec3d3dd3fd35ccba503fe3c2f3eafd3c8b5fd25c5327b563a6aa2ee10e0c370",
+      "bytes": 5471,
+      "changes": []
+    },
+    {
+      "path": "source/original/PointsFusion/PointsFusion/Base.lproj/Main_iPhone.storyboard",
+      "origin": "PointsFusion_v2.3.zip (January 2015 snapshot)",
+      "original_sha256": "983ee60d11184814c430450f35d9fd0aa7f7e945b1436353beae17984e52549d",
+      "published_sha256": "983ee60d11184814c430450f35d9fd0aa7f7e945b1436353beae17984e52549d",
+      "bytes": 1859,
+      "changes": []
+    },
+    {
+      "path": "source/original/PointsFusion/PointsFusion/en.lproj/InfoPlist.strings",
+      "origin": "PointsFusion_v2.3.zip (January 2015 snapshot)",
+      "original_sha256": "feb5e820d68ed31f871d2bdaf8d14935ed343a7a875ddd774d5556da8dfd951a",
+      "published_sha256": "feb5e820d68ed31f871d2bdaf8d14935ed343a7a875ddd774d5556da8dfd951a",
+      "bytes": 45,
+      "changes": []
+    },
+    {
+      "path": "source/original/PointsFusion/PointsFusion/Fusion.fsh",
+      "origin": "PointsFusion_v2.3.zip (January 2015 snapshot)",
+      "original_sha256": "078853ca7e3fb23ef6fb3d2b04a4f46c2b64e2040c50e29ed4167feda6dca66a",
+      "published_sha256": "078853ca7e3fb23ef6fb3d2b04a4f46c2b64e2040c50e29ed4167feda6dca66a",
+      "bytes": 3239,
+      "changes": []
+    },
+    {
+      "path": "source/original/PointsFusion/PointsFusion/Fusion.vsh",
+      "origin": "PointsFusion_v2.3.zip (January 2015 snapshot)",
+      "original_sha256": "1241a05293c262d26d68534bbc451c9e9a6a870f98da73a40738b6ac41a0637f",
+      "published_sha256": "1241a05293c262d26d68534bbc451c9e9a6a870f98da73a40738b6ac41a0637f",
+      "bytes": 929,
+      "changes": []
+    },
+    {
+      "path": "source/original/PointsFusion/PointsFusion/Images.xcassets/AppIcon-2.appiconset/Contents.json",
+      "origin": "PointsFusion_v2.3.zip (January 2015 snapshot)",
+      "original_sha256": "918a5305ab303d9a306c9b96828dc78fb11497cb14f6739cc47f679001beb2e5",
+      "published_sha256": "918a5305ab303d9a306c9b96828dc78fb11497cb14f6739cc47f679001beb2e5",
+      "bytes": 909,
+      "changes": []
+    },
+    {
+      "path": "source/original/PointsFusion/PointsFusion/Images.xcassets/AppIcon.appiconset/Contents.json",
+      "origin": "PointsFusion_v2.3.zip (January 2015 snapshot)",
+      "original_sha256": "918a5305ab303d9a306c9b96828dc78fb11497cb14f6739cc47f679001beb2e5",
+      "published_sha256": "918a5305ab303d9a306c9b96828dc78fb11497cb14f6739cc47f679001beb2e5",
+      "bytes": 909,
+      "changes": []
+    },
+    {
+      "path": "source/original/PointsFusion/PointsFusion/Images.xcassets/LaunchImage.launchimage/Contents.json",
+      "origin": "PointsFusion_v2.3.zip (January 2015 snapshot)",
+      "original_sha256": "482db227c3fffad967a554080da10abbc2902f85ec62a6f819d452a335a71a47",
+      "published_sha256": "482db227c3fffad967a554080da10abbc2902f85ec62a6f819d452a335a71a47",
+      "bytes": 1100,
+      "changes": []
+    },
+    {
+      "path": "source/original/PointsFusion/PointsFusion/indexMap.fsh",
+      "origin": "PointsFusion_v2.3.zip (January 2015 snapshot)",
+      "original_sha256": "d3745bcb51144c5e55730ac4f3d4528fc257059281a3a5e04aa2ebbb9b4cf0d4",
+      "published_sha256": "d3745bcb51144c5e55730ac4f3d4528fc257059281a3a5e04aa2ebbb9b4cf0d4",
+      "bytes": 650,
+      "changes": []
+    },
+    {
+      "path": "source/original/PointsFusion/PointsFusion/indexMap.vsh",
+      "origin": "PointsFusion_v2.3.zip (January 2015 snapshot)",
+      "original_sha256": "79a675bea3e8e45c6e7df7a1da8115708a36c16865f0e51d3f69407b60047853",
+      "published_sha256": "79a675bea3e8e45c6e7df7a1da8115708a36c16865f0e51d3f69407b60047853",
+      "bytes": 796,
+      "changes": []
+    },
+    {
+      "path": "source/original/PointsFusion/PointsFusion/main.m",
+      "origin": "PointsFusion_v2.3.zip (January 2015 snapshot)",
+      "original_sha256": "1f35eaa59017e2bbfed1e8e54fda2d8d98e17f228a680b5083e1586f5fd69be1",
+      "published_sha256": "1f35eaa59017e2bbfed1e8e54fda2d8d98e17f228a680b5083e1586f5fd69be1",
+      "bytes": 342,
+      "changes": []
+    },
+    {
+      "path": "source/original/PointsFusion/PointsFusion/PointRemoval.fsh",
+      "origin": "PointsFusion_v2.3.zip (January 2015 snapshot)",
+      "original_sha256": "66212c89a5c52360eb94137d21e2a41aa1fc318fe4937f22925afca498cee26b",
+      "published_sha256": "66212c89a5c52360eb94137d21e2a41aa1fc318fe4937f22925afca498cee26b",
+      "bytes": 3014,
+      "changes": []
+    },
+    {
+      "path": "source/original/PointsFusion/PointsFusion/PointRemoval.vsh",
+      "origin": "PointsFusion_v2.3.zip (January 2015 snapshot)",
+      "original_sha256": "33b8e4067e3a95becf50e90fa05896923386a9f57c80c844bf5ae7202fa411e0",
+      "published_sha256": "33b8e4067e3a95becf50e90fa05896923386a9f57c80c844bf5ae7202fa411e0",
+      "bytes": 905,
+      "changes": []
+    },
+    {
+      "path": "source/original/PointsFusion/PointsFusion/PointsFusion-Info.plist",
+      "origin": "PointsFusion_v2.3.zip (January 2015 snapshot)",
+      "original_sha256": "18aa008607ddc2f10ba739b15f7a93ac6ca4c5491e620c704491ba853f8a2e7e",
+      "published_sha256": "18aa008607ddc2f10ba739b15f7a93ac6ca4c5491e620c704491ba853f8a2e7e",
+      "bytes": 1646,
+      "changes": []
+    },
+    {
+      "path": "source/original/PointsFusion/PointsFusion/PointsFusion-Prefix.pch",
+      "origin": "PointsFusion_v2.3.zip (January 2015 snapshot)",
+      "original_sha256": "06508f940d72c8a8ce662e2619160419c7a358c95488318f47c96bf20d5d07f6",
+      "published_sha256": "06508f940d72c8a8ce662e2619160419c7a358c95488318f47c96bf20d5d07f6",
+      "bytes": 344,
+      "changes": []
+    },
+    {
+      "path": "source/original/PointsFusion/PointsFusion/Shaders/Shader.fsh",
+      "origin": "PointsFusion_v2.3.zip (January 2015 snapshot)",
+      "original_sha256": "692cc393ab7f9ff58034f873f94d24e77538e603015ac439a0634cdc72478105",
+      "published_sha256": "692cc393ab7f9ff58034f873f94d24e77538e603015ac439a0634cdc72478105",
+      "bytes": 262,
+      "changes": []
+    },
+    {
+      "path": "source/original/PointsFusion/PointsFusion/Shaders/Shader.vsh",
+      "origin": "PointsFusion_v2.3.zip (January 2015 snapshot)",
+      "original_sha256": "d208707b3d8a2bc19f15da6c171a4169bdad53bbbeafad0cc145c69e63d5f6a7",
+      "published_sha256": "116ed275e9488e308e3ceddeb2b1e491b5bde01fb6e55356ff3efe5af2b548f9",
+      "bytes": 1394,
+      "changes": [
+        "Personal workstation name removed from a commented-out shader line; executable shader code is unchanged."
+      ]
+    },
+    {
+      "path": "source/original/PointsFusion/PointsFusion/StackExtension.h",
+      "origin": "PointsFusion_v2.3.zip (January 2015 snapshot)",
+      "original_sha256": "c654fcfe3764e85a19adeb485fbddfb58718d44c58a175799a2322ffc4177e72",
+      "published_sha256": "c654fcfe3764e85a19adeb485fbddfb58718d44c58a175799a2322ffc4177e72",
+      "bytes": 319,
+      "changes": []
+    },
+    {
+      "path": "source/original/PointsFusion/PointsFusion/StackExtension.m",
+      "origin": "PointsFusion_v2.3.zip (January 2015 snapshot)",
+      "original_sha256": "eeebc1de6e94ac9ad63f016109fc5dd03660257ddbfd79077ca2df4679da5f4d",
+      "published_sha256": "eeebc1de6e94ac9ad63f016109fc5dd03660257ddbfd79077ca2df4679da5f4d",
+      "bytes": 441,
+      "changes": []
+    },
+    {
+      "path": "source/original/PointsFusion/PointsFusion/ViewController.h",
+      "origin": "PointsFusion_v2.3.zip (January 2015 snapshot)",
+      "original_sha256": "4b6ab24c942fe744189487a0f274a3fe81d29cfbf11920dbdc58d6e7832457d5",
+      "published_sha256": "4b6ab24c942fe744189487a0f274a3fe81d29cfbf11920dbdc58d6e7832457d5",
+      "bytes": 527,
+      "changes": []
+    },
+    {
+      "path": "source/original/PointsFusion/PointsFusion/ViewController.m",
+      "origin": "PointsFusion_v2.3.zip (January 2015 snapshot)",
+      "original_sha256": "03951b90a6da662fbe5bc0939f6f434e10a18828dd90f33a70318338f8672a0d",
+      "published_sha256": "03951b90a6da662fbe5bc0939f6f434e10a18828dd90f33a70318338f8672a0d",
+      "bytes": 50904,
+      "changes": []
+    },
+    {
+      "path": "source/original/PointsFusion/PointsFusion.xcodeproj/project.pbxproj",
+      "origin": "PointsFusion_v2.3.zip (January 2015 snapshot)",
+      "original_sha256": "6a68d6563acbef668222a92395d6155aa31a571d9a4a772d47117fff1f2eb308",
+      "published_sha256": "6a68d6563acbef668222a92395d6155aa31a571d9a4a772d47117fff1f2eb308",
+      "bytes": 28022,
+      "changes": []
+    },
+    {
+      "path": "source/original/PointsFusion/PointsFusion.xcodeproj/project.xcworkspace/contents.xcworkspacedata",
+      "origin": "PointsFusion_v2.3.zip (January 2015 snapshot)",
+      "original_sha256": "aff6806c164fbcde1d1d5c86651b1f35cbe07bc9edf0722edf40dccc16603ab2",
+      "published_sha256": "aff6806c164fbcde1d1d5c86651b1f35cbe07bc9edf0722edf40dccc16603ab2",
+      "bytes": 157,
+      "changes": []
+    },
+    {
+      "path": "source/original/PointsFusion/PointsFusionTests/en.lproj/InfoPlist.strings",
+      "origin": "PointsFusion_v2.3.zip (January 2015 snapshot)",
+      "original_sha256": "feb5e820d68ed31f871d2bdaf8d14935ed343a7a875ddd774d5556da8dfd951a",
+      "published_sha256": "feb5e820d68ed31f871d2bdaf8d14935ed343a7a875ddd774d5556da8dfd951a",
+      "bytes": 45,
+      "changes": []
+    },
+    {
+      "path": "source/original/PointsFusion/PointsFusionTests/PointsFusionTests-Info.plist",
+      "origin": "PointsFusion_v2.3.zip (January 2015 snapshot)",
+      "original_sha256": "97e4afbb68b87c25e7bbcd3aad93cb5ca797dd9fe23a31a1d54c0410b9afda16",
+      "published_sha256": "97e4afbb68b87c25e7bbcd3aad93cb5ca797dd9fe23a31a1d54c0410b9afda16",
+      "bytes": 688,
+      "changes": []
+    },
+    {
+      "path": "source/original/PointsFusion/PointsFusionTests/PointsFusionTests.m",
+      "origin": "PointsFusion_v2.3.zip (January 2015 snapshot)",
+      "original_sha256": "8aa3b0ff0fb7b419a814df05c9828808b4dbe0bbe50e2c1c33f2cd7b0c1624ec",
+      "published_sha256": "8aa3b0ff0fb7b419a814df05c9828808b4dbe0bbe50e2c1c33f2cd7b0c1624ec",
+      "bytes": 656,
+      "changes": []
+    }
+  ]
+}

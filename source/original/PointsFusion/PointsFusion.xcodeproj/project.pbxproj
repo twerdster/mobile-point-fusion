@@ -1,0 +1,557 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		390D8CBD1937262E00FB17F9 /* indexMap.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 390D8CBC1937262E00FB17F9 /* indexMap.fsh */; };
+		390D8CBF193733D100FB17F9 /* indexMap.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 390D8CBE193733D100FB17F9 /* indexMap.vsh */; };
+		390E6A6F1A68A2380040FFBE /* PointRemoval.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 390E6A6E1A68A2380040FFBE /* PointRemoval.vsh */; };
+		390E6A711A68A2410040FFBE /* PointRemoval.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 390E6A701A68A2410040FFBE /* PointRemoval.fsh */; };
+		39491111191A54D3007255D5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39491110191A54D3007255D5 /* Foundation.framework */; };
+		39491113191A54D3007255D5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39491112191A54D3007255D5 /* CoreGraphics.framework */; };
+		39491115191A54D3007255D5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39491114191A54D3007255D5 /* UIKit.framework */; };
+		39491117191A54D3007255D5 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39491116191A54D3007255D5 /* GLKit.framework */; };
+		39491119191A54D3007255D5 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39491118191A54D3007255D5 /* OpenGLES.framework */; };
+		3949111F191A54D4007255D5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3949111D191A54D4007255D5 /* InfoPlist.strings */; };
+		39491121191A54D4007255D5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 39491120191A54D4007255D5 /* main.m */; };
+		39491125191A54D4007255D5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 39491124191A54D4007255D5 /* AppDelegate.m */; };
+		39491128191A54D4007255D5 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39491126191A54D4007255D5 /* Main_iPhone.storyboard */; };
+		3949112B191A54D4007255D5 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39491129191A54D4007255D5 /* Main_iPad.storyboard */; };
+		3949112D191A54D4007255D5 /* Shader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 3949112C191A54D4007255D5 /* Shader.fsh */; };
+		3949112F191A54D4007255D5 /* Shader.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 3949112E191A54D4007255D5 /* Shader.vsh */; };
+		39491132191A54D4007255D5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39491131191A54D4007255D5 /* ViewController.m */; };
+		39491134191A54D4007255D5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 39491133191A54D4007255D5 /* Images.xcassets */; };
+		3949113B191A54D4007255D5 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3949113A191A54D4007255D5 /* XCTest.framework */; };
+		3949113C191A54D4007255D5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39491110191A54D3007255D5 /* Foundation.framework */; };
+		3949113D191A54D4007255D5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39491114191A54D3007255D5 /* UIKit.framework */; };
+		39491145191A54D4007255D5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 39491143191A54D4007255D5 /* InfoPlist.strings */; };
+		39491147191A54D4007255D5 /* PointsFusionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 39491146191A54D4007255D5 /* PointsFusionTests.m */; };
+		394911A1191EB6A6007255D5 /* capsule.obj in Resources */ = {isa = PBXBuildFile; fileRef = 394911A0191EB6A6007255D5 /* capsule.obj */; };
+		3971D042194467BD002FA1D4 /* Fusion.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 3971D041194467BD002FA1D4 /* Fusion.vsh */; };
+		3971D046194500D6002FA1D4 /* Fusion.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 3971D045194500D6002FA1D4 /* Fusion.fsh */; };
+		398485ED1920D8AE00803EB5 /* Porsche_911_GT2.obj in Resources */ = {isa = PBXBuildFile; fileRef = 398485EC1920D8AE00803EB5 /* Porsche_911_GT2.obj */; };
+		398485F5192112B400803EB5 /* zero.obj in Resources */ = {isa = PBXBuildFile; fileRef = 398485F4192112B400803EB5 /* zero.obj */; };
+		3984863E19211EA700803EB5 /* default.png in Resources */ = {isa = PBXBuildFile; fileRef = 3984863D19211EA700803EB5 /* default.png */; };
+		39986E1819250D3900E6592A /* monkey.obj in Resources */ = {isa = PBXBuildFile; fileRef = 39986E1719250D3900E6592A /* monkey.obj */; };
+		65B70C631A58407400278F77 /* StackExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 65B70C621A58407400278F77 /* StackExtension.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3949113E191A54D4007255D5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 39491105191A54D3007255D5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3949110C191A54D3007255D5;
+			remoteInfo = PointsFusion;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		390D8CBC1937262E00FB17F9 /* indexMap.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = indexMap.fsh; sourceTree = "<group>"; };
+		390D8CBE193733D100FB17F9 /* indexMap.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = indexMap.vsh; sourceTree = "<group>"; };
+		390E6A6E1A68A2380040FFBE /* PointRemoval.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = PointRemoval.vsh; sourceTree = "<group>"; };
+		390E6A701A68A2410040FFBE /* PointRemoval.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = PointRemoval.fsh; sourceTree = "<group>"; };
+		3949110D191A54D3007255D5 /* PointsFusion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PointsFusion.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		39491110191A54D3007255D5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		39491112191A54D3007255D5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		39491114191A54D3007255D5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		39491116191A54D3007255D5 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
+		39491118191A54D3007255D5 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		3949111C191A54D4007255D5 /* PointsFusion-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PointsFusion-Info.plist"; sourceTree = "<group>"; };
+		3949111E191A54D4007255D5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		39491120191A54D4007255D5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		39491122191A54D4007255D5 /* PointsFusion-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PointsFusion-Prefix.pch"; sourceTree = "<group>"; };
+		39491123191A54D4007255D5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		39491124191A54D4007255D5 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		39491127191A54D4007255D5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
+		3949112A191A54D4007255D5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
+		3949112C191A54D4007255D5 /* Shader.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; name = Shader.fsh; path = Shaders/Shader.fsh; sourceTree = "<group>"; };
+		3949112E191A54D4007255D5 /* Shader.vsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; name = Shader.vsh; path = Shaders/Shader.vsh; sourceTree = "<group>"; };
+		39491130191A54D4007255D5 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		39491131191A54D4007255D5 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		39491133191A54D4007255D5 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		39491139191A54D4007255D5 /* PointsFusionTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PointsFusionTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3949113A191A54D4007255D5 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		39491142191A54D4007255D5 /* PointsFusionTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PointsFusionTests-Info.plist"; sourceTree = "<group>"; };
+		39491144191A54D4007255D5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		39491146191A54D4007255D5 /* PointsFusionTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PointsFusionTests.m; sourceTree = "<group>"; };
+		394911A0191EB6A6007255D5 /* capsule.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = capsule.obj; sourceTree = "<group>"; };
+		3971D041194467BD002FA1D4 /* Fusion.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Fusion.vsh; sourceTree = "<group>"; };
+		3971D045194500D6002FA1D4 /* Fusion.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Fusion.fsh; sourceTree = "<group>"; };
+		398485EC1920D8AE00803EB5 /* Porsche_911_GT2.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Porsche_911_GT2.obj; sourceTree = "<group>"; };
+		398485F4192112B400803EB5 /* zero.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = zero.obj; sourceTree = "<group>"; };
+		3984863D19211EA700803EB5 /* default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = default.png; path = ../default.png; sourceTree = "<group>"; };
+		39986E1719250D3900E6592A /* monkey.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = monkey.obj; sourceTree = "<group>"; };
+		65B70C621A58407400278F77 /* StackExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StackExtension.m; sourceTree = "<group>"; };
+		65B70C641A5840EB00278F77 /* StackExtension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StackExtension.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3949110A191A54D3007255D5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				39491119191A54D3007255D5 /* OpenGLES.framework in Frameworks */,
+				39491113191A54D3007255D5 /* CoreGraphics.framework in Frameworks */,
+				39491115191A54D3007255D5 /* UIKit.framework in Frameworks */,
+				39491117191A54D3007255D5 /* GLKit.framework in Frameworks */,
+				39491111191A54D3007255D5 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		39491136191A54D4007255D5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3949113B191A54D4007255D5 /* XCTest.framework in Frameworks */,
+				3949113D191A54D4007255D5 /* UIKit.framework in Frameworks */,
+				3949113C191A54D4007255D5 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		39491104191A54D3007255D5 = {
+			isa = PBXGroup;
+			children = (
+				3949111A191A54D3007255D5 /* PointsFusion */,
+				39491140191A54D4007255D5 /* PointsFusionTests */,
+				3949110F191A54D3007255D5 /* Frameworks */,
+				3949110E191A54D3007255D5 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3949110E191A54D3007255D5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3949110D191A54D3007255D5 /* PointsFusion.app */,
+				39491139191A54D4007255D5 /* PointsFusionTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3949110F191A54D3007255D5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				39491110191A54D3007255D5 /* Foundation.framework */,
+				39491112191A54D3007255D5 /* CoreGraphics.framework */,
+				39491114191A54D3007255D5 /* UIKit.framework */,
+				39491116191A54D3007255D5 /* GLKit.framework */,
+				39491118191A54D3007255D5 /* OpenGLES.framework */,
+				3949113A191A54D4007255D5 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3949111A191A54D3007255D5 /* PointsFusion */ = {
+			isa = PBXGroup;
+			children = (
+				39986E1719250D3900E6592A /* monkey.obj */,
+				398485F4192112B400803EB5 /* zero.obj */,
+				394911A0191EB6A6007255D5 /* capsule.obj */,
+				39491123191A54D4007255D5 /* AppDelegate.h */,
+				39491124191A54D4007255D5 /* AppDelegate.m */,
+				39491126191A54D4007255D5 /* Main_iPhone.storyboard */,
+				39491129191A54D4007255D5 /* Main_iPad.storyboard */,
+				390E6A6E1A68A2380040FFBE /* PointRemoval.vsh */,
+				390E6A701A68A2410040FFBE /* PointRemoval.fsh */,
+				3949112E191A54D4007255D5 /* Shader.vsh */,
+				3949112C191A54D4007255D5 /* Shader.fsh */,
+				390D8CBE193733D100FB17F9 /* indexMap.vsh */,
+				390D8CBC1937262E00FB17F9 /* indexMap.fsh */,
+				3971D041194467BD002FA1D4 /* Fusion.vsh */,
+				3971D045194500D6002FA1D4 /* Fusion.fsh */,
+				39491130191A54D4007255D5 /* ViewController.h */,
+				39491131191A54D4007255D5 /* ViewController.m */,
+				398485EC1920D8AE00803EB5 /* Porsche_911_GT2.obj */,
+				39491133191A54D4007255D5 /* Images.xcassets */,
+				3949111B191A54D4007255D5 /* Supporting Files */,
+				65B70C621A58407400278F77 /* StackExtension.m */,
+				65B70C641A5840EB00278F77 /* StackExtension.h */,
+			);
+			path = PointsFusion;
+			sourceTree = "<group>";
+		};
+		3949111B191A54D4007255D5 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3984863D19211EA700803EB5 /* default.png */,
+				3949111C191A54D4007255D5 /* PointsFusion-Info.plist */,
+				3949111D191A54D4007255D5 /* InfoPlist.strings */,
+				39491120191A54D4007255D5 /* main.m */,
+				39491122191A54D4007255D5 /* PointsFusion-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		39491140191A54D4007255D5 /* PointsFusionTests */ = {
+			isa = PBXGroup;
+			children = (
+				39491146191A54D4007255D5 /* PointsFusionTests.m */,
+				39491141191A54D4007255D5 /* Supporting Files */,
+			);
+			path = PointsFusionTests;
+			sourceTree = "<group>";
+		};
+		39491141191A54D4007255D5 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				39491142191A54D4007255D5 /* PointsFusionTests-Info.plist */,
+				39491143191A54D4007255D5 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3949110C191A54D3007255D5 /* PointsFusion */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3949114A191A54D4007255D5 /* Build configuration list for PBXNativeTarget "PointsFusion" */;
+			buildPhases = (
+				39491109191A54D3007255D5 /* Sources */,
+				3949110A191A54D3007255D5 /* Frameworks */,
+				3949110B191A54D3007255D5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PointsFusion;
+			productName = PointsFusion;
+			productReference = 3949110D191A54D3007255D5 /* PointsFusion.app */;
+			productType = "com.apple.product-type.application";
+		};
+		39491138191A54D4007255D5 /* PointsFusionTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3949114D191A54D4007255D5 /* Build configuration list for PBXNativeTarget "PointsFusionTests" */;
+			buildPhases = (
+				39491135191A54D4007255D5 /* Sources */,
+				39491136191A54D4007255D5 /* Frameworks */,
+				39491137191A54D4007255D5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3949113F191A54D4007255D5 /* PBXTargetDependency */,
+			);
+			name = PointsFusionTests;
+			productName = PointsFusionTests;
+			productReference = 39491139191A54D4007255D5 /* PointsFusionTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		39491105191A54D3007255D5 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Daniel & Gal";
+				TargetAttributes = {
+					39491138191A54D4007255D5 = {
+						TestTargetID = 3949110C191A54D3007255D5;
+					};
+				};
+			};
+			buildConfigurationList = 39491108191A54D3007255D5 /* Build configuration list for PBXProject "PointsFusion" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 39491104191A54D3007255D5;
+			productRefGroup = 3949110E191A54D3007255D5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3949110C191A54D3007255D5 /* PointsFusion */,
+				39491138191A54D4007255D5 /* PointsFusionTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3949110B191A54D3007255D5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				39986E1819250D3900E6592A /* monkey.obj in Resources */,
+				398485F5192112B400803EB5 /* zero.obj in Resources */,
+				3971D042194467BD002FA1D4 /* Fusion.vsh in Resources */,
+				3949112D191A54D4007255D5 /* Shader.fsh in Resources */,
+				3971D046194500D6002FA1D4 /* Fusion.fsh in Resources */,
+				3949112B191A54D4007255D5 /* Main_iPad.storyboard in Resources */,
+				390E6A711A68A2410040FFBE /* PointRemoval.fsh in Resources */,
+				3984863E19211EA700803EB5 /* default.png in Resources */,
+				39491128191A54D4007255D5 /* Main_iPhone.storyboard in Resources */,
+				390D8CBF193733D100FB17F9 /* indexMap.vsh in Resources */,
+				39491134191A54D4007255D5 /* Images.xcassets in Resources */,
+				3949111F191A54D4007255D5 /* InfoPlist.strings in Resources */,
+				394911A1191EB6A6007255D5 /* capsule.obj in Resources */,
+				398485ED1920D8AE00803EB5 /* Porsche_911_GT2.obj in Resources */,
+				3949112F191A54D4007255D5 /* Shader.vsh in Resources */,
+				390D8CBD1937262E00FB17F9 /* indexMap.fsh in Resources */,
+				390E6A6F1A68A2380040FFBE /* PointRemoval.vsh in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		39491137191A54D4007255D5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				39491145191A54D4007255D5 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		39491109191A54D3007255D5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				39491132191A54D4007255D5 /* ViewController.m in Sources */,
+				39491125191A54D4007255D5 /* AppDelegate.m in Sources */,
+				65B70C631A58407400278F77 /* StackExtension.m in Sources */,
+				39491121191A54D4007255D5 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		39491135191A54D4007255D5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				39491147191A54D4007255D5 /* PointsFusionTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3949113F191A54D4007255D5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3949110C191A54D3007255D5 /* PointsFusion */;
+			targetProxy = 3949113E191A54D4007255D5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		3949111D191A54D4007255D5 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3949111E191A54D4007255D5 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		39491126191A54D4007255D5 /* Main_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				39491127191A54D4007255D5 /* Base */,
+			);
+			name = Main_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		39491129191A54D4007255D5 /* Main_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3949112A191A54D4007255D5 /* Base */,
+			);
+			name = Main_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+		39491143191A54D4007255D5 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				39491144191A54D4007255D5 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		39491148191A54D4007255D5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		39491149191A54D4007255D5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3949114B191A54D4007255D5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PointsFusion/PointsFusion-Prefix.pch";
+				INFOPLIST_FILE = "PointsFusion/PointsFusion-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		3949114C191A54D4007255D5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PointsFusion/PointsFusion-Prefix.pch";
+				INFOPLIST_FILE = "PointsFusion/PointsFusion-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		3949114E191A54D4007255D5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/PointsFusion.app/PointsFusion";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PointsFusion/PointsFusion-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "PointsFusionTests/PointsFusionTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		3949114F191A54D4007255D5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/PointsFusion.app/PointsFusion";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PointsFusion/PointsFusion-Prefix.pch";
+				INFOPLIST_FILE = "PointsFusionTests/PointsFusionTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		39491108191A54D3007255D5 /* Build configuration list for PBXProject "PointsFusion" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				39491148191A54D4007255D5 /* Debug */,
+				39491149191A54D4007255D5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3949114A191A54D4007255D5 /* Build configuration list for PBXNativeTarget "PointsFusion" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3949114B191A54D4007255D5 /* Debug */,
+				3949114C191A54D4007255D5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3949114D191A54D4007255D5 /* Build configuration list for PBXNativeTarget "PointsFusionTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3949114E191A54D4007255D5 /* Debug */,
+				3949114F191A54D4007255D5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 39491105191A54D3007255D5 /* Project object */;
+}
