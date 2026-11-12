@@ -1,25 +1,25 @@
-# Historical student-project archive
+# mobile-point-fusion: maintenance context
 
-## Current source state — 2026-11-12
+Read this file first, then SKILL.md and README.md. This context describes the repository as of 2026-11-12.
 
-A reviewed January 2015 **PointsFusion v2.3** source snapshot is preserved in [`source/original/`](source/original/). It includes the Objective-C application, OpenGL ES fusion/index-map/removal shaders and the Xcode project. This earlier snapshot is not established as the final October 2015 release. No successful modern build or device run is claimed.
+## Purpose and current source
 
-The public allowlist contains 28 source/project files, including 17 Objective-C/header/shader files when the prefix header and original test are counted. Twenty-seven files preserve their original bytes. One commented-out shader line has a personal workstation name replaced; executable shader code is unchanged. Mac metadata, user state, nested old ZIPs, four sample OBJ models and the default PNG were excluded.
+January 2015 PointsFusion v2.3 Objective-C/OpenGL ES correspondence-shader and CPU-fusion snapshot; earlier than the reported final October 2015 release, which is unrecovered/unverified.
 
-## Setup and validation
+28 original source/project files in source/original/; 27 byte-preserved, one comment privacy edit recorded in source/PROVENANCE.json. ViewController.m reads OBJ vertex/normal data and combines GPU correspondence maps with CPU fusion/removal. Recovered entrypoint is a model-based experiment, not verified live capture.
 
-The original project targets iOS 7.1 and uses UIKit, GLKit and OpenGL ES 3. The project file is [`source/original/PointsFusion/PointsFusion.xcodeproj`](source/original/PointsFusion/PointsFusion.xcodeproj). The recovered test target is an old placeholder. Unattributed sample OBJ models and the launch bitmap were omitted, so restoring resources, updating obsolete Xcode settings and testing on suitable Apple hardware are still required. Source recovery alone does not establish compatibility with current iOS.
+## Use and validation
 
-Publication validation covers the source allowlist, SHA-256 provenance, text/XML or project metadata where applicable, and credential/private-material scanning. It is not an end-to-end runtime result. Read README.md and source/PROVENANCE.json before further edits; preserve source/original and existing documents. Any future updated implementation belongs in updated/ with its own requirements, tests, attribution and a clear description of its differences. Do not introduce a blanket license. Review this context file before committing; keep actual validation and source counts accurate.
+Inspect source/original/PointsFusion/PointsFusion.xcodeproj. iOS 7.1, UIKit, GLKit, OpenGL ES 3. Restore appropriately licensed OBJ/bitmap resources and modernize platform settings before attempting a port.
 
-## Interactive possibilities
+Recorded November 2026 Xcode 16.1 check listed project; simulator destination unavailable. Unsigned arm64 target failed at omitted OBJ resources. App was not run. Original test target is a placeholder.
 
-A new offline point-cloud fusion or shader visualization could be practical in a notebook or browser. The recovered iOS application itself is not a Colab or Hugging Face application.
+zero.obj, monkey.obj, capsule.obj and Porsche_911_GT2.obj are missing. No shader correctness, fusion accuracy, sensor capture, current runtime or performance validation. No updated port/notebook.
 
-## Repository presentation
+## Documentation maintenance
 
-README includes an unchanged original website figure, three factual language/platform/source badges and the original-code section. Student credits, source provenance and build limitations remain intact. No source files, dependencies or licenses changed in this presentation update.
+The 2026-11-12 documentation revision organizes the README around implementation, available source, setup, recorded checks and limits. It preserves historical visuals and links, with captions separating historical results from updated examples. No runnable code, source provenance, pinned revisions, licenses or validation results changed in this revision. Recorded earlier tests were not rerun for the prose-only edits.
 
-## Local build entrypoint check
+Preserve original source and authorship. New ports belong under updated/ and require their own scope/validation. Do not infer a blanket license from recovery. Review this file and SKILL.md before every commit and synchronize changes to workflow, commands, validation or status. Check relative links and figure rendering; never describe inventory counts or component tests as full-application validation.
 
-A November 2026 Xcode 16.1 check could list the project. The stock simulator build found no compatible destination. A separate unsigned arm64 target build progressed to resource processing and failed because the intentionally omitted `zero.obj`, `monkey.obj`, `capsule.obj` and `Porsche_911_GT2.obj` are required. These checks used private native-filesystem copies, changed no original project settings, and did not run the app. Licensed replacement resources and further platform work are still needed.
+Two actual Claude editorial review rounds on 2026-11-12 covered the README and related changed documentation, including context files, component guides and applicable algorithm/build notes or schematic text. Useful qualifications were checked against source, preserved project records and saved validation logs, then applied. Editorial review adds no runtime coverage.

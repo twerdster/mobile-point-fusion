@@ -6,35 +6,35 @@
 ![Platform](https://img.shields.io/badge/platform-iOS%207.1-lightgrey)
 ![Source](https://img.shields.io/badge/source-January%202015%20snapshot-orange)
 
-Mobile 3D reconstruction and point-cloud fusion.
+Mobile Point Fusion investigated point-based 3D reconstruction on iOS. This repository preserves a January 2015 PointsFusion v2.3 snapshot with Objective-C application code, OpenGL ES correspondence shaders and CPU-side fusion. It predates a reported October 2015 final release, which has not been recovered or verified.
 
 Original project credits: D. Ben-Hoda, G. Kamar, Aaron Wetzler, Y. Honen, Ron Kimmel.
 
-## Status
+*The figure is an unchanged photograph from the archived project page, not evidence of a newly running application.*
 
-A reviewed January 2015 **PointsFusion v2.3** source snapshot is preserved in [`source/original/`](source/original/). It includes the Objective-C application, OpenGL ES fusion/index-map/removal shaders and the Xcode project. This earlier snapshot is not established as the final October 2015 release. No successful modern build or device run is claimed.
+## Implementation and source
 
-## Running
+The [original snapshot](source/original/) includes the Xcode project, application, storyboards and GLSL shaders. `ViewController.m` loads vertex/normal data from a bundled OBJ model, builds GPU textures and reads correspondence results back for point fusion/removal on the CPU. `indexMap` stores point identifiers, positions and normals; `Fusion` selects candidate model points using the projected input and normal agreement. The preserved entrypoint uses an OBJ test model; it is not evidence of a recovered live depth-camera pipeline.
 
-The original project targets iOS 7.1 and uses UIKit, GLKit and OpenGL ES 3. The project file is [`source/original/PointsFusion/PointsFusion.xcodeproj`](source/original/PointsFusion/PointsFusion.xcodeproj). The recovered test target is an old placeholder. Unattributed sample OBJ models and the launch bitmap were omitted, so restoring resources, updating obsolete Xcode settings and testing on suitable Apple hardware are still required. Source recovery alone does not establish compatibility with current iOS.
+The allowlist contains 28 source/project files. Twenty-seven retain their recovered bytes; one commented-out shader line has a workstation name replaced, with executable code unchanged. [Provenance](source/PROVENANCE.json) records paths and hashes. Sample OBJ models, the launch bitmap, user state and old ZIPs were excluded.
 
-A November 2026 Xcode 16.1 check could list the project. The stock simulator build found no compatible destination. A separate unsigned arm64 target build progressed to resource processing and failed because the intentionally omitted `zero.obj`, `monkey.obj`, `capsule.obj` and `Porsche_911_GT2.obj` are required. These checks used private native-filesystem copies, changed no original project settings, and did not run the app. Licensed replacement resources and further platform work are still needed.
+## Inspect the project
 
-## Original code
+Open `source/original/PointsFusion/PointsFusion.xcodeproj` in Xcode. It targets iOS 7.1 and uses UIKit, GLKit and OpenGL ES 3. The project still refers to `zero.obj`, `monkey.obj`, `capsule.obj` and `Porsche_911_GT2.obj`, which were intentionally omitted because their redistribution provenance was not established.
 
-The public allowlist contains 28 source/project files, including 17 Objective-C/header/shader files when the prefix header and original test are counted. Twenty-seven files preserve their original bytes. One commented-out shader line has a personal workstation name replaced; executable shader code is unchanged. Mac metadata, user state, nested old ZIPs, four sample OBJ models and the default PNG were excluded.
+Restoration requires appropriately licensed replacement resources, updated Xcode/platform settings and compatible Apple hardware. There is no verified modern installation command or ready-to-run release. The recovered test target is a placeholder, not an algorithm test suite.
 
-The [source provenance manifest](source/PROVENANCE.json) records the published paths, hashes and any redactions. Original student/third-party notices remain in place. No blanket license is assigned to recovered work. Future ports belong in `updated/` and must be described and tested as updated implementations.
+## Validation and limitations
+
+The recorded November 2026 Xcode 16.1 check could list the project. A stock simulator build found no compatible destination; an unsigned arm64 target build reached resource processing and failed on the missing OBJ resources. Those checks used a private native-filesystem copy and did not change the original project settings.
+
+No app was run, and no shader correctness, fusion accuracy, camera capture or performance benchmark was measured. The archive has no updated port or notebook. A future offline fusion exercise would be new work and would need its own validation.
+
+## Original code and attribution
+
+Student and third-party notices remain in the recovered files. No blanket license is assigned. Authors can open an issue to contribute changes, correct attribution or request removal.
 
 ## Links
 
 - [Project entry on Aaron Wetzler's website](https://twerdster.github.io/#mobile-point-fusion)
-
 - [Project page](https://gip.cs.technion.ac.il/last-projects-2016-2.html)
-
-## Attribution and Updates
-
-Original student and third-party attribution will be retained. No new license for original source code is implied by this README. Original authors can open an issue to contribute updates or request corrections or removal of their material.
-
-
-Figure provenance: the original project figure from Aaron Wetzler’s archived website, copied without changing its bytes. It is historical project imagery, not a new validation result.
