@@ -1,5 +1,11 @@
 # Mobile Point Fusion
 
+<p align="center"><img src="assets/project-preview.webp" alt="Original tablet-based point-fusion project photograph" width="360"></p>
+
+![Code](https://img.shields.io/badge/code-Objective--C%20%2F%20GLSL-blue)
+![Platform](https://img.shields.io/badge/platform-iOS%207.1-lightgrey)
+![Source](https://img.shields.io/badge/source-January%202015%20snapshot-orange)
+
 Mobile 3D reconstruction and point-cloud fusion.
 
 Original project credits: D. Ben-Hoda, G. Kamar, Aaron Wetzler, Y. Honen, Ron Kimmel.
@@ -11,6 +17,8 @@ A reviewed January 2015 **PointsFusion v2.3** source snapshot is preserved in [`
 ## Running
 
 The original project targets iOS 7.1 and uses UIKit, GLKit and OpenGL ES 3. The project file is [`source/original/PointsFusion/PointsFusion.xcodeproj`](source/original/PointsFusion/PointsFusion.xcodeproj). The recovered test target is an old placeholder. Unattributed sample OBJ models and the launch bitmap were omitted, so restoring resources, updating obsolete Xcode settings and testing on suitable Apple hardware are still required. Source recovery alone does not establish compatibility with current iOS.
+
+A November 2026 Xcode 16.1 check could list the project. The stock simulator build found no compatible destination. A separate unsigned arm64 target build progressed to resource processing and failed because the intentionally omitted `zero.obj`, `monkey.obj`, `capsule.obj` and `Porsche_911_GT2.obj` are required. These checks used private native-filesystem copies, changed no original project settings, and did not run the app. Licensed replacement resources and further platform work are still needed.
 
 ## Original code
 
@@ -28,3 +36,5 @@ The [source provenance manifest](source/PROVENANCE.json) records the published p
 
 Original student and third-party attribution will be retained. No new license for original source code is implied by this README. Original authors can open an issue to contribute updates or request corrections or removal of their material.
 
+
+Figure provenance: the original project figure from Aaron Wetzler’s archived website, copied without changing its bytes. It is historical project imagery, not a new validation result.

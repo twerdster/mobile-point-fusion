@@ -15,3 +15,11 @@ Publication validation covers the source allowlist, SHA-256 provenance, text/XML
 ## Interactive possibilities
 
 A new offline point-cloud fusion or shader visualization could be practical in a notebook or browser. The recovered iOS application itself is not a Colab or Hugging Face application.
+
+## Repository presentation
+
+README includes an unchanged original website figure, three factual language/platform/source badges and the original-code section. Student credits, source provenance and build limitations remain intact. No source files, dependencies or licenses changed in this presentation update.
+
+## Local build entrypoint check
+
+A November 2026 Xcode 16.1 check could list the project. The stock simulator build found no compatible destination. A separate unsigned arm64 target build progressed to resource processing and failed because the intentionally omitted `zero.obj`, `monkey.obj`, `capsule.obj` and `Porsche_911_GT2.obj` are required. These checks used private native-filesystem copies, changed no original project settings, and did not run the app. Licensed replacement resources and further platform work are still needed.
