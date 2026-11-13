@@ -1,0 +1,40 @@
+{
+  "scope": "exact nearest finite generated-reference point; no continuous surface or real sensor ground truth",
+  "units": "arbitrary model units",
+  "reference_samples": 21824,
+  "final_fused_samples": 9232,
+  "reference_definition": "all sampled ellipsoid primitives, including their hidden intersections; not a watertight external surface",
+  "final_fused_to_reference": {
+    "rmse": 0.00391738918192591,
+    "median": 0.0025501172531830238,
+    "p95": 0.007694976227647737,
+    "maximum": 0.01955164808713765,
+    "samples": 9232
+  },
+  "first_observation_to_reference": {
+    "rmse": 0.002112463978598043,
+    "median": 0.0021280264703334665,
+    "p95": 0.002989647952609189,
+    "maximum": 0.0030000445946782943,
+    "samples": 2402
+  },
+  "all_raw_observations_to_reference": {
+    "rmse": 0.00212066427841913,
+    "median": 0.002120376424133369,
+    "p95": 0.0029906770271787095,
+    "maximum": 0.0030001028998915586,
+    "samples": 104043
+  },
+  "reference_coverage_radius_model_units": 0.02,
+  "reference_coverage_by_first_observation": 0.31341642228739003,
+  "reference_coverage_by_final_fused_model": 0.8860428885630498,
+  "reference_coverage_by_all_raw_observations": 0.920866935483871,
+  "raw_observations_samples": 104043,
+  "accuracy_pass_threshold": null,
+  "files": {
+    "reference.ply": "79177c0220201a3d297f4a2f8bbf16abf4c30c57df193e5fb646a977ce8db913",
+    "fused.ply": "54bc9b77ad84adb068388e3833110df69a216d1dfc59b6216436c10c45e07bdd",
+    "frames/000-input.ply": "e32910ec066fd975a995fe86d7c83dfaff83ea6d51977221d9799e7bdbe77f50",
+    "metrics.json": "330e1203dc62a8e796b65bc64ff1852f99a290f6f8f19c0d39b63baa64ef192a"
+  }
+}

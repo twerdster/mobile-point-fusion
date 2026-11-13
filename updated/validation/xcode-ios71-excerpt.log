@@ -1,0 +1,27 @@
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild -project MAC_TASK/original-xcode/PointsFusion.xcodeproj -scheme PointsFusion -sdk iphoneos -configuration Debug -destination generic/platform=iOS -derivedDataPath MAC_TASK/original-derived CODE_SIGNING_ALLOWED=NO ARCHS=arm64 ONLY_ACTIVE_ARCH=YES build
+
+User defaults from command line:
+    IDEDerivedDataPathOverride = MAC_TASK/original-derived
+    IDEPackageSupportUseBuiltinSCM = YES
+
+Build settings from command line:
+    ARCHS = arm64
+    CODE_SIGNING_ALLOWED = NO
+    ONLY_ACTIVE_ARCH = YES
+    SDKROOT = iphoneos18.1
+[... middle of complete private log omitted ...]
+clang: error: SDK does not contain 'libarclite' at the path '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/arc/libarclite_iphoneos.a'; try increasing the minimum deployment target
+** BUILD FAILED **
+    cd MAC_TASK/original-xcode
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -Xlinker -reproducible -target arm64-apple-ios7.1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.1.sdk -O0 -LMAC_TASK/original-derived/Build/Intermediates.noindex/EagerLinkingTBDs/Debug-iphoneos -LMAC_TASK/original-derived/Build/Products/Debug-iphoneos -FMAC_TASK/original-derived/Build/Intermediates.noindex/EagerLinkingTBDs/Debug-iphoneos -FMAC_TASK/original-derived/Build/Products/Debug-iphoneos -filelist MAC_TASK/original-derived/Build/Intermediates.noindex/PointsFusion.build/Debug-iphoneos/PointsFusion.build/Objects-normal/arm64/PointsFusion.LinkFileList -dead_strip -Xlinker -object_path_lto -Xlinker MAC_TASK/original-derived/Build/Intermediates.noindex/PointsFusion.build/Debug-iphoneos/PointsFusion.build/Objects-normal/arm64/PointsFusion_lto.o -Xlinker -no_deduplicate -Xlinker -debug_variant -fobjc-arc -fobjc-link-runtime -fprofile-instr-generate -framework OpenGLES -framework CoreGraphics -framework UIKit -framework GLKit -framework Foundation -Xlinker -dependency_info -Xlinker MAC_TASK/original-derived/Build/Intermediates.noindex/PointsFusion.build/Debug-iphoneos/PointsFusion.build/Objects-normal/arm64/PointsFusion_dependency_info.dat -o MAC_TASK/original-derived/Build/Products/Debug-iphoneos/PointsFusion.app/PointsFusion
+clang: error: SDK does not contain 'libarclite' at the path '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/arc/libarclite_iphoneos.a'; try increasing the minimum deployment target
+
+MAC_TASK/original-xcode/PointsFusion.xcodeproj: warning: The iOS deployment target 'IPHONEOS_DEPLOYMENT_TARGET' is set to 7.1, but the range of supported deployment target versions is 12.0 to 18.1.99. (in target 'PointsFusion' from project 'PointsFusion')
+** BUILD FAILED **
+
+
+The following build commands failed:
+	Ld MAC_TASK/original-derived/Build/Products/Debug-iphoneos/PointsFusion.app/PointsFusion normal (in target 'PointsFusion' from project 'PointsFusion')
+	Building project PointsFusion with scheme PointsFusion and configuration Debug
+(2 failures)

@@ -1,0 +1,31 @@
+{
+  "all_MP4_and_GIF_frames_decoded": true,
+  "all_48_GIF_frames_distinct": true,
+  "gif": {
+    "bytes": 1325963,
+    "width": 800,
+    "height": 450,
+    "frames": 48,
+    "duration_ms": 8000,
+    "loop": 0
+  },
+  "MP4_probe": {
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 720,
+        "pix_fmt": "yuv420p",
+        "r_frame_rate": "6/1",
+        "nb_frames": "48"
+      }
+    ],
+    "format": {
+      "duration": "8.000000",
+      "size": "1790722"
+    }
+  },
+  "visual_review": "Updated PNG and contact sheet inspected; per-view counters match final metrics."
+}

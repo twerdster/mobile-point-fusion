@@ -1,0 +1,31 @@
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild -project MAC_TASK/original-xcode/PointsFusion.xcodeproj -scheme PointsFusion -sdk iphoneos -configuration Debug -destination generic/platform=iOS -derivedDataPath MAC_TASK/original-derived CODE_SIGNING_ALLOWED=NO ARCHS=arm64 ONLY_ACTIVE_ARCH=YES build
+
+User defaults from command line:
+    IDEDerivedDataPathOverride = MAC_TASK/original-derived
+    IDEPackageSupportUseBuiltinSCM = YES
+
+Build settings from command line:
+    ARCHS = arm64
+    CODE_SIGNING_ALLOWED = NO
+    ONLY_ACTIVE_ARCH = YES
+    SDKROOT = iphoneos18.1
+[... middle of complete private log omitted ...]
+error: MAC_TASK/original-xcode/PointsFusion/zero.obj: No such file or directory (in target 'PointsFusion' from project 'PointsFusion')
+error: MAC_TASK/original-xcode/PointsFusion/monkey.obj: No such file or directory (in target 'PointsFusion' from project 'PointsFusion')
+error: MAC_TASK/original-xcode/PointsFusion/capsule.obj: No such file or directory (in target 'PointsFusion' from project 'PointsFusion')
+error: MAC_TASK/original-xcode/PointsFusion/Porsche_911_GT2.obj: No such file or directory (in target 'PointsFusion' from project 'PointsFusion')
+error: Build input file cannot be found: 'MAC_TASK/original-xcode/default.png'. Did you forget to declare this file as an output of a script phase or custom build rule which produces it? (in target 'PointsFusion' from project 'PointsFusion')
+** BUILD FAILED **
+MAC_TASK/original-xcode/PointsFusion.xcodeproj: warning: The iOS deployment target 'IPHONEOS_DEPLOYMENT_TARGET' is set to 7.1, but the range of supported deployment target versions is 12.0 to 18.1.99. (in target 'PointsFusion' from project 'PointsFusion')
+** BUILD FAILED **
+
+
+The following build commands failed:
+	CpResource MAC_TASK/original-derived/Build/Products/Debug-iphoneos/PointsFusion.app/zero.obj MAC_TASK/original-xcode/PointsFusion/zero.obj (in target 'PointsFusion' from project 'PointsFusion')
+	CpResource MAC_TASK/original-derived/Build/Products/Debug-iphoneos/PointsFusion.app/monkey.obj MAC_TASK/original-xcode/PointsFusion/monkey.obj (in target 'PointsFusion' from project 'PointsFusion')
+	CpResource MAC_TASK/original-derived/Build/Products/Debug-iphoneos/PointsFusion.app/capsule.obj MAC_TASK/original-xcode/PointsFusion/capsule.obj (in target 'PointsFusion' from project 'PointsFusion')
+	CpResource MAC_TASK/original-derived/Build/Products/Debug-iphoneos/PointsFusion.app/Porsche_911_GT2.obj MAC_TASK/original-xcode/PointsFusion/Porsche_911_GT2.obj (in target 'PointsFusion' from project 'PointsFusion')
+	CopyPNGFile MAC_TASK/original-derived/Build/Products/Debug-iphoneos/PointsFusion.app/default.png MAC_TASK/original-xcode/default.png (in target 'PointsFusion' from project 'PointsFusion')
+	Building project PointsFusion with scheme PointsFusion and configuration Debug
+(6 failures)

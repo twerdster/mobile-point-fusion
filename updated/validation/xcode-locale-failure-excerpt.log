@@ -1,0 +1,27 @@
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild -project MAC_TASK/original-xcode/PointsFusion.xcodeproj -scheme PointsFusion -sdk iphoneos -configuration Debug -destination generic/platform=iOS -derivedDataPath MAC_TASK/original-derived CODE_SIGNING_ALLOWED=NO ARCHS=arm64 ONLY_ACTIVE_ARCH=YES build
+
+User defaults from command line:
+    IDEDerivedDataPathOverride = MAC_TASK/original-derived
+    IDEPackageSupportUseBuiltinSCM = YES
+
+Build settings from command line:
+    ARCHS = arm64
+    CODE_SIGNING_ALLOWED = NO
+    ONLY_ACTIVE_ARCH = YES
+    SDKROOT = iphoneos18.1
+[... middle of complete private log omitted ...]
+panic: locale.c: 4486: Could not change LC_CTYPE locale to C.UTF-8, errno=9
+** BUILD FAILED **
+CompileStoryboard MAC_TASK/original-xcode/PointsFusion/Base.lproj/Main_iPhone.storyboard (in target 'PointsFusion' from project 'PointsFusion')
+    cd MAC_TASK/original-xcode
+    /Applications/Xcode.app/Contents/Developer/usr/bin/ibtool --errors --warnings --notices --module PointsFusion --output-partial-info-plist MAC_TASK/original-derived/Build/Intermediates.noindex/PointsFusion.build/Debug-iphoneos/PointsFusion.build/Base.lproj/Main_iPhone-SBPartialInfo.plist --auto-activate-custom-fonts --target-device iphone --target-device ipad --minimum-deployment-target 7.1 --output-format human-readable-text --compilation-directory MAC_TASK/original-derived/Build/Intermediates.noindex/PointsFusion.build/Debug-iphoneos/PointsFusion.build/Base.lproj MAC_TASK/original-xcode/PointsFusion/Base.lproj/Main_iPhone.storyboard
+
+MAC_TASK/original-xcode/PointsFusion.xcodeproj: warning: The iOS deployment target 'IPHONEOS_DEPLOYMENT_TARGET' is set to 7.1, but the range of supported deployment target versions is 12.0 to 18.1.99. (in target 'PointsFusion' from project 'PointsFusion')
+** BUILD FAILED **
+
+
+The following build commands failed:
+	CopyPNGFile MAC_TASK/original-derived/Build/Products/Debug-iphoneos/PointsFusion.app/default.png MAC_TASK/original-xcode/default.png (in target 'PointsFusion' from project 'PointsFusion')
+	Building project PointsFusion with scheme PointsFusion and configuration Debug
+(2 failures)

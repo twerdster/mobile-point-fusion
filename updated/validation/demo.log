@@ -1,0 +1,54 @@
+libEGL warning: failed to open /dev/dri/card1: Permission denied
+
+libEGL warning: failed to open /dev/dri/card0: Permission denied
+
+renderer=llvmpipe (LLVM 15.0.7, 256 bits)
+version=OpenGL ES 3.2 Mesa 23.2.1-1ubuntu3.1~22.04.4
+frame=0 input=2402 model=2199 merged=0 removed=0
+frame=1 input=2418 model=2725 merged=1705 removed=0
+frame=2 input=2434 model=3162 merged=3516 removed=0
+frame=3 input=2435 model=3523 merged=5388 removed=0
+frame=4 input=2422 model=3847 merged=7290 removed=0
+frame=5 input=2380 model=4166 merged=9162 removed=0
+frame=6 input=2331 model=4463 merged=10993 removed=0
+frame=7 input=2229 model=4723 merged=12772 removed=0
+frame=8 input=2113 model=4985 merged=14461 removed=0
+frame=9 input=1989 model=5231 merged=16029 removed=0
+frame=10 input=1851 model=5441 merged=17531 removed=0
+frame=11 input=1723 model=5601 merged=18899 removed=51
+frame=12 input=1713 model=5802 merged=20176 removed=141
+frame=13 input=1766 model=5988 merged=21529 removed=231
+frame=14 input=1894 model=6198 merged=22953 removed=342
+frame=15 input=1982 model=6406 merged=24467 removed=456
+frame=16 input=2092 model=6665 merged=26057 removed=539
+frame=17 input=2190 model=6895 merged=27758 removed=628
+frame=18 input=2235 model=7128 merged=29515 removed=714
+frame=19 input=2268 model=7355 merged=31279 removed=807
+frame=20 input=2261 model=7597 merged=33037 removed=885
+frame=21 input=2283 model=7838 merged=34842 removed=956
+frame=22 input=2294 model=8063 merged=36662 removed=1019
+frame=23 input=2316 model=8276 merged=38517 removed=1083
+frame=24 input=2316 model=8445 merged=40380 removed=1194
+frame=25 input=2294 model=8608 merged=42218 removed=1305
+frame=26 input=2283 model=8734 merged=44115 removed=1420
+frame=27 input=2261 model=8853 merged=45963 removed=1532
+frame=28 input=2268 model=8976 merged=47794 removed=1665
+frame=29 input=2235 model=9098 merged=49613 removed=1802
+frame=30 input=2190 model=9220 merged=51432 removed=1905
+frame=31 input=2092 model=9334 merged=53135 removed=2011
+frame=32 input=1982 model=9413 merged=54780 removed=2114
+frame=33 input=1894 model=9471 merged=56348 removed=2239
+frame=34 input=1766 model=9512 merged=57848 removed=2330
+frame=35 input=1713 model=9553 merged=59290 removed=2417
+frame=36 input=1723 model=9605 merged=60724 removed=2513
+frame=37 input=1851 model=9661 merged=62276 removed=2613
+frame=38 input=1989 model=9682 merged=63947 removed=2745
+frame=39 input=2113 model=9696 merged=65698 removed=2907
+frame=40 input=2229 model=9691 merged=67548 removed=3092
+frame=41 input=2331 model=9663 merged=69505 removed=3296
+frame=42 input=2380 model=9631 merged=71516 removed=3514
+frame=43 input=2422 model=9548 merged=73562 removed=3783
+frame=44 input=2435 model=9439 merged=75604 removed=4093
+frame=45 input=2434 model=9370 merged=77615 removed=4379
+frame=46 input=2418 model=9289 merged=79571 removed=4704
+frame=47 input=2403 model=9232 merged=81563 removed=4996

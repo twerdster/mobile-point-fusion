@@ -1,0 +1,48 @@
+=================================================================
+==1315429==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x510000000038 at pc 0x652d59885956 bp 0x7ffeb94bc840 sp 0x7ffeb94bc830
+READ of size 4 at 0x510000000038 thread T0
+    #0 0x652d59885955 in main LINUX_TASK/repo/updated/tests/original_faults.cpp:12
+    #1 0x7ec322c29d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+    #2 0x7ec322c29e3f in __libc_start_main_impl ../csu/libc-start.c:392
+    #3 0x652d59885584 in _start (LINUX_TASK/build-asan/original_faults+0x3584)
+
+0x510000000038 is located 8 bytes to the left of 192-byte region [0x510000000040,0x510000000100)
+allocated by thread T0 here:
+    #0 0x7ec323cb4a57 in __interceptor_calloc ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:154
+    #1 0x652d59885866 in main LINUX_TASK/repo/updated/tests/original_faults.cpp:10
+    #2 0x7ec322c29d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+
+SUMMARY: AddressSanitizer: heap-buffer-overflow LINUX_TASK/repo/updated/tests/original_faults.cpp:12 in main
+Shadow bytes around the buggy address:
+  0x0a207fff7fb0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x0a207fff7fc0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x0a207fff7fd0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x0a207fff7fe0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x0a207fff7ff0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+=>0x0a207fff8000: fa fa fa fa fa fa fa[fa]00 00 00 00 00 00 00 00
+  0x0a207fff8010: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x0a207fff8020: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0a207fff8030: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0a207fff8040: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0a207fff8050: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           00
+  Partially addressable: 01 02 03 04 05 06 07 
+  Heap left redzone:       fa
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack after return:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+  Shadow gap:              cc
+==1315429==ABORTING

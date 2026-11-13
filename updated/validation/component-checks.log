@@ -1,0 +1,31 @@
+libEGL warning: failed to open /dev/dri/card1: Permission denied
+
+libEGL warning: failed to open /dev/dri/card0: Permission denied
+
+renderer=llvmpipe (LLVM 15.0.7, 256 bits)
+version=OpenGL ES 3.2 Mesa 23.2.1-1ubuntu3.1~22.04.4
+PASS new sentinel inserts without reading model[-1]
+PASS Gaussian weighted position and normal averages
+PASS invalid model ID rejected
+PASS removal count beyond three is rejected
+PASS duplicate removal creates one free slot
+PASS free slot reused and off-axis Gaussian applied
+PASS age boundary retains point at six seconds
+PASS old low-confidence point removed
+PASS stable point survives age removal
+PASS invalid input ID rejected
+PASS nonfinite removal count rejected before integer conversion
+PASS original indexMap ES3 pair compiles and links
+PASS original Fusion ES3 pair compiles and links
+PASS original PointRemoval ES3 pair compiles and links
+PASS index depth buffer retains nearest overlapping point
+PASS index positions and confidence equal CPU transform
+PASS index shader normalizes stored weighted normals
+PASS ES3 candidates match CPU confidence/ray-distance selection
+PASS normal-angle rejection inserts a new point
+PASS Euclidean gate rejects another surface on same ray
+PASS overlap removal emits at most three IDs
+PASS bounded overlap IDs match CPU neighborhood reference
+PASS original normalized-coordinate overlap fixture misses neighbors
+PASS bounded CPU removal consumes shader IDs once
+PASS confidence then lower ID prevents mutual deletion

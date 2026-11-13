@@ -1,0 +1,6 @@
+Consolidate compiler generated dependencies of target original_faults
+Consolidate compiler generated dependencies of target points_fusion
+[ 50%] Built target original_faults
+[ 75%] Building CXX object CMakeFiles/points_fusion.dir/src/main.cpp.o
+[100%] Linking CXX executable points_fusion
+[100%] Built target points_fusion

@@ -1,0 +1,281 @@
+{
+  "date": "2026-11-14",
+  "status": "offline_generated_model_executed_with_scoped_checks",
+  "source_commit_before_updated_work": "7d1e21d",
+  "original_source_preservation": {
+    "files_checked": 28,
+    "all_published_hashes_match": true,
+    "files": [
+      {
+        "path": "source/original/PointsFusion/PointsFusion/AppDelegate.h",
+        "sha256": "e000c0e975ccd9343ccfc219681761c009335e71ec4be071765ad31a92edbfce"
+      },
+      {
+        "path": "source/original/PointsFusion/PointsFusion/AppDelegate.m",
+        "sha256": "e9e363723ab10341ff4b233b1bda58af9c7f8a816789b31f5b8883779d3c4274"
+      },
+      {
+        "path": "source/original/PointsFusion/PointsFusion/Base.lproj/Main_iPad.storyboard",
+        "sha256": "3ec3d3dd3fd35ccba503fe3c2f3eafd3c8b5fd25c5327b563a6aa2ee10e0c370"
+      },
+      {
+        "path": "source/original/PointsFusion/PointsFusion/Base.lproj/Main_iPhone.storyboard",
+        "sha256": "983ee60d11184814c430450f35d9fd0aa7f7e945b1436353beae17984e52549d"
+      },
+      {
+        "path": "source/original/PointsFusion/PointsFusion/en.lproj/InfoPlist.strings",
+        "sha256": "feb5e820d68ed31f871d2bdaf8d14935ed343a7a875ddd774d5556da8dfd951a"
+      },
+      {
+        "path": "source/original/PointsFusion/PointsFusion/Fusion.fsh",
+        "sha256": "078853ca7e3fb23ef6fb3d2b04a4f46c2b64e2040c50e29ed4167feda6dca66a"
+      },
+      {
+        "path": "source/original/PointsFusion/PointsFusion/Fusion.vsh",
+        "sha256": "1241a05293c262d26d68534bbc451c9e9a6a870f98da73a40738b6ac41a0637f"
+      },
+      {
+        "path": "source/original/PointsFusion/PointsFusion/Images.xcassets/AppIcon-2.appiconset/Contents.json",
+        "sha256": "918a5305ab303d9a306c9b96828dc78fb11497cb14f6739cc47f679001beb2e5"
+      },
+      {
+        "path": "source/original/PointsFusion/PointsFusion/Images.xcassets/AppIcon.appiconset/Contents.json",
+        "sha256": "918a5305ab303d9a306c9b96828dc78fb11497cb14f6739cc47f679001beb2e5"
+      },
+      {
+        "path": "source/original/PointsFusion/PointsFusion/Images.xcassets/LaunchImage.launchimage/Contents.json",
+        "sha256": "482db227c3fffad967a554080da10abbc2902f85ec62a6f819d452a335a71a47"
+      },
+      {
+        "path": "source/original/PointsFusion/PointsFusion/indexMap.fsh",
+        "sha256": "d3745bcb51144c5e55730ac4f3d4528fc257059281a3a5e04aa2ebbb9b4cf0d4"
+      },
+      {
+        "path": "source/original/PointsFusion/PointsFusion/indexMap.vsh",
+        "sha256": "79a675bea3e8e45c6e7df7a1da8115708a36c16865f0e51d3f69407b60047853"
+      },
+      {
+        "path": "source/original/PointsFusion/PointsFusion/main.m",
+        "sha256": "1f35eaa59017e2bbfed1e8e54fda2d8d98e17f228a680b5083e1586f5fd69be1"
+      },
+      {
+        "path": "source/original/PointsFusion/PointsFusion/PointRemoval.fsh",
+        "sha256": "66212c89a5c52360eb94137d21e2a41aa1fc318fe4937f22925afca498cee26b"
+      },
+      {
+        "path": "source/original/PointsFusion/PointsFusion/PointRemoval.vsh",
+        "sha256": "33b8e4067e3a95becf50e90fa05896923386a9f57c80c844bf5ae7202fa411e0"
+      },
+      {
+        "path": "source/original/PointsFusion/PointsFusion/PointsFusion-Info.plist",
+        "sha256": "18aa008607ddc2f10ba739b15f7a93ac6ca4c5491e620c704491ba853f8a2e7e"
+      },
+      {
+        "path": "source/original/PointsFusion/PointsFusion/PointsFusion-Prefix.pch",
+        "sha256": "06508f940d72c8a8ce662e2619160419c7a358c95488318f47c96bf20d5d07f6"
+      },
+      {
+        "path": "source/original/PointsFusion/PointsFusion/Shaders/Shader.fsh",
+        "sha256": "692cc393ab7f9ff58034f873f94d24e77538e603015ac439a0634cdc72478105"
+      },
+      {
+        "path": "source/original/PointsFusion/PointsFusion/Shaders/Shader.vsh",
+        "sha256": "116ed275e9488e308e3ceddeb2b1e491b5bde01fb6e55356ff3efe5af2b548f9"
+      },
+      {
+        "path": "source/original/PointsFusion/PointsFusion/StackExtension.h",
+        "sha256": "c654fcfe3764e85a19adeb485fbddfb58718d44c58a175799a2322ffc4177e72"
+      },
+      {
+        "path": "source/original/PointsFusion/PointsFusion/StackExtension.m",
+        "sha256": "eeebc1de6e94ac9ad63f016109fc5dd03660257ddbfd79077ca2df4679da5f4d"
+      },
+      {
+        "path": "source/original/PointsFusion/PointsFusion/ViewController.h",
+        "sha256": "4b6ab24c942fe744189487a0f274a3fe81d29cfbf11920dbdc58d6e7832457d5"
+      },
+      {
+        "path": "source/original/PointsFusion/PointsFusion/ViewController.m",
+        "sha256": "03951b90a6da662fbe5bc0939f6f434e10a18828dd90f33a70318338f8672a0d"
+      },
+      {
+        "path": "source/original/PointsFusion/PointsFusion.xcodeproj/project.pbxproj",
+        "sha256": "6a68d6563acbef668222a92395d6155aa31a571d9a4a772d47117fff1f2eb308"
+      },
+      {
+        "path": "source/original/PointsFusion/PointsFusion.xcodeproj/project.xcworkspace/contents.xcworkspacedata",
+        "sha256": "aff6806c164fbcde1d1d5c86651b1f35cbe07bc9edf0722edf40dccc16603ab2"
+      },
+      {
+        "path": "source/original/PointsFusion/PointsFusionTests/en.lproj/InfoPlist.strings",
+        "sha256": "feb5e820d68ed31f871d2bdaf8d14935ed343a7a875ddd774d5556da8dfd951a"
+      },
+      {
+        "path": "source/original/PointsFusion/PointsFusionTests/PointsFusionTests-Info.plist",
+        "sha256": "97e4afbb68b87c25e7bbcd3aad93cb5ca797dd9fe23a31a1d54c0410b9afda16"
+      },
+      {
+        "path": "source/original/PointsFusion/PointsFusionTests/PointsFusionTests.m",
+        "sha256": "8aa3b0ff0fb7b419a814df05c9828808b4dbe0bbe50e2c1c33f2cd7b0c1624ec"
+      }
+    ],
+    "root_README_matches_HEAD": true,
+    "root_README_sha256": "453b9511c9611b96067b50a9d0e46248223180da24678f6ea721afdf3f4a10d5"
+  },
+  "environment": {
+    "linux": "Ubuntu 22.04, Linux 6.8.0-138-generic x86_64",
+    "compiler": "GCC 11.4.0",
+    "cmake": "3.22.1",
+    "EGL_pkg_config": "1.5",
+    "GLES_pkg_config": "3.2",
+    "renderer": "llvmpipe (LLVM 15.0.7, 256 bits)",
+    "GL_version": "OpenGL ES 3.2 Mesa 23.2.1-1ubuntu3.1~22.04.4",
+    "environment": {
+      "LIBGL_ALWAYS_SOFTWARE": "1",
+      "LP_NUM_THREADS": "2",
+      "EGL_PLATFORM": "surfaceless",
+      "__EGL_VENDOR_LIBRARY_FILENAMES": "/usr/share/glvnd/egl_vendor.d/50_mesa.json"
+    },
+    "global_package_changes": false,
+    "hardware_GPU_used": false,
+    "GL_EXT_color_buffer_float_available": true,
+    "RGBA32F_framebuffer_completeness_checked_at_runtime": true
+  },
+  "original_Xcode": {
+    "version": "16.1 (16B40)",
+    "SDK": "iOS 18.1",
+    "as_recovered_exit": 65,
+    "as_recovered_failure": "four missing OBJ resources and default.png",
+    "resource_replacements": "same newly generated OBJ in all four named resource slots; plain new launch placeholder, private copy only",
+    "inherited_locale_attempt_exit": 65,
+    "inherited_locale_failure": "Mac Perl copypng C.UTF-8 locale panic",
+    "locale_C_ios71_exit": 65,
+    "locale_C_ios71_failure": "SDK no longer contains old-target libarclite_iphoneos.a",
+    "locale_C_ios12_unsigned_arm64_exit": 0,
+    "app_launched": false,
+    "scope": "unsigned build using generated replacements and command-line updated deployment target, not an original runtime correctness check",
+    "original_project_source_or_settings_files_modified": false,
+    "replacement_resource_scope": "build resource presence only; generated ordered point OBJ has no faces and historical face-index normal loader compatibility is not validated"
+  },
+  "tests": {
+    "ctest_entries": 2,
+    "ctest_exit": 0,
+    "component_assertions": 25,
+    "CPU_reference_scope": "index map transform/confidence, depth overlap, correspondence choice and bounded overlap-removal IDs; targeted CPU state/weights and malformed IDs/counts; shader normal normalization and confidence/ID survivor ordering",
+    "demo_frames": 48,
+    "rasterized_correspondence_records_compared_to_CPU": 95791,
+    "OBJ_roundtrip_two_view_exit": 0,
+    "sanitizers": {
+      "tools": [
+        "AddressSanitizer",
+        "UndefinedBehaviorSanitizer"
+      ],
+      "corrected_CPU_GPU_and_full_48_view_exit": 0,
+      "reported_errors": 0,
+      "leak_detection": false,
+      "shader_machine_code_instrumented": false,
+      "UBSan_halt_on_error": true,
+      "UBSan_recovery_disabled_at_compile": true,
+      "completed_log_checked_for_reports": true,
+      "Mesa_libraries_instrumented": false
+    },
+    "original_expression_extractions": {
+      "insert_exit": 1,
+      "removal_exit": 1,
+      "both_reported": "AddressSanitizer heap-buffer-overflow",
+      "scope": "instrumented C++ expression reproductions, not an original iOS app execution"
+    },
+    "original_algorithm_shader_pairs_compile_and_link": [
+      "indexMap",
+      "Fusion",
+      "PointRemoval"
+    ],
+    "age_expiry_scope": "CPU boundary assertions only; no expirations occur in the 48-view demo",
+    "final_CMake_320_minimum_configure_build_ctest_exit": 0
+  },
+  "demo": {
+    "reference_points": 21824,
+    "total_input_points": 104043,
+    "final_model_points": 9232,
+    "inserted_total": 14228,
+    "merged_total": 81563,
+    "removed_total": 4996,
+    "reused_total": 4352,
+    "shader_cpu_correspondences_compared": 95791,
+    "overlap_removed_total": 4996,
+    "age_expired_total": 0,
+    "reused_total_scope": "subset of inserted_total, not additional insertions or removals"
+  },
+  "geometry_evaluation": {
+    "scope": "exact nearest finite generated-reference point; no continuous surface or real sensor ground truth",
+    "units": "arbitrary model units",
+    "reference_samples": 21824,
+    "final_fused_samples": 9232,
+    "reference_definition": "all sampled ellipsoid primitives, including their hidden intersections; not a watertight external surface",
+    "final_fused_to_reference": {
+      "rmse": 0.00391738918192591,
+      "median": 0.0025501172531830238,
+      "p95": 0.007694976227647737,
+      "maximum": 0.01955164808713765,
+      "samples": 9232
+    },
+    "first_observation_to_reference": {
+      "rmse": 0.002112463978598043,
+      "median": 0.0021280264703334665,
+      "p95": 0.002989647952609189,
+      "maximum": 0.0030000445946782943,
+      "samples": 2402
+    },
+    "all_raw_observations_to_reference": {
+      "rmse": 0.00212066427841913,
+      "median": 0.002120376424133369,
+      "p95": 0.0029906770271787095,
+      "maximum": 0.0030001028998915586,
+      "samples": 104043
+    },
+    "reference_coverage_radius_model_units": 0.02,
+    "reference_coverage_by_first_observation": 0.31341642228739003,
+    "reference_coverage_by_final_fused_model": 0.8860428885630498,
+    "reference_coverage_by_all_raw_observations": 0.920866935483871,
+    "raw_observations_samples": 104043,
+    "accuracy_pass_threshold": null,
+    "files": {
+      "reference.ply": "79177c0220201a3d297f4a2f8bbf16abf4c30c57df193e5fb646a977ce8db913",
+      "fused.ply": "54bc9b77ad84adb068388e3833110df69a216d1dfc59b6216436c10c45e07bdd",
+      "frames/000-input.ply": "e32910ec066fd975a995fe86d7c83dfaff83ea6d51977221d9799e7bdbe77f50",
+      "metrics.json": "330e1203dc62a8e796b65bc64ff1852f99a290f6f8f19c0d39b63baa64ef192a"
+    }
+  },
+  "implementation_sha256": {
+    "updated/CMakeLists.txt": "748b17a639e1506f24693e3d4c51402ea502dce41c358996b550c99abd94c4ca",
+    "updated/shaders/Fusion.fsh": "4b7fd89290db5d29dbe89b38976f96387252824bdb2b65eacae1a5a19ec21bdd",
+    "updated/shaders/Fusion.vsh": "7b8d72c9c0582fa895912120af2da15ccd4ba19a4edd504bc9fceaa0985f1d4a",
+    "updated/shaders/PointRemoval.fsh": "078c3a870b42eee7459c756af64618674f04b8ba49a8bff799d0157411e40680",
+    "updated/shaders/PointRemoval.vsh": "18f15f07781a0a3f4fde523310f7a7f9768c646604fa68cac7bd351dd1960829",
+    "updated/src/core.hpp": "cd55123cf073f004cbfcb5b70184d97039503f6d95950e36a01ba43a762cc2aa",
+    "updated/src/gles.hpp": "c9f9326fbed73fe2084e44ebd5e2d5f5c2392c2b212f2ac3351e86b6573eeb8b",
+    "updated/src/main.cpp": "25d472a07c7e5baa0305e4d63f661b8e5e846fb8502064311bff87ffd995de5b",
+    "updated/tests/original_faults.cpp": "911adadda12a13e1a409769276197d23d66a71e6c113a938f41f5b1cefc31ee7",
+    "updated/tools/analyze_demo.py": "df58bbd2cd167e4c2ec17f5a2942f010a495d6ef6b63b24391e981a8b94ee3c2",
+    "updated/tools/prepare_xcode_fixture.py": "13b59b63674dbcc3cdd328c68e57921f362a88a9a3609ee2e4a5633cc81b85b7",
+    "updated/tools/render_demo.py": "0c9a0de3a1f852a081556637816da54717f2f11e028e846f65148b238e6ea984"
+  },
+  "limitations": [
+    "generated OBJ observations, no real RGB-D or camera",
+    "known analytic poses; no registration or tracking",
+    "one generated model/one orbit, 192x144 input selection",
+    "correspondence/removal are explicitly updated behavior",
+    "no general accuracy pass threshold, no processing-performance claim",
+    "no iOS app launch or mobile GPU validation",
+    "source license remains unspecified; preserved notices do not grant a blanket license"
+  ],
+  "editorial_reviews": {
+    "tools_disabled": true,
+    "completed": 2,
+    "sessions": [
+      "9a32f4e4-4c96-4625-b6b9-d9abf18641b0",
+      "d26cd5e4-dbdb-4a50-b37d-da8f126aa475"
+    ],
+    "scope": "Claude editorial review of draft and verified facts; no runtime validation from reviews"
+  }
+}

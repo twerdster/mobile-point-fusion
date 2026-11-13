@@ -1,0 +1,26 @@
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild -project MAC_TASK/original-xcode/PointsFusion.xcodeproj -scheme PointsFusion -sdk iphoneos -configuration Debug -destination generic/platform=iOS -derivedDataPath MAC_TASK/original-derived CODE_SIGNING_ALLOWED=NO ARCHS=arm64 ONLY_ACTIVE_ARCH=YES IPHONEOS_DEPLOYMENT_TARGET=12.0 build
+
+User defaults from command line:
+    IDEDerivedDataPathOverride = MAC_TASK/original-derived
+    IDEPackageSupportUseBuiltinSCM = YES
+
+Build settings from command line:
+    ARCHS = arm64
+    CODE_SIGNING_ALLOWED = NO
+    IPHONEOS_DEPLOYMENT_TARGET = 12.0
+    ONLY_ACTIVE_ARCH = YES
+[... middle of complete private log omitted ...]
+** BUILD SUCCEEDED **
+
+Validate MAC_TASK/original-derived/Build/Products/Debug-iphoneos/PointsFusion.app (in target 'PointsFusion' from project 'PointsFusion')
+    cd MAC_TASK/original-xcode
+    builtin-validationUtility MAC_TASK/original-derived/Build/Products/Debug-iphoneos/PointsFusion.app -infoplist-subpath Info.plist
+warning: A launch storyboard or xib must be provided unless the app requires full screen. (in target 'PointsFusion' from project 'PointsFusion')
+
+Touch MAC_TASK/original-derived/Build/Products/Debug-iphoneos/PointsFusion.app (in target 'PointsFusion' from project 'PointsFusion')
+    cd MAC_TASK/original-xcode
+    /usr/bin/touch -c MAC_TASK/original-derived/Build/Products/Debug-iphoneos/PointsFusion.app
+
+** BUILD SUCCEEDED **
+
