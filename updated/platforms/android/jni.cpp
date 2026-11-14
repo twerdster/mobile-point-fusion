@@ -40,7 +40,8 @@ Java_io_github_twerdster_mobilepointfusion_FusionActivity_draw(
           f.step();
         if (w > 0 && h > 0)
           f.render(0, w, h, orbit);
-        result = "View " + std::to_string(f.frame) + " / 48 · " +
+        result = "View " + std::to_string(f.frame) + " / " +
+                 std::to_string(f.frames) + " · " +
                  std::to_string(f.model.size()) + " points\n" +
                  std::to_string(f.model.merged) + " merges · " +
                  std::to_string(f.model.removed) + " removals\n" +

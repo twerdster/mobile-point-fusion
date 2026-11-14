@@ -17,6 +17,9 @@ flat out highp int newVertexID;
 flat out highp vec4 projCoords;
 flat out highp vec4 newNormal; //in cam coords
 flat out highp vec4 newCoords;
+// Keep these query outputs invariant for the diagnostic transform-feedback draw.
+invariant newCoords;
+invariant newNormal;
 
 uniform mat4 modelViewProjectionMatrix;
 uniform mat4 modelViewMatrix;

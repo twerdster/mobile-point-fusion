@@ -60,8 +60,21 @@ public final class FusionActivity extends Activity {
     layout.setPadding(10, 14, 10, 12);
     layout.addView(label("Mobile Point Fusion", 25));
     layout.addView(label("On-device ES3 shader + CPU execution", 16));
+    boolean recorded = false;
+    try {
+      for (String name : getAssets().list("fusion"))
+        if (name.equals("recording.pfrgbd"))
+          recorded = true;
+    } catch (Exception error) {
+      layout.addView(label("Input resources unavailable: " + error, 14));
+      setContentView(layout);
+      return;
+    }
     layout.addView(label(
-        "Generated input · supplied poses · no real RGB-D or tracking", 12));
+        recorded
+            ? "Recorded RGB-D · supplied camera poses · metres · no pose estimation"
+            : "Generated input · supplied poses · no real RGB-D or tracking",
+        12));
     LinearLayout headings = new LinearLayout(this);
     headings.addView(label("CURRENT OBSERVATION", 11),
                      new LinearLayout.LayoutParams(0, -2, 1));
@@ -77,6 +90,18 @@ public final class FusionActivity extends Activity {
                "updated/shaders/PointRemoval.vsh",
                "updated/shaders/PointRemoval.fsh"})
         copyAsset(path);
+      if (recorded) {
+        copyAsset("recording.pfrgbd");
+        for (String name : getAssets().list("fusion"))
+          if (name.equals("recording.json") ||
+              name.equals("recording-NOTICE.txt"))
+            copyAsset(name);
+      } else {
+        File staleRecording =
+            new File(getFilesDir(), "fusion/recording.pfrgbd");
+        if (staleRecording.exists() && !staleRecording.delete())
+          throw new java.io.IOException("Cannot clear previous recorded input");
+      }
     } catch (Exception e) {
       layout.addView(label("Resource failure: " + e, 14));
       setContentView(layout);

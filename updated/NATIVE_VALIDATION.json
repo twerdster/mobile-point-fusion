@@ -1,6 +1,6 @@
 {
   "date": "2026-11-14",
-  "scope": "New native frontends execute updated generated-input/supplied-pose shader and CPU fusion; no real RGB-D or tracking",
+  "scope": "Historical generated-fixture native results at baseline_commit; source hashes and captures in this file describe that frozen version, not the later real-RGB-D reader",
   "platform_results": {
     "macos": {
       "frame": 48,
@@ -214,5 +214,7 @@
   },
   "iOS_lifecycle_record": "validation/native-platforms/ios-lifecycle.json",
   "frozen_mobile_capture_artifact_match": true,
-  "all_native_media_full_decode_and_caps_pass": true
+  "all_native_media_full_decode_and_caps_pass": true,
+  "baseline_commit": "831cfef115ef4d242175283ad4357c6f78354193",
+  "new_real_RGBD_records": "validation/real-rgbd/"
 }

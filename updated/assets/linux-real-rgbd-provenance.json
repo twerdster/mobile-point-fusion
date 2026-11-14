@@ -1,0 +1,1037 @@
+{
+  "platform": "linux",
+  "capture_method": "Actual Linux X11 EGL native app window on owned isolated Xvfb; timestamped Pillow XCB screenshots at nominal 5 Hz; capture timing retained.",
+  "scope": "Actual native app screen capture using recorded TUM Freiburg 1 xyz RGB-D samples in metres and supplied motion-capture poses. The app unprojects depth and executes fusion; it does not estimate camera poses. Capture playback is not a performance benchmark.",
+  "recorded_dataset_attribution": {
+    "dataset": "TUM RGB-D benchmark, Freiburg 1 xyz",
+    "authors": [
+      "J\u00fcrgen Sturm",
+      "Nikolas Engelhard",
+      "Felix Endres",
+      "Wolfram Burgard",
+      "Daniel Cremers"
+    ],
+    "publication": "A Benchmark for the Evaluation of RGB-D SLAM Systems, IROS 2012",
+    "source": "https://cvg.cit.tum.de/data/datasets/rgbd-dataset",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "derived_input_notice": "updated/data/NOTICE.txt"
+  },
+  "source": {
+    "kind": "timestamped native window PNG capture",
+    "metadata": {
+      "file": "capture.json",
+      "bytes": 13997,
+      "sha256": "47785f32c92b1e9695fd524c6db52c390ebfd606c57af49595a3b68a983b11f3"
+    },
+    "source_dimensions": [
+      1180,
+      800
+    ],
+    "frame_count": 117,
+    "nominal_sampling_fps": 5.0,
+    "timeline_origin_capture_seconds": 0.01587670500157401,
+    "timeline_note": "Measured timestamp differences; final captured image held for one nominal sampling period.",
+    "frames": [
+      {
+        "file": "0000.png",
+        "bytes": 2824,
+        "sha256": "fcfd69245f50885f078f73037d115406edcde9e9f27495ffc8a56e1d8245f40d",
+        "capture_started_seconds": 0.01587670500157401
+      },
+      {
+        "file": "0001.png",
+        "bytes": 62876,
+        "sha256": "374bf50a965194c05131a639e4a4e99f5e02379e3ff7a02417f02bc17e9e21a2",
+        "capture_started_seconds": 0.21933763602282852
+      },
+      {
+        "file": "0002.png",
+        "bytes": 88351,
+        "sha256": "1fd590e5111358ac037e5cf2f26aeb243527193750540fdc4ecb26eb0bc72f52",
+        "capture_started_seconds": 0.42259248899063095
+      },
+      {
+        "file": "0003.png",
+        "bytes": 89381,
+        "sha256": "2e84ac69973ffaf902ab8156ceb561cca248fb73fabb292f91f26da2177bf0d0",
+        "capture_started_seconds": 0.620268639002461
+      },
+      {
+        "file": "0004.png",
+        "bytes": 89272,
+        "sha256": "d8a612be6eefe983dcb4575382034644aa8697fb556fe7e81b78ce39e72f9667",
+        "capture_started_seconds": 0.8172924660029821
+      },
+      {
+        "file": "0005.png",
+        "bytes": 83437,
+        "sha256": "63d2529918303a696cddc0b63cd9af3c28a3be31df7a52e02885d5137329bb0e",
+        "capture_started_seconds": 1.0161574900266714
+      },
+      {
+        "file": "0006.png",
+        "bytes": 79829,
+        "sha256": "aca33ea2b156fef27439d375efdd3c94c43311b8db96ac87c65dea36e3691268",
+        "capture_started_seconds": 1.2158851770218462
+      },
+      {
+        "file": "0007.png",
+        "bytes": 84071,
+        "sha256": "089123337c42b527a4e3191f6d1585655b86aec14f27499ac8d9f6c9880c7af8",
+        "capture_started_seconds": 1.4160821770201437
+      },
+      {
+        "file": "0008.png",
+        "bytes": 90049,
+        "sha256": "5a80bb024a4f71597b1c72e07083afd5f4f4e2fbe63f3ccb8973e9917216e1c3",
+        "capture_started_seconds": 1.6173312999890186
+      },
+      {
+        "file": "0009.png",
+        "bytes": 96426,
+        "sha256": "c357b71ebc4ac2cb4b0f4fa0fd75dbb28c7236fa9cfb9fefa0652a239634c5fa",
+        "capture_started_seconds": 1.8184784229961224
+      },
+      {
+        "file": "0010.png",
+        "bytes": 111636,
+        "sha256": "051eb9745454013204dc097243187a335b65d7fe0ba7dfe8172627840051ecdb",
+        "capture_started_seconds": 2.017962539975997
+      },
+      {
+        "file": "0011.png",
+        "bytes": 129784,
+        "sha256": "e824ba61e1168d24a88d9c858cb949e6419200b0876d50a38fe33193aa5c3505",
+        "capture_started_seconds": 2.219446484989021
+      },
+      {
+        "file": "0012.png",
+        "bytes": 151670,
+        "sha256": "9939bd620bc94940b0614dffec28a269c2809fd4408418d668d7633c6c2b9bc1",
+        "capture_started_seconds": 2.4209690089919604
+      },
+      {
+        "file": "0013.png",
+        "bytes": 151661,
+        "sha256": "17de8e6983eae6833c984e9f1931df12d8fcab4de9b6deeffad61721a13ddd94",
+        "capture_started_seconds": 2.621223807975184
+      },
+      {
+        "file": "0014.png",
+        "bytes": 140749,
+        "sha256": "a886f059484c9f1aa3d0f976c2396e199a4b2d438191f122fa308876fcbef623",
+        "capture_started_seconds": 2.8193078790209256
+      },
+      {
+        "file": "0015.png",
+        "bytes": 135720,
+        "sha256": "17ab75ab690136fa424dc58d2db45ed218e0e199653f2faee4dbf8732e76433b",
+        "capture_started_seconds": 3.021520886977669
+      },
+      {
+        "file": "0016.png",
+        "bytes": 129772,
+        "sha256": "7e9451cbc71685f530c55989ec773d3f88cfa856eb1df5e671832a70d2f61d96",
+        "capture_started_seconds": 3.220744701975491
+      },
+      {
+        "file": "0017.png",
+        "bytes": 126828,
+        "sha256": "fc4e1e757cc73565fe7d4f6796201e4f4bfa02a0daccdc9ef47c5903393889dd",
+        "capture_started_seconds": 3.4189060740172863
+      },
+      {
+        "file": "0018.png",
+        "bytes": 128553,
+        "sha256": "a78609f08d23cb7b37369d04f632db0efc92a9fbe437d83b4ead1bed1faeb603",
+        "capture_started_seconds": 3.6186465909704566
+      },
+      {
+        "file": "0019.png",
+        "bytes": 141385,
+        "sha256": "872f49a7e38f66554becd18a2a81a1fb182ea00a9a3baa92178f362ebd42e1bf",
+        "capture_started_seconds": 3.818585950008128
+      },
+      {
+        "file": "0020.png",
+        "bytes": 146406,
+        "sha256": "080e871265a89ccc0849747c14bc82abf8596ded87be97e088068356c5dd1b20",
+        "capture_started_seconds": 4.020354815002065
+      },
+      {
+        "file": "0021.png",
+        "bytes": 152133,
+        "sha256": "3ab1a16069bf7eb2356d648b012793d7a1a0bfc75dcca09bda3999797fddca2b",
+        "capture_started_seconds": 4.22097726596985
+      },
+      {
+        "file": "0022.png",
+        "bytes": 150741,
+        "sha256": "95d6002eae2c2f865f38f12963054dde4b3715b6814667ee3b60e74d3784437e",
+        "capture_started_seconds": 4.420919644006062
+      },
+      {
+        "file": "0023.png",
+        "bytes": 149763,
+        "sha256": "19e04261cc71318dc25df166d5923787c9b50dbb6556489426c236c7f99c931b",
+        "capture_started_seconds": 4.62174250499811
+      },
+      {
+        "file": "0024.png",
+        "bytes": 147427,
+        "sha256": "f63e3d41420b57035fd7d6f03d935f4f309235da136b2efabe73c489bdbe63bd",
+        "capture_started_seconds": 4.821092869970016
+      },
+      {
+        "file": "0025.png",
+        "bytes": 148053,
+        "sha256": "ae5ed571e1aa396f5359198ee993f1af3ef08765be109107d4449420c8b47f7b",
+        "capture_started_seconds": 5.0203886950039305
+      },
+      {
+        "file": "0026.png",
+        "bytes": 149026,
+        "sha256": "1256f280b52dd9b0f622f7ab853a68aee7e8bf0ebd82ee8e59b48f5703a546a0",
+        "capture_started_seconds": 5.220552543993108
+      },
+      {
+        "file": "0027.png",
+        "bytes": 156378,
+        "sha256": "e6b9eb4c3b7a307cc93755bdf55ba7096c4e78949f15fe5f12175f233fbc968f",
+        "capture_started_seconds": 5.421280964976177
+      },
+      {
+        "file": "0028.png",
+        "bytes": 159870,
+        "sha256": "8acbd2ff26e11cba40f8a36115744239a9ef8f3bb40424df0ccd62f9a106bc25",
+        "capture_started_seconds": 5.622942328976933
+      },
+      {
+        "file": "0029.png",
+        "bytes": 162664,
+        "sha256": "53b5771c84ef2f006839c0797a8ed05b74dcbcf0fbd1fce667417ce3f467eaf0",
+        "capture_started_seconds": 5.8238137000007555
+      },
+      {
+        "file": "0030.png",
+        "bytes": 163807,
+        "sha256": "db379924c072479a3267f26c54608bd33945ae45c7befedf33c02c18f8515670",
+        "capture_started_seconds": 6.022035710979253
+      },
+      {
+        "file": "0031.png",
+        "bytes": 167974,
+        "sha256": "5e1a8ccec4fa6283eb5f52c2ad805633b52435838c35418d4de9a6d6ab5a2b04",
+        "capture_started_seconds": 6.22182811802486
+      },
+      {
+        "file": "0032.png",
+        "bytes": 178424,
+        "sha256": "ce0d9cdab8b532811be6325d44db86c13a99e9d2cb267593c5622968dd6203a0",
+        "capture_started_seconds": 6.42381263297284
+      },
+      {
+        "file": "0033.png",
+        "bytes": 201501,
+        "sha256": "3b77dfbccf4755d2bd214132d2ff51862fa993921ce44e1487353bc99d96c457",
+        "capture_started_seconds": 6.626599841983989
+      },
+      {
+        "file": "0034.png",
+        "bytes": 201674,
+        "sha256": "a9cdbbe3749d4c0bffa408bb3248cce8a9fe6ff8bc7cc1957529fb02cd77c2e3",
+        "capture_started_seconds": 6.829153490019962
+      },
+      {
+        "file": "0035.png",
+        "bytes": 198807,
+        "sha256": "58c229231abd5f24ae8a1923e6738b6f1594a2281f4f0c25a0c926005c5201e0",
+        "capture_started_seconds": 7.026299596007448
+      },
+      {
+        "file": "0036.png",
+        "bytes": 196453,
+        "sha256": "0479f455052697771a2dca955fb74e9f311676cf9f3d9b6df3439b5f5e97889c",
+        "capture_started_seconds": 7.2262997039943
+      },
+      {
+        "file": "0037.png",
+        "bytes": 190731,
+        "sha256": "cd03e27da22a8f836ddb9c2f0e9e29e9a07def692a48ca533b09872d86606b22",
+        "capture_started_seconds": 7.4245438239886425
+      },
+      {
+        "file": "0038.png",
+        "bytes": 189327,
+        "sha256": "0b5b1ae3561f00b2a6e57c882445b03b8dee9e1334cab91328b87cdf6b766dc0",
+        "capture_started_seconds": 7.624146179994568
+      },
+      {
+        "file": "0039.png",
+        "bytes": 189897,
+        "sha256": "0ec337c5a6b0af7b6f44ea78635203fa455ad7a9487a439247c6b4222a7fbbf8",
+        "capture_started_seconds": 7.827835293021053
+      },
+      {
+        "file": "0040.png",
+        "bytes": 189781,
+        "sha256": "b4cb5d9ff576afb143393a2ed384beb2ba87465c98e09b44a1021d7863836eef",
+        "capture_started_seconds": 8.025041138986126
+      },
+      {
+        "file": "0041.png",
+        "bytes": 187664,
+        "sha256": "303639b7bfbee2cf5e8d7db28d83d03130e932cb34bdf3b6ae62c6dd76306274",
+        "capture_started_seconds": 8.225966720026918
+      },
+      {
+        "file": "0042.png",
+        "bytes": 160167,
+        "sha256": "56069045d16c812d9a9b2eae96f771ace94940ec792849df248b42883dc732b6",
+        "capture_started_seconds": 8.4223488040152
+      },
+      {
+        "file": "0043.png",
+        "bytes": 165403,
+        "sha256": "d0a248db2ef600069939ca8375b7b593a73044a3d4ce0d089f6385e463dad492",
+        "capture_started_seconds": 8.623033524025232
+      },
+      {
+        "file": "0044.png",
+        "bytes": 167284,
+        "sha256": "51cf859c57bb3395040e93cad3815f9fece2521533205484f692999dd6d220a4",
+        "capture_started_seconds": 8.822896871017292
+      },
+      {
+        "file": "0045.png",
+        "bytes": 170673,
+        "sha256": "0ab6a985b6ea4d8620decb7fa4ee60ea80db62d0c2a3b6fb4301120b2ff3393f",
+        "capture_started_seconds": 9.024021423014347
+      },
+      {
+        "file": "0046.png",
+        "bytes": 174716,
+        "sha256": "46f40b8ed745b92593c70dc8a4328e10f6a336f76c41f5e4a1ed575f970741d3",
+        "capture_started_seconds": 9.223486929025967
+      },
+      {
+        "file": "0047.png",
+        "bytes": 182257,
+        "sha256": "7979f1e8e09e3acc0e0eb0a7b84d99622cfddfc517657fba5b7a6afa2d878719",
+        "capture_started_seconds": 9.427164790977258
+      },
+      {
+        "file": "0048.png",
+        "bytes": 184714,
+        "sha256": "62073a8d4cb9115f3a8083b216f18d5f86f6073cb69fa4c74de5dd9adeaa5cf3",
+        "capture_started_seconds": 9.627521610003896
+      },
+      {
+        "file": "0049.png",
+        "bytes": 186565,
+        "sha256": "4689c3783a4c4de65e8e222678dbeedbbcce1c82036d8be0169e07cd5f2de5b9",
+        "capture_started_seconds": 9.825012066983618
+      },
+      {
+        "file": "0050.png",
+        "bytes": 175567,
+        "sha256": "c8866856d988ab2f3f3dfcf291c37a4cbf3961734cb866d14b3986e55fad4967",
+        "capture_started_seconds": 10.02339629799826
+      },
+      {
+        "file": "0051.png",
+        "bytes": 169395,
+        "sha256": "6763ff77b7fd80baddac073c0f8ed0f9e6be47110a15000de8b4bd6d421b7d01",
+        "capture_started_seconds": 10.223409805970732
+      },
+      {
+        "file": "0052.png",
+        "bytes": 168635,
+        "sha256": "f89b3b4590eef83c3d0e2a2959ceba2ebf45b6441185c71d71d41a6a3537990a",
+        "capture_started_seconds": 10.422082138014957
+      },
+      {
+        "file": "0053.png",
+        "bytes": 165441,
+        "sha256": "90c7c39f1150402fe8cfd632978f879f4d15b206797008238228a9741e5096df",
+        "capture_started_seconds": 10.62251739698695
+      },
+      {
+        "file": "0054.png",
+        "bytes": 163299,
+        "sha256": "1ab7b7e4ea0ae6a95e6303bbff0e8c84b8bd74b3caf75ba7be7fa9ed082095ff",
+        "capture_started_seconds": 10.822739875002299
+      },
+      {
+        "file": "0055.png",
+        "bytes": 166609,
+        "sha256": "52b6dda7039d55133cec25d101a1bf9df92f4ea7de85bc26ae12510ac6620eda",
+        "capture_started_seconds": 11.023023473971989
+      },
+      {
+        "file": "0056.png",
+        "bytes": 168417,
+        "sha256": "926ad4919c194b31d3e55cede465368b59c3e16fd544f177e4615355e1532fb2",
+        "capture_started_seconds": 11.223471392993815
+      },
+      {
+        "file": "0057.png",
+        "bytes": 171552,
+        "sha256": "2dc915b3ea069b13367c59ea748509921726caf095d47292f2e31b35d81c3db6",
+        "capture_started_seconds": 11.422987718018703
+      },
+      {
+        "file": "0058.png",
+        "bytes": 170483,
+        "sha256": "2566f9f8390fafb664e684101c14148d923ffb6fa19f0d8ec386693f2da8a326",
+        "capture_started_seconds": 11.622271911997814
+      },
+      {
+        "file": "0059.png",
+        "bytes": 173346,
+        "sha256": "8108e05e0d853a849f7206db6a51cf0c5b154e04b2eb66f10abed0a11e887f83",
+        "capture_started_seconds": 11.823540044017136
+      },
+      {
+        "file": "0060.png",
+        "bytes": 173231,
+        "sha256": "255de3d8b7bb9dc664fc6309fda30abd035876d83b7960c2946bb1aea1d2e58a",
+        "capture_started_seconds": 12.023097148980014
+      },
+      {
+        "file": "0061.png",
+        "bytes": 172834,
+        "sha256": "9d0ad2c735e39273b707a17c6e79eb5af72db7d327c3f9b66e7bd5fd1e02833e",
+        "capture_started_seconds": 12.2236555480049
+      },
+      {
+        "file": "0062.png",
+        "bytes": 174867,
+        "sha256": "62ba606ec5eca04fa659ac32708f4e3a13b4f53f5aba5524f50e867ec3afd5cb",
+        "capture_started_seconds": 12.423395773977973
+      },
+      {
+        "file": "0063.png",
+        "bytes": 148072,
+        "sha256": "d6d8b88a6fbe58b8a36c95386852c2b5f342a05cf5cae71f90ab034f0672d2a0",
+        "capture_started_seconds": 12.62187847297173
+      },
+      {
+        "file": "0064.png",
+        "bytes": 148388,
+        "sha256": "208f7933d387f1a0c138b9e016882c613f103a9ca84f2c1d09ffc788e09465b8",
+        "capture_started_seconds": 12.821305398014374
+      },
+      {
+        "file": "0065.png",
+        "bytes": 151553,
+        "sha256": "0d90d295b5ec64db243e64f6cd7e5a619d69dfb8b3688cec4d0925d71a002eee",
+        "capture_started_seconds": 13.021887767012231
+      },
+      {
+        "file": "0066.png",
+        "bytes": 150472,
+        "sha256": "30b9dd7ecdd3d95bf29d56c9aa27a8869c55a3669c2dd4692751636f3f98b27c",
+        "capture_started_seconds": 13.225668038998265
+      },
+      {
+        "file": "0067.png",
+        "bytes": 150476,
+        "sha256": "51e8f68667d79c0302f248af9a9ae402fde890ad9d60cb3910b30e64fcfc33e6",
+        "capture_started_seconds": 13.422101360978559
+      },
+      {
+        "file": "0068.png",
+        "bytes": 155523,
+        "sha256": "b3c296a3ad9559e57ff18c6975defc63872043689af86a31b42f3db924740e6a",
+        "capture_started_seconds": 13.622011796978768
+      },
+      {
+        "file": "0069.png",
+        "bytes": 159197,
+        "sha256": "7645edab519116399cde7da7e087ac922c5657ebbf802ff25e2d578050874cc5",
+        "capture_started_seconds": 13.822477405017707
+      },
+      {
+        "file": "0070.png",
+        "bytes": 161154,
+        "sha256": "ca233eaf0b34fbd0ab9a57431f20b6dd1bd87cb6f146658e57a8f88a0360a035",
+        "capture_started_seconds": 14.02342518500518
+      },
+      {
+        "file": "0071.png",
+        "bytes": 161181,
+        "sha256": "8a091bba81cfde7965dcd61adc7e1ce1248e063a6721e2f33b99edfdb38631c3",
+        "capture_started_seconds": 14.22289496002486
+      },
+      {
+        "file": "0072.png",
+        "bytes": 164009,
+        "sha256": "7dbbc6642fd74860c036c062c7d49d82ded7e3ac4cf55f9b296748613ba8e535",
+        "capture_started_seconds": 14.42282424599398
+      },
+      {
+        "file": "0073.png",
+        "bytes": 164584,
+        "sha256": "55fedc133339f729075a231b667e2141e61db19c518ac2398c724122838f470d",
+        "capture_started_seconds": 14.625945335021242
+      },
+      {
+        "file": "0074.png",
+        "bytes": 168055,
+        "sha256": "0b4b3cb3a9fdec0ca2806370217388b4122bbb8b1b4e82734ae9fa2f4736900b",
+        "capture_started_seconds": 14.82337588100927
+      },
+      {
+        "file": "0075.png",
+        "bytes": 168737,
+        "sha256": "16536d50eaa457fd759bde2fc6d9cfd8f6126330bf9a2316c3acd33e2d301def",
+        "capture_started_seconds": 15.023771948996
+      },
+      {
+        "file": "0076.png",
+        "bytes": 168127,
+        "sha256": "04c4fcb2cba1bfe13aee4be0505b3411063a1ffeba2bd4ffcd6aafc049b4a1f4",
+        "capture_started_seconds": 15.223970866005402
+      },
+      {
+        "file": "0077.png",
+        "bytes": 170032,
+        "sha256": "477c891ed01b05dc6f7692f9e265d3267c2a28b7bff037c27edbccdf034073eb",
+        "capture_started_seconds": 15.423185109975748
+      },
+      {
+        "file": "0078.png",
+        "bytes": 169676,
+        "sha256": "d0762b28471ccc3162c403debb47cdceb1ebd91594fe59161c5662f095c37915",
+        "capture_started_seconds": 15.623320116021205
+      },
+      {
+        "file": "0079.png",
+        "bytes": 167838,
+        "sha256": "331b4d2471fc92234c977120aa9ac77090a4e61b469632225a0fbd53a3e91ac8",
+        "capture_started_seconds": 15.822259027976543
+      },
+      {
+        "file": "0080.png",
+        "bytes": 165703,
+        "sha256": "53804b4991994783f175421a76a4689469cf31b10d3479465a5a8cabee5ea63c",
+        "capture_started_seconds": 16.023559279972687
+      },
+      {
+        "file": "0081.png",
+        "bytes": 168036,
+        "sha256": "9f39dd794b292a1ff3bc28a0a5a8d43e1b1e4eeeda41bd1f11ba7b2bfa160abe",
+        "capture_started_seconds": 16.223638146009762
+      },
+      {
+        "file": "0082.png",
+        "bytes": 170846,
+        "sha256": "9d3fc86952e5fdf1558d221c41ba43110cd9f108c007719ded114f212405f0f7",
+        "capture_started_seconds": 16.427449088019785
+      },
+      {
+        "file": "0083.png",
+        "bytes": 173662,
+        "sha256": "f21e2582624b20f46ce28e044b35d86569776af585134b7dff9657211134e3b8",
+        "capture_started_seconds": 16.62340934801614
+      },
+      {
+        "file": "0084.png",
+        "bytes": 135493,
+        "sha256": "3ab8129ecd6a91da38f2ae654083b2f86a883b9f8e1364497b02f2aafb303c19",
+        "capture_started_seconds": 16.82021045201691
+      },
+      {
+        "file": "0085.png",
+        "bytes": 137573,
+        "sha256": "4bd91f698fd1205cee727b584600c418a63041c99764bd6d2d871f357ad75010",
+        "capture_started_seconds": 17.020820739970077
+      },
+      {
+        "file": "0086.png",
+        "bytes": 138458,
+        "sha256": "bc027a43a44c30638b0b03d6357ef8fd258dea4427bd92752fd93e646e72163a",
+        "capture_started_seconds": 17.220564014976844
+      },
+      {
+        "file": "0087.png",
+        "bytes": 139331,
+        "sha256": "92fdfda3f1c2b80685824642ba901ac07d715d7ec2cc96f17ead04f85870bde6",
+        "capture_started_seconds": 17.421138732985128
+      },
+      {
+        "file": "0088.png",
+        "bytes": 140157,
+        "sha256": "fda32ec75978b9e2056a99b37c53be6d980b23a6d606e3b2b8100c224040a2db",
+        "capture_started_seconds": 17.621571920986753
+      },
+      {
+        "file": "0089.png",
+        "bytes": 140079,
+        "sha256": "db9680a87550ba3ca07a04540bbeb38823925d70d34483cd01c86675df159f9d",
+        "capture_started_seconds": 17.821906577970367
+      },
+      {
+        "file": "0090.png",
+        "bytes": 140752,
+        "sha256": "7043dea05afc107c10ec0ffa7203bea8fdc101db8f5d5f73392d8b93b120700b",
+        "capture_started_seconds": 18.021419930970296
+      },
+      {
+        "file": "0091.png",
+        "bytes": 137839,
+        "sha256": "76f536d453b3dc543655b1361ec6786679f556a829cbfca3d32061bd8ce42686",
+        "capture_started_seconds": 18.22042235301342
+      },
+      {
+        "file": "0092.png",
+        "bytes": 135202,
+        "sha256": "9c4707632cf155cb29e366a5e167e85615283155e606f0c03190a8244d6422ba",
+        "capture_started_seconds": 18.420366348989774
+      },
+      {
+        "file": "0093.png",
+        "bytes": 134565,
+        "sha256": "930797c73b057c83ac8df38b7d7988ef5d040df0890c7dd1ca4c6de39c0925fc",
+        "capture_started_seconds": 18.624045129981823
+      },
+      {
+        "file": "0094.png",
+        "bytes": 135477,
+        "sha256": "7f660646ce30214b32951ea69170779159fd9dd0f1f625737ca931d3cd7e8eb1",
+        "capture_started_seconds": 18.822507078992203
+      },
+      {
+        "file": "0095.png",
+        "bytes": 135029,
+        "sha256": "2d641c3231ad7fdc48b3b7a241aa32cb685e3f73e80afd3bbd89732642fca1e3",
+        "capture_started_seconds": 19.023118678014725
+      },
+      {
+        "file": "0096.png",
+        "bytes": 134704,
+        "sha256": "e042822e8be8de56a925d36efe14b2e8e74655b2afac787e84147ccaa35b3222",
+        "capture_started_seconds": 19.222760121978354
+      },
+      {
+        "file": "0097.png",
+        "bytes": 134709,
+        "sha256": "0deabb0a57da290f9f64526eea3ca6e587d676ef3b65649c9a7b74f041b80752",
+        "capture_started_seconds": 19.42073920997791
+      },
+      {
+        "file": "0098.png",
+        "bytes": 134246,
+        "sha256": "2dba0fa4d4bc8cc68e5b06ede5c04e46551661419a3916c8ba049141b8595d92",
+        "capture_started_seconds": 19.622579102986492
+      },
+      {
+        "file": "0099.png",
+        "bytes": 134248,
+        "sha256": "536f93fdcbaa489019c6bff8f8ee099ee541a051bf18f223f181a3d1a28c9dd1",
+        "capture_started_seconds": 19.82003582798643
+      },
+      {
+        "file": "0100.png",
+        "bytes": 134296,
+        "sha256": "22559d6701c070edc5493f8d001350cbd48c5240fcca3bd291b54881e4c90ef9",
+        "capture_started_seconds": 20.02201034198515
+      },
+      {
+        "file": "0101.png",
+        "bytes": 134751,
+        "sha256": "fb570dd86eb7c124416241a2c9a43791a005bc5d0da3e3720c9392d1a3032672",
+        "capture_started_seconds": 20.220576871011872
+      },
+      {
+        "file": "0102.png",
+        "bytes": 134751,
+        "sha256": "fb570dd86eb7c124416241a2c9a43791a005bc5d0da3e3720c9392d1a3032672",
+        "capture_started_seconds": 20.422045812010765
+      },
+      {
+        "file": "0103.png",
+        "bytes": 134751,
+        "sha256": "fb570dd86eb7c124416241a2c9a43791a005bc5d0da3e3720c9392d1a3032672",
+        "capture_started_seconds": 20.620398600993212
+      },
+      {
+        "file": "0104.png",
+        "bytes": 134751,
+        "sha256": "fb570dd86eb7c124416241a2c9a43791a005bc5d0da3e3720c9392d1a3032672",
+        "capture_started_seconds": 20.81990435399348
+      },
+      {
+        "file": "0105.png",
+        "bytes": 134751,
+        "sha256": "fb570dd86eb7c124416241a2c9a43791a005bc5d0da3e3720c9392d1a3032672",
+        "capture_started_seconds": 21.019399537006393
+      },
+      {
+        "file": "0106.png",
+        "bytes": 134751,
+        "sha256": "fb570dd86eb7c124416241a2c9a43791a005bc5d0da3e3720c9392d1a3032672",
+        "capture_started_seconds": 21.219830794027075
+      },
+      {
+        "file": "0107.png",
+        "bytes": 134751,
+        "sha256": "fb570dd86eb7c124416241a2c9a43791a005bc5d0da3e3720c9392d1a3032672",
+        "capture_started_seconds": 21.419784519006498
+      },
+      {
+        "file": "0108.png",
+        "bytes": 134751,
+        "sha256": "fb570dd86eb7c124416241a2c9a43791a005bc5d0da3e3720c9392d1a3032672",
+        "capture_started_seconds": 21.621633403003216
+      },
+      {
+        "file": "0109.png",
+        "bytes": 134751,
+        "sha256": "fb570dd86eb7c124416241a2c9a43791a005bc5d0da3e3720c9392d1a3032672",
+        "capture_started_seconds": 21.819886770972516
+      },
+      {
+        "file": "0110.png",
+        "bytes": 134751,
+        "sha256": "fb570dd86eb7c124416241a2c9a43791a005bc5d0da3e3720c9392d1a3032672",
+        "capture_started_seconds": 22.020234856987372
+      },
+      {
+        "file": "0111.png",
+        "bytes": 134751,
+        "sha256": "fb570dd86eb7c124416241a2c9a43791a005bc5d0da3e3720c9392d1a3032672",
+        "capture_started_seconds": 22.22120198700577
+      },
+      {
+        "file": "0112.png",
+        "bytes": 134751,
+        "sha256": "fb570dd86eb7c124416241a2c9a43791a005bc5d0da3e3720c9392d1a3032672",
+        "capture_started_seconds": 22.420283608022146
+      },
+      {
+        "file": "0113.png",
+        "bytes": 134751,
+        "sha256": "fb570dd86eb7c124416241a2c9a43791a005bc5d0da3e3720c9392d1a3032672",
+        "capture_started_seconds": 22.62021470302716
+      },
+      {
+        "file": "0114.png",
+        "bytes": 134751,
+        "sha256": "fb570dd86eb7c124416241a2c9a43791a005bc5d0da3e3720c9392d1a3032672",
+        "capture_started_seconds": 22.81960514502134
+      },
+      {
+        "file": "0115.png",
+        "bytes": 134751,
+        "sha256": "fb570dd86eb7c124416241a2c9a43791a005bc5d0da3e3720c9392d1a3032672",
+        "capture_started_seconds": 23.021086836000904
+      },
+      {
+        "file": "0116.png",
+        "bytes": 134751,
+        "sha256": "fb570dd86eb7c124416241a2c9a43791a005bc5d0da3e3720c9392d1a3032672",
+        "capture_started_seconds": 23.220188889012206
+      }
+    ]
+  },
+  "clean_source_segment_seconds": {
+    "start": 0.21934,
+    "duration": 22.8,
+    "end": 23.01934
+  },
+  "image_operations": {
+    "owner_specified_crop": null,
+    "mp4_scaling": "area resampling; even output height",
+    "gif": "4 fps sampling of recorded images, area scaling, palette quantization; no motion interpolation",
+    "audio_removed": true,
+    "speed_factor_relative_to_recorded_stream_timestamps": 1
+  },
+  "mp4_encoding_attempts": [
+    {
+      "crf": 24,
+      "width": 1180,
+      "bytes": 952511
+    }
+  ],
+  "gif_encoding_attempts": [
+    {
+      "fps": 4,
+      "width": 800,
+      "palette_colors": 96,
+      "bytes": 1181372
+    }
+  ],
+  "poster": {
+    "decoded_mp4_frame_index": 113,
+    "frame_count": 114
+  },
+  "media": [
+    {
+      "file": "linux-real-rgbd.mp4",
+      "bytes": 952511,
+      "sha256": "4c826d874163bc755f9e5b8f0e5e7af32820eaa36d28f2f8d8d6ffa094f15cf6"
+    },
+    {
+      "file": "linux-real-rgbd.gif",
+      "bytes": 1181372,
+      "sha256": "09f27215a2f59585f2bd038ce943eb865d20e6631590ccb54f2e799bc99dad37"
+    },
+    {
+      "file": "linux-real-rgbd.png",
+      "bytes": 209136,
+      "sha256": "2dc6f345c212e93c0140e09db6f0bd9acd10fbecf7b7c9826e77881595d5ea84"
+    }
+  ],
+  "automated_qa": {
+    "full_ffmpeg_decode_pass": true,
+    "decoded_media": {
+      "mp4": {
+        "probe": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "codec_name": "h264",
+              "width": 1180,
+              "height": 800,
+              "pix_fmt": "yuv420p",
+              "r_frame_rate": "5/1",
+              "avg_frame_rate": "7125/1412",
+              "time_base": "1/16000",
+              "duration": "22.592000",
+              "nb_frames": "114",
+              "nb_read_frames": "114"
+            }
+          ],
+          "format": {
+            "duration": "22.592000",
+            "size": "952511"
+          }
+        },
+        "frame_indices": [
+          0,
+          56,
+          113
+        ],
+        "extracted_frames": [
+          {
+            "file": "01.png",
+            "bytes": 159282,
+            "sha256": "48d2acc6d31261a1395d6612b83dae56c3f867c2589c1b0c8121507558ee5ce9"
+          },
+          {
+            "file": "02.png",
+            "bytes": 252059,
+            "sha256": "e61502339b0f0d9f21fa30f2d31863683c653d40176ffb574afb349423d2166c"
+          },
+          {
+            "file": "03.png",
+            "bytes": 209136,
+            "sha256": "2dc6f345c212e93c0140e09db6f0bd9acd10fbecf7b7c9826e77881595d5ea84"
+          }
+        ]
+      },
+      "gif": {
+        "probe": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "codec_name": "gif",
+              "width": 800,
+              "height": 542,
+              "pix_fmt": "bgra",
+              "r_frame_rate": "4/1",
+              "avg_frame_rate": "4/1",
+              "time_base": "1/100",
+              "duration": "22.750000",
+              "nb_frames": "91",
+              "nb_read_frames": "91"
+            }
+          ],
+          "format": {
+            "duration": "22.750000",
+            "size": "1181372"
+          }
+        },
+        "frame_indices": [
+          0,
+          45,
+          90
+        ],
+        "extracted_frames": [
+          {
+            "file": "01.png",
+            "bytes": 76041,
+            "sha256": "4c5a193e55450f0c21e003c5250b0ff0f5b568a9a230bc02b72a720cdbd36403"
+          },
+          {
+            "file": "02.png",
+            "bytes": 107420,
+            "sha256": "9688a9f846de7a8be2a5a1a6ff8264360a871100f14a2f9aa3be761025da03c0"
+          },
+          {
+            "file": "03.png",
+            "bytes": 90674,
+            "sha256": "3fea13e043de77a1d356a40cb18f85118f4f5127af77827caee1e2cc3501074c"
+          }
+        ]
+      }
+    },
+    "pillow_gif": {
+      "all_frames_decoded": 91,
+      "unique_rgb_frame_count": 86,
+      "duration_ms": 22750,
+      "loop": 0
+    },
+    "mp4_faststart_verified": true,
+    "strict_mp4_limit_bytes": 10000000,
+    "strict_gif_limit_bytes": 2000000
+  },
+  "encoder": {
+    "ffmpeg_version": "ffmpeg version 8.1.1 Copyright (c) 2000-2026 the FFmpeg developers",
+    "helper_sha256": "2a3612e0b3d93dcbd1ebe30179370802d96c119564bd82426932e00d013432f3",
+    "commands": [
+      [
+        "ffmpeg",
+        "-v",
+        "error",
+        "-y",
+        "-f",
+        "concat",
+        "-safe",
+        "0",
+        "-i",
+        "SCRATCH/measured-timeline.ffconcat",
+        "-ss",
+        "0.21934",
+        "-t",
+        "22.8",
+        "-map",
+        "0:v:0",
+        "-an",
+        "-map_metadata",
+        "-1",
+        "-vf",
+        "scale=1180:-2:flags=area,setpts=PTS-STARTPTS",
+        "-c:v",
+        "libx264",
+        "-preset",
+        "slow",
+        "-crf",
+        "24",
+        "-pix_fmt",
+        "yuv420p",
+        "-fps_mode",
+        "vfr",
+        "-movflags",
+        "+faststart",
+        "-metadata",
+        "title=Mobile Point Fusion: linux recorded RGB-D native capture",
+        "-metadata",
+        "comment=Actual native app screen capture using recorded TUM Freiburg 1 xyz RGB-D samples in metres and supplied motion-capture poses. The app unprojects depth and executes fusion; it does not estimate camera poses. Capture playback is not a performance benchmark.",
+        "SCRATCH/linux-real-rgbd.mp4"
+      ],
+      [
+        "ffmpeg",
+        "-v",
+        "error",
+        "-y",
+        "-i",
+        "SCRATCH/linux-real-rgbd.mp4",
+        "-filter_complex",
+        "[0:v]fps=4,scale=800:-2:flags=area,split[a][b];[a]palettegen=max_colors=96:stats_mode=diff[p];[b][p]paletteuse=dither=bayer:bayer_scale=5:diff_mode=rectangle",
+        "-an",
+        "-map_metadata",
+        "-1",
+        "-loop",
+        "0",
+        "SCRATCH/linux-real-rgbd.gif"
+      ],
+      [
+        "ffmpeg",
+        "-v",
+        "error",
+        "-i",
+        "SCRATCH/linux-real-rgbd.mp4",
+        "-map",
+        "0:v:0",
+        "-f",
+        "null",
+        "-"
+      ],
+      [
+        "ffmpeg",
+        "-v",
+        "error",
+        "-y",
+        "-i",
+        "SCRATCH/linux-real-rgbd.mp4",
+        "-vf",
+        "select=eq(n\\,0)+eq(n\\,56)+eq(n\\,113)",
+        "-fps_mode",
+        "vfr",
+        "-frames:v",
+        "3",
+        "SCRATCH/mp4-qa-frames/%02d.png"
+      ],
+      [
+        "ffmpeg",
+        "-v",
+        "error",
+        "-i",
+        "SCRATCH/linux-real-rgbd.gif",
+        "-map",
+        "0:v:0",
+        "-f",
+        "null",
+        "-"
+      ],
+      [
+        "ffmpeg",
+        "-v",
+        "error",
+        "-y",
+        "-i",
+        "SCRATCH/linux-real-rgbd.gif",
+        "-vf",
+        "select=eq(n\\,0)+eq(n\\,45)+eq(n\\,90)",
+        "-fps_mode",
+        "vfr",
+        "-frames:v",
+        "3",
+        "SCRATCH/gif-qa-frames/%02d.png"
+      ],
+      [
+        "ffmpeg",
+        "-v",
+        "error",
+        "-y",
+        "-i",
+        "SCRATCH/linux-real-rgbd.mp4",
+        "-vf",
+        "select=eq(n\\,113)",
+        "-frames:v",
+        "1",
+        "-fps_mode",
+        "vfr",
+        "-map_metadata",
+        "-1",
+        "SCRATCH/linux-real-rgbd.png"
+      ]
+    ]
+  },
+  "visual_review": {
+    "status": "passed",
+    "reviewers": [
+      "encoding agent",
+      "capture-owner agent"
+    ],
+    "method": "Separate visual inspection through image tools of actual first, middle and last decoded MP4 and GIF frames, plus full-size poster inspection by the encoding agent.",
+    "observations": "Full native app visible, recorded RGB-D/supplied-pose labels visible, both observation and accumulated point views visible, no home screen or error text in inspected frames, final frame visibly120/120.",
+    "limits": "Selected-frame visual review does not verify every app state or algorithm correctness. Full media decoding is checked separately."
+  }
+}

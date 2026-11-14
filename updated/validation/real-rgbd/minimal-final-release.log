@@ -1,0 +1,153 @@
+Consolidate compiler generated dependencies of target points_fusion
+[ 25%] Built target original_faults
+[ 37%] Building CXX object CMakeFiles/points_fusion.dir/src/main.cpp.o
+Consolidate compiler generated dependencies of target points_fusion_ui
+[ 50%] Building CXX object CMakeFiles/points_fusion_ui.dir/platforms/linux/main.cpp.o
+[ 62%] Linking CXX executable points_fusion_ui
+[ 62%] Built target points_fusion_ui
+Consolidate compiler generated dependencies of target rgbd_input_tests
+[ 75%] Building CXX object CMakeFiles/rgbd_input_tests.dir/tests/rgbd_input_tests.cpp.o
+[ 87%] Linking CXX executable points_fusion
+[ 87%] Built target points_fusion
+[100%] Linking CXX executable rgbd_input_tests
+[100%] Built target rgbd_input_tests
+Internal ctest changing into directory: <LINUX_TASK>/build-real
+Test project <LINUX_TASK>/build-real
+    Start 1: cpu_regressions
+1/4 Test #1: cpu_regressions ...................   Passed    0.00 sec
+    Start 2: gles_shader_references
+2/4 Test #2: gles_shader_references ............   Passed    0.03 sec
+    Start 3: rgbd_input_regressions
+3/4 Test #3: rgbd_input_regressions ............   Passed    0.00 sec
+    Start 4: rgbd_calibrated_gpu_regressions
+4/4 Test #4: rgbd_calibrated_gpu_regressions ...   Passed    0.06 sec
+
+100% tests passed, 0 tests failed out of 4
+
+Total Test time (real) =   0.10 sec
+libEGL warning: failed to open /dev/dri/card1: Permission denied
+
+libEGL warning: failed to open /dev/dri/card0: Permission denied
+
+native renderer=llvmpipe (LLVM 15.0.7, 256 bits) version=OpenGL ES 3.2 Mesa 23.2.1-1ubuntu3.1~22.04.4
+RECORDED_FUSION frame=1/120 points=11448
+RECORDED_FUSION frame=2/120 points=16751
+RECORDED_FUSION frame=3/120 points=21060
+RECORDED_FUSION frame=4/120 points=24752
+RECORDED_FUSION frame=5/120 points=28955
+RECORDED_FUSION frame=6/120 points=33676
+RECORDED_FUSION frame=7/120 points=37933
+RECORDED_FUSION frame=8/120 points=40928
+RECORDED_FUSION frame=9/120 points=43265
+RECORDED_FUSION frame=10/120 points=45123
+RECORDED_FUSION frame=11/120 points=47400
+RECORDED_FUSION frame=12/120 points=50278
+RECORDED_FUSION frame=13/120 points=55919
+RECORDED_FUSION frame=14/120 points=61886
+RECORDED_FUSION frame=15/120 points=65241
+RECORDED_FUSION frame=16/120 points=66805
+RECORDED_FUSION frame=17/120 points=68113
+RECORDED_FUSION frame=18/120 points=69768
+RECORDED_FUSION frame=19/120 points=71820
+RECORDED_FUSION frame=20/120 points=74167
+RECORDED_FUSION frame=21/120 points=75643
+RECORDED_FUSION frame=22/120 points=76239
+RECORDED_FUSION frame=23/120 points=76077
+RECORDED_FUSION frame=24/120 points=76165
+RECORDED_FUSION frame=25/120 points=77388
+RECORDED_FUSION frame=26/120 points=78540
+RECORDED_FUSION frame=27/120 points=79390
+RECORDED_FUSION frame=28/120 points=82054
+RECORDED_FUSION frame=29/120 points=84993
+RECORDED_FUSION frame=30/120 points=88861
+RECORDED_FUSION frame=31/120 points=93054
+RECORDED_FUSION frame=32/120 points=95190
+RECORDED_FUSION frame=33/120 points=96746
+RECORDED_FUSION frame=34/120 points=97399
+RECORDED_FUSION frame=35/120 points=98369
+RECORDED_FUSION frame=36/120 points=100106
+RECORDED_FUSION frame=37/120 points=102392
+RECORDED_FUSION frame=38/120 points=106065
+RECORDED_FUSION frame=39/120 points=109853
+RECORDED_FUSION frame=40/120 points=112513
+RECORDED_FUSION frame=41/120 points=115517
+RECORDED_FUSION frame=42/120 points=116803
+RECORDED_FUSION frame=43/120 points=117735
+RECORDED_FUSION frame=44/120 points=118743
+RECORDED_FUSION frame=45/120 points=120186
+RECORDED_FUSION frame=46/120 points=121977
+RECORDED_FUSION frame=47/120 points=123756
+RECORDED_FUSION frame=48/120 points=126445
+RECORDED_FUSION frame=49/120 points=128425
+RECORDED_FUSION frame=50/120 points=97544
+RECORDED_FUSION frame=51/120 points=98487
+RECORDED_FUSION frame=52/120 points=99013
+RECORDED_FUSION frame=53/120 points=99530
+RECORDED_FUSION frame=54/120 points=100731
+RECORDED_FUSION frame=55/120 points=102588
+RECORDED_FUSION frame=56/120 points=104937
+RECORDED_FUSION frame=57/120 points=107412
+RECORDED_FUSION frame=58/120 points=109697
+RECORDED_FUSION frame=59/120 points=111086
+RECORDED_FUSION frame=60/120 points=112059
+RECORDED_FUSION frame=61/120 points=113080
+RECORDED_FUSION frame=62/120 points=114516
+RECORDED_FUSION frame=63/120 points=116721
+RECORDED_FUSION frame=64/120 points=119264
+RECORDED_FUSION frame=65/120 points=121305
+RECORDED_FUSION frame=66/120 points=122281
+RECORDED_FUSION frame=67/120 points=123654
+RECORDED_FUSION frame=68/120 points=124581
+RECORDED_FUSION frame=69/120 points=125121
+RECORDED_FUSION frame=70/120 points=125313
+RECORDED_FUSION frame=71/120 points=126270
+RECORDED_FUSION frame=72/120 points=127551
+RECORDED_FUSION frame=73/120 points=129503
+RECORDED_FUSION frame=74/120 points=131678
+RECORDED_FUSION frame=75/120 points=95831
+RECORDED_FUSION frame=76/120 points=96412
+RECORDED_FUSION frame=77/120 points=96016
+RECORDED_FUSION frame=78/120 points=95877
+RECORDED_FUSION frame=79/120 points=96945
+RECORDED_FUSION frame=80/120 points=99203
+RECORDED_FUSION frame=81/120 points=101722
+RECORDED_FUSION frame=82/120 points=103281
+RECORDED_FUSION frame=83/120 points=105323
+RECORDED_FUSION frame=84/120 points=106215
+RECORDED_FUSION frame=85/120 points=106989
+RECORDED_FUSION frame=86/120 points=108295
+RECORDED_FUSION frame=87/120 points=110590
+RECORDED_FUSION frame=88/120 points=112965
+RECORDED_FUSION frame=89/120 points=115020
+RECORDED_FUSION frame=90/120 points=116884
+RECORDED_FUSION frame=91/120 points=119141
+RECORDED_FUSION frame=92/120 points=119319
+RECORDED_FUSION frame=93/120 points=119077
+RECORDED_FUSION frame=94/120 points=118858
+RECORDED_FUSION frame=95/120 points=119416
+RECORDED_FUSION frame=96/120 points=120518
+RECORDED_FUSION frame=97/120 points=123075
+RECORDED_FUSION frame=98/120 points=125341
+RECORDED_FUSION frame=99/120 points=127161
+RECORDED_FUSION frame=100/120 points=80714
+RECORDED_FUSION frame=101/120 points=81934
+RECORDED_FUSION frame=102/120 points=82942
+RECORDED_FUSION frame=103/120 points=84556
+RECORDED_FUSION frame=104/120 points=86056
+RECORDED_FUSION frame=105/120 points=87924
+RECORDED_FUSION frame=106/120 points=89404
+RECORDED_FUSION frame=107/120 points=90304
+RECORDED_FUSION frame=108/120 points=91471
+RECORDED_FUSION frame=109/120 points=92267
+RECORDED_FUSION frame=110/120 points=92507
+RECORDED_FUSION frame=111/120 points=92507
+RECORDED_FUSION frame=112/120 points=92773
+RECORDED_FUSION frame=113/120 points=92978
+RECORDED_FUSION frame=114/120 points=93234
+RECORDED_FUSION frame=115/120 points=93624
+RECORDED_FUSION frame=116/120 points=93912
+RECORDED_FUSION frame=117/120 points=94185
+RECORDED_FUSION frame=118/120 points=94625
+RECORDED_FUSION frame=119/120 points=94732
+NATIVE_FUSION_COMPLETE frames=120 points=94842 merged=1133826 compared=1460277
+RECORDED_FUSION frame=120/120 points=94842

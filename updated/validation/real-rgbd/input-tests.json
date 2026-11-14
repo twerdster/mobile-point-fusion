@@ -1,0 +1,151 @@
+{
+  "schema_version": 2,
+  "recorded_at_utc": "2026-11-14T08:51:25.657338+00:00",
+  "status": "passed",
+  "scope": "Constructed calibrated RGB-D inputs and actual GLES/CPU fusion regression checks. This record does not evaluate the real TUM reconstruction or physical devices.",
+  "environment": {
+    "os": "Ubuntu 22.04.5 LTS",
+    "machine": "x86_64",
+    "compiler": "GCC 11.4.0",
+    "cmake": "3.22.1",
+    "renderer": "llvmpipe (LLVM 15.0.7, 256 bits)",
+    "gles": "OpenGL ES 3.2 Mesa 23.2.1-1ubuntu3.1~22.04.4"
+  },
+  "test_counts": {
+    "ctest_entries": 4,
+    "assertions_per_configuration": 84,
+    "existing_synthetic_assertions": 25,
+    "new_calibrated_cpu_assertions": 45,
+    "new_calibrated_gpu_and_shared_loop_assertions": 14,
+    "meaning": "Assertions over constructed fixtures repeated in three build/storage configurations; not independent camera recordings or a benchmark score."
+  },
+  "ctest_entries": [
+    {
+      "name": "cpu_regressions",
+      "assertions": 11
+    },
+    {
+      "name": "gles_shader_references",
+      "assertions": 14
+    },
+    {
+      "name": "rgbd_input_regressions",
+      "assertions": 45
+    },
+    {
+      "name": "rgbd_calibrated_gpu_regressions",
+      "assertions": 14
+    }
+  ],
+  "configurations": [
+    {
+      "build_type": "RelWithDebInfo",
+      "passed_ctest_entries": 4,
+      "command": "cmake -S updated -B build-tests -DCMAKE_BUILD_TYPE=RelWithDebInfo && cmake --build build-tests --parallel 2 && ctest --test-dir build-tests -V --output-on-failure",
+      "framebuffer_storage": "RGBA32F"
+    },
+    {
+      "build_type": "Debug",
+      "sanitizers": "address,undefined",
+      "passed_ctest_entries": 4,
+      "command": "cmake -S updated -B build-tests-asan -DCMAKE_BUILD_TYPE=Debug -DSANITIZERS=ON && cmake --build build-tests-asan --parallel 2 && ASAN_OPTIONS=detect_leaks=0:halt_on_error=1 UBSAN_OPTIONS=halt_on_error=1:print_stacktrace=1 ctest --test-dir build-tests-asan -V --output-on-failure",
+      "framebuffer_storage": "RGBA32F"
+    },
+    {
+      "build_type": "RelWithDebInfo",
+      "framebuffer_storage": "RGBA32UI_float_bits",
+      "passed_ctest_entries": 4,
+      "command": "cmake -S updated -B build-tests-integer -DCMAKE_BUILD_TYPE=RelWithDebInfo -DINTEGER_FLOAT_STORAGE=ON && cmake --build build-tests-integer --parallel 2 && ctest --test-dir build-tests-integer -V --output-on-failure"
+    }
+  ],
+  "cpu_checks": [
+    "Independent hand-authored little-endian packs, exact lengths, depth units and registered RGB row/channel selection.",
+    "Literal asymmetric rotation/translation and normal witnesses; GL axes; inverse supplied pose; nonidentity first pose retained for a shared held-out anchor.",
+    "Half-pixel projection, 0.5\u20133.5 m inclusive range and rejection counts, invalid depth, image borders and 0.05 m normal discontinuity rule.",
+    "Float64 absolute timestamps, random access, malformed calibration/pose/count/length/timestamps and invalid indices.",
+    "Weighted geometry preserves the existing first-insert RGB/radius policy.",
+    "Seven query-arithmetic checks cover a literal double-reference witness, one-ULP perturbation, material point/normal errors, nonfinite values, homogeneous components and a degenerate normal."
+  ],
+  "actual_shader_and_shared_loop_checks": [
+    "Calibrated off-axis pixel witness independently fixes GL readback pixel and NDC coordinates; checks transformed position, normal, confidence and nearest-depth z-buffer.",
+    "An injected wrong model ID must raise CorrespondenceMismatch with exact frame/pixel/IDs, candidate metrics and thresholds before incrementing the comparison counter. It remains rejected after the GPU-query recheck.",
+    "Actual Fusion vertex transform feedback selects input ID3 from distinct input records and captures the literal asymmetric position/normalized-normal witness.",
+    "Controlled candidate normal texels isolate the actual Fusion strict dot comparison: one ULP below and exactly at the uploaded cutoff reject, one ULP above accepts. The uploaded uniform equals the CPU FP32 cutoff in both storage modes. This is a comparison test, not a normal-estimation accuracy result.",
+    "Actual shaders insert 165 plane points, then merge 165 noisy observations into the same 165 points at z=-1.005 m with doubled confidence; concatenating 330 raw points cannot satisfy this check.",
+    "A translated supplied-pose view adds further merges and leaves a finite metric plane with fewer points than the raw observation union.",
+    "The shared LiveFusion loop preserves a 0.125 s source interval before float conversion, then removes 165 low-confidence points at its 25th-view expiry check after 12 s of source time.",
+    "An oversized supersampled framebuffer is rejected before attachment allocation."
+  ],
+  "sanitizer_qualification": "Authored C++ executables were instrumented. Mesa and GLSL shader execution were not instrumented; leak detection was disabled. No address or undefined-behaviour diagnostic occurred in these runs.",
+  "limitations": [
+    "Constructed plane/input fixtures do not establish real-scene accuracy, calibration quality, tracking or general robustness.",
+    "These GPU runs use software Mesa in both storage modes; physical-device results are recorded separately.",
+    "Full-run CPU correspondence checks consume the GPU index map; the independent literal-pixel fixture here checks one calibrated index/rasterization case rather than every full-run index output.",
+    "InputFrame.valid_depth_pixels counts samples after metric range filtering; rejected_range_pixels is separate.",
+    "The query arithmetic audit is not a pose-rigidity validator; Recording separately rejects nonrigid poses."
+  ],
+  "logs": [
+    {
+      "file": "input-tests-normal-build.log",
+      "bytes": 496,
+      "sha256": "68d67fc30a0f3715b4ed7859a9f437f72caf553472c32870de1969df19dc328a"
+    },
+    {
+      "file": "input-tests-normal-ctest.log",
+      "bytes": 8943,
+      "sha256": "a5165926f5066d616f1176caea4340f45007dd48fe792d9e0bbf0049a8f9721d"
+    },
+    {
+      "file": "input-tests-asan-build.log",
+      "bytes": 496,
+      "sha256": "68d67fc30a0f3715b4ed7859a9f437f72caf553472c32870de1969df19dc328a"
+    },
+    {
+      "file": "input-tests-asan-ctest.log",
+      "bytes": 8927,
+      "sha256": "218adbbf4b0a0af951c0ba512c9f41000a1c605a3a118706acb771f402a2ebb7"
+    },
+    {
+      "file": "input-tests-integer-configure.log",
+      "bytes": 92,
+      "sha256": "e3b7c0c4e6920d6f64c077166547f321ccad5040c6fc0db1e8467f325f2adad4"
+    },
+    {
+      "file": "input-tests-integer-build.log",
+      "bytes": 566,
+      "sha256": "e1dbc80eaef8bbda34316fbf9851e4dfc79c8fb82ced529f9d5a6cb2082c5acf"
+    },
+    {
+      "file": "input-tests-integer-ctest.log",
+      "bytes": 8951,
+      "sha256": "ace19e7f8a53f085a8f8cae6507803c8b1d557e668b96153cf6e15d451adc78f"
+    }
+  ],
+  "source_files_sha256": {
+    "updated/src/core.hpp": "a12be8eb7fce1ab9a45d5a7f345815babad8bd6fd321369d5dc69b405179b768",
+    "updated/src/correspondence.hpp": "d7912d226c6f3df79a4c46e8839a113d4f1fa384912720edd39480a4c7108775",
+    "updated/src/fixture.hpp": "7dd06ce3089c78d0d47d9bfb4bafd18d6ea3472d68743e7cb805436dc9bf315b",
+    "updated/src/gles.hpp": "19641db8529dfe1e9013fdef7ebd77cf9516069ec0f4be9c5b1c35382f51d726",
+    "updated/src/input_sequence.hpp": "6f243680b226e85a1232d1faa3045504d6e257785826d2dc172138e8b87eae78",
+    "updated/src/live.hpp": "69335f8497ac6e36567835961f9775ce7d4f9820281b28f0744f4e3b75c61e62",
+    "updated/src/main.cpp": "715b0b7d20788efb422f3dca65248b4e61b8e277d3bae0834e4b44e4801e0ebe",
+    "updated/src/precision.hpp": "f19c777582d35bb39d918040bf2b1005840fca676e8a7652b0707331d162d8e7",
+    "updated/tests/original_faults.cpp": "911adadda12a13e1a409769276197d23d66a71e6c113a938f41f5b1cefc31ee7",
+    "updated/tests/rgbd_input_tests.cpp": "065a64aa0991a7691d73750c2d696a25a39ec7f55b73306059f47a46bb58ea1f",
+    "updated/tests/test_evaluate_rgbd.py": "b4dcebce06fb5f3d9464f1ba5766a204b8abb442b41844e83966931b5e8baab7",
+    "updated/tests/test_prepare_tum_rgbd.py": "9b7bf07dc46d5ae492e8290750ceaf82021b0365b6e9002136c7b1b95c601b85",
+    "updated/shaders/Fusion.fsh": "add40cd30f68287fe2e285fac6d3ca0312cf384dbcefe9b6aa1b5fcffe5056fc",
+    "updated/shaders/Fusion.vsh": "73e67ba652766d53c95e1441ac164141b9075acd9095325c18c77fce0f5487da",
+    "updated/shaders/PointRemoval.fsh": "078c3a870b42eee7459c756af64618674f04b8ba49a8bff799d0157411e40680",
+    "updated/shaders/PointRemoval.vsh": "18f15f07781a0a3f4fde523310f7a7f9768c646604fa68cac7bd351dd1960829",
+    "updated/CMakeLists.txt": "ecb98be56ec2d7ad27951e806cdabeaf708204e1f37557675e32ba18803e41dc",
+    "source/original/PointsFusion/PointsFusion/indexMap.vsh": "79a675bea3e8e45c6e7df7a1da8115708a36c16865f0e51d3f69407b60047853",
+    "source/original/PointsFusion/PointsFusion/indexMap.fsh": "d3745bcb51144c5e55730ac4f3d4528fc257059281a3a5e04aa2ebbb9b4cf0d4",
+    "source/original/PointsFusion/PointsFusion/Fusion.vsh": "1241a05293c262d26d68534bbc451c9e9a6a870f98da73a40738b6ac41a0637f",
+    "source/original/PointsFusion/PointsFusion/Fusion.fsh": "078853ca7e3fb23ef6fb3d2b04a4f46c2b64e2040c50e29ed4167feda6dca66a",
+    "source/original/PointsFusion/PointsFusion/PointRemoval.vsh": "33b8e4067e3a95becf50e90fa05896923386a9f57c80c844bf5ae7202fa411e0",
+    "source/original/PointsFusion/PointsFusion/PointRemoval.fsh": "66212c89a5c52360eb94137d21e2a41aa1fc318fe4937f22925afca498cee26b"
+  },
+  "reference_policy": "Strict CPU match first. On discrepancy, capture the actual GPU vertex query, bound its point/normal arithmetic against a double reference, then require the exact CPU winner using that measured query. Any remaining mismatch throws. No distance/normal predicate or winner-selection tolerance is added.",
+  "expected_failure_fixture": "The logs intentionally contain a rejected mismatch between BEGIN_EXPECTED_INJECTED_CORRESPONDENCE_DIAGNOSTIC and END_EXPECTED_INJECTED_CORRESPONDENCE_DIAGNOSTIC. Passing requires the typed exception and its diagnostic fields."
+}

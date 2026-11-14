@@ -1,0 +1,630 @@
+{
+  "schema_version": 1,
+  "status": "rendered_and_decoded",
+  "scope": "Actual saved final point cloud with recorded RGB/depth reference. Display orbit only; no new fusion, live app, tracking, surface-accuracy or speed claim.",
+  "source_cloud": {
+    "filename": "final-fused.ply",
+    "sha256": "49f0214f4a935268601ae2a8edd8311ff35e1fae0931e536076fbf00518b61f7",
+    "points": 94842,
+    "units": "metres",
+    "PLY_comment": "Actual updated point-fusion output; recorded RGB-D; supplied camera poses; metres; no pose estimation; not a mesh"
+  },
+  "recorded_panels": {
+    "source_index_zero_based": 0,
+    "source_frame_one_based": 1,
+    "source_depth_timestamp": 1305031102.160407,
+    "source_depth_timestamp_text": "1305031102.160407",
+    "source_depth_file": "depth/1305031102.160407.png",
+    "source_depth_png_sha256": "3d2b60049ced75b1c4f468ee1ff734650e4b31ca1a535698a02a1434f41eafae",
+    "source_rgb_timestamp": 1305031102.175304,
+    "source_rgb_timestamp_text": "1305031102.175304",
+    "source_rgb_file": "rgb/1305031102.175304.png",
+    "source_rgb_png_sha256": "331c3fd7a3d5eefb19e3da2026625aa221ca1991f5ae30ff96060e2e3e45e368",
+    "rgb_delta_seconds": 0.014896869659423828,
+    "depth_units_per_metre": 5000,
+    "depth_display_range_metres": [
+      0.5,
+      3.5
+    ],
+    "missing_depth_display": "black",
+    "depth_display_colour_stops_RGB": [
+      [
+        68,
+        1,
+        84
+      ],
+      [
+        59,
+        82,
+        139
+      ],
+      [
+        33,
+        145,
+        140
+      ],
+      [
+        94,
+        201,
+        98
+      ],
+      [
+        253,
+        231,
+        37
+      ]
+    ],
+    "RGB_display_resampling": "Lanczos to panel dimensions",
+    "depth_display_resampling": "nearest to panel dimensions; colours only, no depth conversion changes",
+    "RGB_panel_RGB24_sha256": "9ac06cbc85889ede4402b0203294c76c3a3e15a4621c3ff7a99d6316d77fb796",
+    "depth_panel_RGB24_sha256": "7f31e4ab7e4662c9a2eb0d9d400a9a0be4b788815b3be932ef0a13d137d6613c"
+  },
+  "saved_run_state": {},
+  "saved_run_state_sha256": null,
+  "rendering": {
+    "canvas": [
+      1200,
+      460
+    ],
+    "panel_size": [
+      376,
+      282
+    ],
+    "point_samples": "all stored finite points; no confidence or geometric filtering",
+    "projection": "60-degree vertical perspective FOV, near 0.03 m; nearest depth wins; fixed center plus four-neighbor display splat",
+    "colour": "stored RGB multiplied by 0.65+0.35*max(0,unit(view_normal) dot unit(0.2,0.35,1)); zero normals use ambient",
+    "normal_handling": "stored averaged normals normalized for display only",
+    "target_metres": [
+      -0.2215867,
+      -0.20356475,
+      -1.248063
+    ],
+    "distance_metres": 1.8,
+    "elevation_metres": 0.45,
+    "orbit_amplitude_degrees": 12.0,
+    "orbit_function": "amplitude*sin(2*pi*frame/frame_count)",
+    "frame_count": 24,
+    "display_fps": 4,
+    "display_seconds": 6.0,
+    "runtime_performance_claim": false,
+    "geometry_changes_during_orbit": false
+  },
+  "dataset_credit": {
+    "authors": "Jürgen Sturm, Nikolas Engelhard, Felix Endres, Wolfram Burgard, Daniel Cremers",
+    "publication": "A Benchmark for the Evaluation of RGB-D SLAM Systems, IROS 2012",
+    "dataset": "https://cvg.cit.tum.de/data/datasets/rgbd-dataset",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "changes": "selected recorded reference frame; display-only RGB resizing/depth colour mapping; projection/shading of separately computed final fusion geometry; GIF palette and H264 encoding"
+  },
+  "encode_commands": {
+    "mp4": [
+      "ffmpeg",
+      "-hide_banner",
+      "-y",
+      "-framerate",
+      "4",
+      "-i",
+      "$FRAME_DIR/%04d.png",
+      "-frames:v",
+      "24",
+      "-an",
+      "-c:v",
+      "libx264",
+      "-preset",
+      "slow",
+      "-crf",
+      "23",
+      "-pix_fmt",
+      "yuv420p",
+      "-movflags",
+      "+faststart",
+      "-metadata",
+      "title=Mobile Point Fusion: real RGB-D saved final cloud",
+      "-metadata",
+      "comment=Recorded TUM Kinect RGB/depth; supplied motion-capture poses; no pose estimation. Saved final cloud, display orbit only; not a live app or performance benchmark. TUM data Sturm et al., IROS 2012, CC BY 4.0.",
+      "$MP4"
+    ],
+    "gif": [
+      "ffmpeg",
+      "-hide_banner",
+      "-y",
+      "-framerate",
+      "4",
+      "-i",
+      "$FRAME_DIR/%04d.png",
+      "-filter_complex",
+      "[0:v]scale=960:368:flags=area,split[a][b];[a]palettegen=max_colors=96:stats_mode=diff[p];[b][p]paletteuse=dither=none:diff_mode=rectangle",
+      "-frames:v",
+      "24",
+      "-loop",
+      "0",
+      "$GIF"
+    ]
+  },
+  "source_renderer_sha256": "d503369af918f6b28b031274fbfecb5f669cac225f1267f9d883f4c82e0c1be4",
+  "environment": {
+    "python": "3.14.4",
+    "numpy": "2.5.4",
+    "pillow": "13.0.0",
+    "FFmpeg": "ffmpeg version 8.1.1 Copyright (c) 2000-2026 the FFmpeg developers",
+    "font_regular_filename": "Arial.ttf",
+    "font_regular_sha256": "525979822591a3447cfc49d943d6f7683508e25543407871c0ed8fed05fd2bd9",
+    "font_bold_filename": "Arial Bold.ttf",
+    "font_bold_sha256": "d72db21f9242aedd6b917d8549ad5921766b24d5f8d0becfda2ff4c620b3c2e0"
+  },
+  "reproduction": "python3 updated/tools/render_rgbd.py --cloud /path/to/fused.ply --dataset /path/to/tum-fr1-xyz --source-index 0 --output-prefix updated/assets/real-rgbd-preview --scratch /path/to/preview-scratch --frames 24 --fps 4 --orbit-degrees 12.0 --distance 1.8 --elevation 0.45 --target -0.2215867 -0.20356475 -1.248063",
+  "media": {
+    "real-rgbd-preview.png": {
+      "bytes": 395522,
+      "sha256": "33e995851ab13e648ebc939c00ceceb5b729a1c7df2920e1763610405482815c"
+    },
+    "real-rgbd-preview.gif": {
+      "bytes": 567441,
+      "sha256": "2613974b128096ca7bcdd007deaff9ed13a8196006cdca4365b640e53af8b5ce"
+    },
+    "real-rgbd-preview.mp4": {
+      "bytes": 355158,
+      "sha256": "63b313b09151b4506461e48992df56c66ad99c5a29ea4b4015243414bce1b396"
+    }
+  },
+  "QA": {
+    "ffmpeg_full_decode": {
+      "mp4": "passed",
+      "gif": "passed"
+    },
+    "ffprobe": {
+      "gif": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "gif",
+            "width": 960,
+            "height": 368,
+            "r_frame_rate": "4/1",
+            "duration": "6.000000",
+            "nb_read_frames": "24"
+          }
+        ],
+        "format": {
+          "duration": "6.000000",
+          "size": "567441"
+        }
+      },
+      "mp4": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "width": 1200,
+            "height": 460,
+            "r_frame_rate": "4/1",
+            "duration": "6.000000",
+            "nb_read_frames": "24"
+          }
+        ],
+        "format": {
+          "duration": "6.000000",
+          "size": "355158"
+        }
+      }
+    },
+    "GIF_decoded_frames": 24,
+    "GIF_unique_RGB_frames": 13,
+    "GIF_total_duration_ms": 6000,
+    "GIF_loop": 0,
+    "MP4_moov_before_mdat": true
+  },
+  "frames": [
+    {
+      "display_orbit_angle_degrees": 0.0,
+      "eye_metres": [
+        -0.2215867,
+        0.24643525000000002,
+        0.5519370000000001
+      ],
+      "target_metres": [
+        -0.2215867,
+        -0.20356475,
+        -1.248063
+      ],
+      "projected_samples_inside_panel": 94842,
+      "occupied_cloud_pixels": 46577,
+      "frame": 0,
+      "raw_png_sha256": "33e995851ab13e648ebc939c00ceceb5b729a1c7df2920e1763610405482815c"
+    },
+    {
+      "display_orbit_angle_degrees": 3.1058285412302493,
+      "eye_metres": [
+        -0.12406199605715366,
+        0.24643525000000002,
+        0.5492930949686237
+      ],
+      "target_metres": [
+        -0.2215867,
+        -0.20356475,
+        -1.248063
+      ],
+      "projected_samples_inside_panel": 94842,
+      "occupied_cloud_pixels": 46631,
+      "frame": 1,
+      "raw_png_sha256": "bda01c3cbf2399f56d50d94ae75e720b2aa767ff863f53471254241ccbcc204a"
+    },
+    {
+      "display_orbit_angle_degrees": 6.0,
+      "eye_metres": [
+        -0.03343546611822376,
+        0.24643525000000002,
+        0.542076411662892
+      ],
+      "target_metres": [
+        -0.2215867,
+        -0.20356475,
+        -1.248063
+      ],
+      "projected_samples_inside_panel": 94842,
+      "occupied_cloud_pixels": 46577,
+      "frame": 2,
+      "raw_png_sha256": "e3c8cb585c0e389e7e36fa54297d275faa26b401d74f5877f53ddae17bfef16f"
+    },
+    {
+      "display_orbit_angle_degrees": 8.48528137423857,
+      "eye_metres": [
+        0.04401291105063984,
+        0.24643525000000002,
+        0.5322338422737116
+      ],
+      "target_metres": [
+        -0.2215867,
+        -0.20356475,
+        -1.248063
+      ],
+      "projected_samples_inside_panel": 94842,
+      "occupied_cloud_pixels": 46323,
+      "frame": 3,
+      "raw_png_sha256": "b7105a7c4c3db4a9676bcffa8c3c6bd9ee7eb7da346699c34c344aac7bd54fcb"
+    },
+    {
+      "display_orbit_angle_degrees": 10.392304845413264,
+      "eye_metres": [
+        0.10310997971363847,
+        0.24643525000000002,
+        0.522409272074019
+      ],
+      "target_metres": [
+        -0.2215867,
+        -0.20356475,
+        -1.248063
+      ],
+      "projected_samples_inside_panel": 94842,
+      "occupied_cloud_pixels": 46083,
+      "frame": 4,
+      "raw_png_sha256": "3aff4aab82ce433aff76d3c907e49f7437a9b7fb47b6253a53f0ada89e64d680"
+    },
+    {
+      "display_orbit_angle_degrees": 11.59110991546882,
+      "eye_metres": [
+        0.1400799678979396,
+        0.24643525000000002,
+        0.5152285871550009
+      ],
+      "target_metres": [
+        -0.2215867,
+        -0.20356475,
+        -1.248063
+      ],
+      "projected_samples_inside_panel": 94842,
+      "occupied_cloud_pixels": 45852,
+      "frame": 5,
+      "raw_png_sha256": "68aae4d8fa42ad0677f82c394dc7069e99e5112c31399e749a3792dde79d35fe"
+    },
+    {
+      "display_orbit_angle_degrees": 12.000000000000002,
+      "eye_metres": [
+        0.15265434347196685,
+        0.24643525000000002,
+        0.5126026813208504
+      ],
+      "target_metres": [
+        -0.2215867,
+        -0.20356475,
+        -1.248063
+      ],
+      "projected_samples_inside_panel": 94842,
+      "occupied_cloud_pixels": 45785,
+      "frame": 6,
+      "raw_png_sha256": "7176f4bf7cefbb60a3611f897e1691d9625520582c157a7b36a1016ea51cb50c"
+    },
+    {
+      "display_orbit_angle_degrees": 11.59110991546882,
+      "eye_metres": [
+        0.1400799678979396,
+        0.24643525000000002,
+        0.5152285871550009
+      ],
+      "target_metres": [
+        -0.2215867,
+        -0.20356475,
+        -1.248063
+      ],
+      "projected_samples_inside_panel": 94842,
+      "occupied_cloud_pixels": 45852,
+      "frame": 7,
+      "raw_png_sha256": "68aae4d8fa42ad0677f82c394dc7069e99e5112c31399e749a3792dde79d35fe"
+    },
+    {
+      "display_orbit_angle_degrees": 10.392304845413266,
+      "eye_metres": [
+        0.10310997971363853,
+        0.24643525000000002,
+        0.522409272074019
+      ],
+      "target_metres": [
+        -0.2215867,
+        -0.20356475,
+        -1.248063
+      ],
+      "projected_samples_inside_panel": 94842,
+      "occupied_cloud_pixels": 46083,
+      "frame": 8,
+      "raw_png_sha256": "3aff4aab82ce433aff76d3c907e49f7437a9b7fb47b6253a53f0ada89e64d680"
+    },
+    {
+      "display_orbit_angle_degrees": 8.485281374238571,
+      "eye_metres": [
+        0.0440129110506399,
+        0.24643525000000002,
+        0.5322338422737116
+      ],
+      "target_metres": [
+        -0.2215867,
+        -0.20356475,
+        -1.248063
+      ],
+      "projected_samples_inside_panel": 94842,
+      "occupied_cloud_pixels": 46323,
+      "frame": 9,
+      "raw_png_sha256": "b7105a7c4c3db4a9676bcffa8c3c6bd9ee7eb7da346699c34c344aac7bd54fcb"
+    },
+    {
+      "display_orbit_angle_degrees": 6.0,
+      "eye_metres": [
+        -0.03343546611822376,
+        0.24643525000000002,
+        0.542076411662892
+      ],
+      "target_metres": [
+        -0.2215867,
+        -0.20356475,
+        -1.248063
+      ],
+      "projected_samples_inside_panel": 94842,
+      "occupied_cloud_pixels": 46577,
+      "frame": 10,
+      "raw_png_sha256": "e3c8cb585c0e389e7e36fa54297d275faa26b401d74f5877f53ddae17bfef16f"
+    },
+    {
+      "display_orbit_angle_degrees": 3.1058285412302524,
+      "eye_metres": [
+        -0.12406199605715355,
+        0.24643525000000002,
+        0.5492930949686237
+      ],
+      "target_metres": [
+        -0.2215867,
+        -0.20356475,
+        -1.248063
+      ],
+      "projected_samples_inside_panel": 94842,
+      "occupied_cloud_pixels": 46631,
+      "frame": 11,
+      "raw_png_sha256": "bda01c3cbf2399f56d50d94ae75e720b2aa767ff863f53471254241ccbcc204a"
+    },
+    {
+      "display_orbit_angle_degrees": 1.4695761589768241e-15,
+      "eye_metres": [
+        -0.22158669999999994,
+        0.24643525000000002,
+        0.5519370000000001
+      ],
+      "target_metres": [
+        -0.2215867,
+        -0.20356475,
+        -1.248063
+      ],
+      "projected_samples_inside_panel": 94842,
+      "occupied_cloud_pixels": 46577,
+      "frame": 12,
+      "raw_png_sha256": "33e995851ab13e648ebc939c00ceceb5b729a1c7df2920e1763610405482815c"
+    },
+    {
+      "display_orbit_angle_degrees": -3.1058285412302498,
+      "eye_metres": [
+        -0.31911140394284637,
+        0.24643525000000002,
+        0.5492930949686237
+      ],
+      "target_metres": [
+        -0.2215867,
+        -0.20356475,
+        -1.248063
+      ],
+      "projected_samples_inside_panel": 94842,
+      "occupied_cloud_pixels": 46432,
+      "frame": 13,
+      "raw_png_sha256": "1e4f3d82048523f29f372c2035fa72d043208944b26895842addc4c61426b8c6"
+    },
+    {
+      "display_orbit_angle_degrees": -5.999999999999998,
+      "eye_metres": [
+        -0.40973793388177615,
+        0.24643525000000002,
+        0.542076411662892
+      ],
+      "target_metres": [
+        -0.2215867,
+        -0.20356475,
+        -1.248063
+      ],
+      "projected_samples_inside_panel": 94842,
+      "occupied_cloud_pixels": 46368,
+      "frame": 14,
+      "raw_png_sha256": "83eb21e43e633648dcae9c67a0e200c96838e332c3b88c59292ae27e3a95019c"
+    },
+    {
+      "display_orbit_angle_degrees": -8.485281374238566,
+      "eye_metres": [
+        -0.4871863110506398,
+        0.24643525000000002,
+        0.5322338422737116
+      ],
+      "target_metres": [
+        -0.2215867,
+        -0.20356475,
+        -1.248063
+      ],
+      "projected_samples_inside_panel": 94842,
+      "occupied_cloud_pixels": 46273,
+      "frame": 15,
+      "raw_png_sha256": "24005a3bd570856bd70e1b155b714a2144fd37061c518bdf8afd036f2ebca6d1"
+    },
+    {
+      "display_orbit_angle_degrees": -10.39230484541326,
+      "eye_metres": [
+        -0.5462833797136384,
+        0.24643525000000002,
+        0.522409272074019
+      ],
+      "target_metres": [
+        -0.2215867,
+        -0.20356475,
+        -1.248063
+      ],
+      "projected_samples_inside_panel": 94841,
+      "occupied_cloud_pixels": 46204,
+      "frame": 16,
+      "raw_png_sha256": "7ab8a155b13f74b8b6adbfb9477b09f131bda8e9080067ac3823e61c58cdada3"
+    },
+    {
+      "display_orbit_angle_degrees": -11.59110991546882,
+      "eye_metres": [
+        -0.5832533678979396,
+        0.24643525000000002,
+        0.5152285871550009
+      ],
+      "target_metres": [
+        -0.2215867,
+        -0.20356475,
+        -1.248063
+      ],
+      "projected_samples_inside_panel": 94832,
+      "occupied_cloud_pixels": 46113,
+      "frame": 17,
+      "raw_png_sha256": "1a1d9b0bdb545750a96135ceb0314326364ee0d21dac6775fe0c8b331bf71ae8"
+    },
+    {
+      "display_orbit_angle_degrees": -12.000000000000002,
+      "eye_metres": [
+        -0.5958277434719669,
+        0.24643525000000002,
+        0.5126026813208504
+      ],
+      "target_metres": [
+        -0.2215867,
+        -0.20356475,
+        -1.248063
+      ],
+      "projected_samples_inside_panel": 94826,
+      "occupied_cloud_pixels": 46111,
+      "frame": 18,
+      "raw_png_sha256": "86b218da3f60d347b8d6806266bd7fe34a00a4b9d9249f6bb7c1dee66ae46b98"
+    },
+    {
+      "display_orbit_angle_degrees": -11.591109915468822,
+      "eye_metres": [
+        -0.5832533678979397,
+        0.24643525000000002,
+        0.5152285871550009
+      ],
+      "target_metres": [
+        -0.2215867,
+        -0.20356475,
+        -1.248063
+      ],
+      "projected_samples_inside_panel": 94832,
+      "occupied_cloud_pixels": 46113,
+      "frame": 19,
+      "raw_png_sha256": "1a1d9b0bdb545750a96135ceb0314326364ee0d21dac6775fe0c8b331bf71ae8"
+    },
+    {
+      "display_orbit_angle_degrees": -10.392304845413264,
+      "eye_metres": [
+        -0.5462833797136385,
+        0.24643525000000002,
+        0.522409272074019
+      ],
+      "target_metres": [
+        -0.2215867,
+        -0.20356475,
+        -1.248063
+      ],
+      "projected_samples_inside_panel": 94841,
+      "occupied_cloud_pixels": 46204,
+      "frame": 20,
+      "raw_png_sha256": "7ab8a155b13f74b8b6adbfb9477b09f131bda8e9080067ac3823e61c58cdada3"
+    },
+    {
+      "display_orbit_angle_degrees": -8.485281374238573,
+      "eye_metres": [
+        -0.4871863110506399,
+        0.24643525000000002,
+        0.5322338422737116
+      ],
+      "target_metres": [
+        -0.2215867,
+        -0.20356475,
+        -1.248063
+      ],
+      "projected_samples_inside_panel": 94842,
+      "occupied_cloud_pixels": 46273,
+      "frame": 21,
+      "raw_png_sha256": "24005a3bd570856bd70e1b155b714a2144fd37061c518bdf8afd036f2ebca6d1"
+    },
+    {
+      "display_orbit_angle_degrees": -6.000000000000006,
+      "eye_metres": [
+        -0.40973793388177643,
+        0.24643525000000002,
+        0.542076411662892
+      ],
+      "target_metres": [
+        -0.2215867,
+        -0.20356475,
+        -1.248063
+      ],
+      "projected_samples_inside_panel": 94842,
+      "occupied_cloud_pixels": 46368,
+      "frame": 22,
+      "raw_png_sha256": "83eb21e43e633648dcae9c67a0e200c96838e332c3b88c59292ae27e3a95019c"
+    },
+    {
+      "display_orbit_angle_degrees": -3.105828541230259,
+      "eye_metres": [
+        -0.31911140394284665,
+        0.24643525000000002,
+        0.5492930949686237
+      ],
+      "target_metres": [
+        -0.2215867,
+        -0.20356475,
+        -1.248063
+      ],
+      "projected_samples_inside_panel": 94842,
+      "occupied_cloud_pixels": 46432,
+      "frame": 23,
+      "raw_png_sha256": "1e4f3d82048523f29f372c2035fa72d043208944b26895842addc4c61426b8c6"
+    }
+  ]
+}

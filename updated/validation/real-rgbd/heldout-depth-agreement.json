@@ -1,0 +1,937 @@
+{
+  "scope": "Held-out measured depth agreement with supplied motion-capture poses; no independent surface geometry or tracking evaluation",
+  "projection": "Point centre nearest the camera among those rounding into each 160x120 sensor pixel; no splat/hole filling; measured-depth validity range 0.5\u20133.5 m, agreement threshold 0.05 m",
+  "limitations": [
+    "Same sensor, scene and calibration as reconstruction; interleaved nearby viewpoints, not novel-view prediction",
+    "Depth noise, provided pose error and projection coverage affect these measurements",
+    "Each cloud's residuals use its own overlapping pixel set; lower MAE need not mean better geometry",
+    "Point-centre rendering differs from app display splats; sparse foreground gaps can reveal background",
+    "Shared world anchor is checked during preparation, not established by the evaluator",
+    "No accuracy pass threshold or benchmark claim"
+  ],
+  "inputs": {
+    "heldout": {
+      "file": "tum-fr1-xyz-holdout-12.pfrgbd",
+      "sha256": "10aa619d7909209b9be3ddd7859a9d1bb1c50e01fb6d71daed8a5714b5e43b2a"
+    },
+    "reconstruction": {
+      "file": "tum-fr1-xyz-120.pfrgbd",
+      "sha256": "1033e30ae101dea653b1be77aaa3972c8a026ca5a152a9bf479cee07a12ff39c"
+    },
+    "fused": {
+      "file": "final-fused.ply",
+      "sha256": "49f0214f4a935268601ae2a8edd8311ff35e1fae0931e536076fbf00518b61f7"
+    },
+    "raw_union": {
+      "construction": "Concatenated native --export-inputs PLY positions, after depth/normal filtering; no fusion",
+      "files": [
+        {
+          "file": "input-0000.ply",
+          "sha256": "129490787f3a261b46eb0f615577b6d5eec61baa3c1f2c34fc95ba3b64d0725e"
+        },
+        {
+          "file": "input-0001.ply",
+          "sha256": "0ee0425a29270915af36b79342f98e30750f55fbf0ea4c0d14b14d7e31ac4b32"
+        },
+        {
+          "file": "input-0002.ply",
+          "sha256": "b3ed9478661e345ca6c440ea4f63ee1b19f92942b9c08600d3c7dea083ef35d9"
+        },
+        {
+          "file": "input-0003.ply",
+          "sha256": "4c7e1fba2464a46c567e8fd52874dd1cc29c6b08e3671ecee06c0663e163d577"
+        },
+        {
+          "file": "input-0004.ply",
+          "sha256": "39ec96ea6ec7a98f494f278d5c8efb7a2ecc7b5491fce9a36c1063806dedbadd"
+        },
+        {
+          "file": "input-0005.ply",
+          "sha256": "c4315fe332ee97001c58044fccd0c4e078e7e132e9243079d7269faac664e1f2"
+        },
+        {
+          "file": "input-0006.ply",
+          "sha256": "c3dc21ca0d6b9fc9548e7a06f550a50336e5865e3ab980faba6187089960121d"
+        },
+        {
+          "file": "input-0007.ply",
+          "sha256": "ec890feb2ac5954aa149fa8f55aefbb07f95b6d44a56808db23314682839f1b7"
+        },
+        {
+          "file": "input-0008.ply",
+          "sha256": "1f07f0ae4910bb2f9f782f808f38d1d439194fbda63d0447dd7013560a9f3f4f"
+        },
+        {
+          "file": "input-0009.ply",
+          "sha256": "66e06274d5249ce79c346d9a74c26f767b99c2833f4c7ddf047d714fb02b97ef"
+        },
+        {
+          "file": "input-0010.ply",
+          "sha256": "fcd4170bd39d382a841060c284a3d4f2b7c2e8e5d89f66611b040e61dcb55214"
+        },
+        {
+          "file": "input-0011.ply",
+          "sha256": "e5e933e34561b44a51e61fd829eab00bbaf086827976f362c0198d37acf25afc"
+        },
+        {
+          "file": "input-0012.ply",
+          "sha256": "8682db59d3b98fbb432c71a99eccca95a4d289bac1281198d200e7ac65cebc97"
+        },
+        {
+          "file": "input-0013.ply",
+          "sha256": "ae068a3acc9162e6778422b27c244126b51ff0a52adc8a3e488172bc7773136e"
+        },
+        {
+          "file": "input-0014.ply",
+          "sha256": "4e93acc2923cb80447f7bf09f3834f6f43fe1da482370258fad5a6151781c4ad"
+        },
+        {
+          "file": "input-0015.ply",
+          "sha256": "0282b5eedcec9552ae8a3023bc9e322bdec418e907b05b2d825bfc12e349ab5e"
+        },
+        {
+          "file": "input-0016.ply",
+          "sha256": "fc996321dcf3889ad8fbd1f9e57bbe7867b17ec210cc07ffa3c59bc9c15af5d4"
+        },
+        {
+          "file": "input-0017.ply",
+          "sha256": "ad20d28713ef9e9bb516c921e0cd4491fe9477a2f22f2727c6073e6146b381e8"
+        },
+        {
+          "file": "input-0018.ply",
+          "sha256": "694d3799db64bb688ea10a777b670a89f8272ac260d8346e2d5603b866663c9f"
+        },
+        {
+          "file": "input-0019.ply",
+          "sha256": "65e0511f99b1411d70a652fcb85ee33f1f9fb22d46367271ea0c3c2ca86381ad"
+        },
+        {
+          "file": "input-0020.ply",
+          "sha256": "a4ec12e0a8216d8d9a77c5c1f1c1dd42d3ee9ab5e4936706ff52064e5155f6c1"
+        },
+        {
+          "file": "input-0021.ply",
+          "sha256": "3d42fe19285eb7bda4b655339d253f293c58b126c2f95bbd74b722aaca30c719"
+        },
+        {
+          "file": "input-0022.ply",
+          "sha256": "d0f9c9c2b0d6fec3d2586840f1d19012193bdfa49a670c8190764d2db2ed7e33"
+        },
+        {
+          "file": "input-0023.ply",
+          "sha256": "ade0de389443b5a9fae5d64eae4079ecf1f3e3aed7e80254de4b5d1c5137bcd0"
+        },
+        {
+          "file": "input-0024.ply",
+          "sha256": "00a7f1f638e656681a48d092ade650297bd30de1f1b025ed1e6f53285b9d5af7"
+        },
+        {
+          "file": "input-0025.ply",
+          "sha256": "ae3e9b767f1a4f4b2faa90612a06dfc1847d10fb3d5e9f880d50ec3e6a1c19aa"
+        },
+        {
+          "file": "input-0026.ply",
+          "sha256": "14d0c8b31b4792dd04dbf3eebc45ecc578ea633104e14d1aedf5ba9a6577fe7e"
+        },
+        {
+          "file": "input-0027.ply",
+          "sha256": "1588556398d575f01c1ee26507ce4313bff79c1fea1127eb5009b78d25028864"
+        },
+        {
+          "file": "input-0028.ply",
+          "sha256": "4818e9e08a95a212f704fe1f36d39a7bdf652d78e856d5ac0204dfdc7950387b"
+        },
+        {
+          "file": "input-0029.ply",
+          "sha256": "5521a4f7acbd264e201c5cff2ccd174cdd5a648a98dfb0600649f640048a16ae"
+        },
+        {
+          "file": "input-0030.ply",
+          "sha256": "5e5c706dcdf705ae3706ecbb48ebe49380dbd3aa3f4e3e624bdcb4c779442c93"
+        },
+        {
+          "file": "input-0031.ply",
+          "sha256": "163171d738a9a0caf1546cd832f19edca2f3242477852ca6a47dbf4635c6feb4"
+        },
+        {
+          "file": "input-0032.ply",
+          "sha256": "2818a3d80eae84afa9522c98828c4e9011deefb8f0e66afcb1ad41cd704a5e04"
+        },
+        {
+          "file": "input-0033.ply",
+          "sha256": "53bbc53c7150ff3895cbb5c91a48dd5efba840b7f73e11813c3adad2a2576752"
+        },
+        {
+          "file": "input-0034.ply",
+          "sha256": "98bf9f1e2a884f7aa00c173b742232913d00698a318433c8475150ceddbcedd0"
+        },
+        {
+          "file": "input-0035.ply",
+          "sha256": "f4ee09b0e43eb730405596d8a7b19e1925036a8c5d3501697144b1094ed5d2cc"
+        },
+        {
+          "file": "input-0036.ply",
+          "sha256": "f9ad4b611cbb987b15e6bda80f63f93647c02d8229c43e7c8bddfbf8321e635c"
+        },
+        {
+          "file": "input-0037.ply",
+          "sha256": "020680ddce64089c612e8964947095210b0f5baa516b2bdcc86db536c3d51e25"
+        },
+        {
+          "file": "input-0038.ply",
+          "sha256": "c62db1e8a4f3d60fcfaf05886cb3ff867cf2e88b14a760cfa28fceaa0a2740be"
+        },
+        {
+          "file": "input-0039.ply",
+          "sha256": "757d8c6a1b1187a5ccc44a776e7e7b44df00896ef9c54106bf9c28377eb8a699"
+        },
+        {
+          "file": "input-0040.ply",
+          "sha256": "5aaf3e9053d8c635a01774b47e323560769becb5c065ad7f30b9392025c6d197"
+        },
+        {
+          "file": "input-0041.ply",
+          "sha256": "cc40767e729d1c0e1b84f9e545de5cd2dcfea89efcaf6061fe959c84dd8e3f21"
+        },
+        {
+          "file": "input-0042.ply",
+          "sha256": "b0269223060f8ff8cbc17a187085e45fc802bf8c04d25d8e4ad09fee01b5dbf1"
+        },
+        {
+          "file": "input-0043.ply",
+          "sha256": "850814da8a4e65f3e2ef226fb12c5b952e24e45528bcb636cfef4f284649ddde"
+        },
+        {
+          "file": "input-0044.ply",
+          "sha256": "d4089d4da1308154cc241ec1fde229a9643f9a1ce3525a745803cdb0f638f087"
+        },
+        {
+          "file": "input-0045.ply",
+          "sha256": "d5b79dcf73025970f5adb80223e94b462dc8fb5960bedb911690f984cc5f2fe8"
+        },
+        {
+          "file": "input-0046.ply",
+          "sha256": "5edca8783fa0ae0383945bede2ee72dfbdc877c6e15f941e7317796a56cf3e63"
+        },
+        {
+          "file": "input-0047.ply",
+          "sha256": "a45036e002d3d245cfb0792c1511e792c0cae36739f63c689925f11e8c7197f1"
+        },
+        {
+          "file": "input-0048.ply",
+          "sha256": "facc1717ab46376cf14be999e8388329d60db19a7bf95fc7afd10473f0c7225d"
+        },
+        {
+          "file": "input-0049.ply",
+          "sha256": "507ea0be5141fcf8b031b7387f4ec7eb763e2e70071c7c4331162f17b7636ee5"
+        },
+        {
+          "file": "input-0050.ply",
+          "sha256": "9968f2c926ad4cdc2bec9e167968f6d32006e5aee4debb58118b42cd59b62e37"
+        },
+        {
+          "file": "input-0051.ply",
+          "sha256": "2a083e7b82a5f95915b8d3f73da216ebdff214d687956b5cad1a3761b6b374b3"
+        },
+        {
+          "file": "input-0052.ply",
+          "sha256": "c2260e03438424fcc90f83ecfc7d62bfc88e834d6d64344161e9d4f7d45e48ba"
+        },
+        {
+          "file": "input-0053.ply",
+          "sha256": "32b0e29342174f5127cace367a4e7fc4562bdb62288128e71d5989eb62a97769"
+        },
+        {
+          "file": "input-0054.ply",
+          "sha256": "776caf51af3baf96e73632d8f2c3af65fad7beb848d1b2b5c9069a2763714f44"
+        },
+        {
+          "file": "input-0055.ply",
+          "sha256": "b776535c3d3e7db547856d49f644a1b96b9225685f1168f6aec6ef4bfd9b0c16"
+        },
+        {
+          "file": "input-0056.ply",
+          "sha256": "dcc012a886905bdb511c83a49a4701108d3af32dcc961e16e6258855538a4d7d"
+        },
+        {
+          "file": "input-0057.ply",
+          "sha256": "02f6c196dcd0bfcec6aba79ea243c7931db9fe12f3b5f17d7e5b4bab0fcc3633"
+        },
+        {
+          "file": "input-0058.ply",
+          "sha256": "a3f47b83f9babc60f8d26a7b3b63e24d760c0e098421e8631de4cc8659e2c92e"
+        },
+        {
+          "file": "input-0059.ply",
+          "sha256": "1a139402854462a2a8e397dbe6b514378708e36a559ecfab47aa947d09b9a41b"
+        },
+        {
+          "file": "input-0060.ply",
+          "sha256": "fadc03380c6954e734234cd4488a2b86e82f294b40fe54207fbff30cfb12b192"
+        },
+        {
+          "file": "input-0061.ply",
+          "sha256": "37a91ace58cc359b2d3af2aecc0a90a2a65276cb0738aaa33c711107802c6afd"
+        },
+        {
+          "file": "input-0062.ply",
+          "sha256": "27f5882994cc00bd0621f1177fb5d54634fd0b9af8402ddcb56e82e56ffc65bc"
+        },
+        {
+          "file": "input-0063.ply",
+          "sha256": "ffb639a95eaf3e5168036d6e9083ab5e765c6c1781fe8a95b5c0268080522eed"
+        },
+        {
+          "file": "input-0064.ply",
+          "sha256": "5305041ba7037c1dbdc5a7678156fe0d2971e426a1d463656e815f8016736f5e"
+        },
+        {
+          "file": "input-0065.ply",
+          "sha256": "b16c987ce223cbaba1a701034218c6ebaf4a6f8b3c3f1d4c82bce610e9478bc9"
+        },
+        {
+          "file": "input-0066.ply",
+          "sha256": "48ce0c56913929d23830e555cc3055ca2f04b8e025fd77f62bb2aba31fd8d822"
+        },
+        {
+          "file": "input-0067.ply",
+          "sha256": "8849fd001c42af84b0feeefec1851f5feb39f32389a3e117a5ab040081905935"
+        },
+        {
+          "file": "input-0068.ply",
+          "sha256": "0f0dd7175d1c0152db476c2003ea745245a1ddf5ae89da3f33e216fa4cb0ed9f"
+        },
+        {
+          "file": "input-0069.ply",
+          "sha256": "4100db8cf626bececb8eab74fe69fbc0e7faeb8abeff13330c845b22e8bae5ba"
+        },
+        {
+          "file": "input-0070.ply",
+          "sha256": "ee0277b8781132a64a8aab3fae6357c852abfd0d136f6d6cc81d803b31235a5d"
+        },
+        {
+          "file": "input-0071.ply",
+          "sha256": "cc2b506ee8a7a38f11da4bd806b715355320f181c149acf5096e4db980bed542"
+        },
+        {
+          "file": "input-0072.ply",
+          "sha256": "8b0cc52546e1a9a5b9f702e0b3c487de8ab65addab1e640ba7401510f80ec4d7"
+        },
+        {
+          "file": "input-0073.ply",
+          "sha256": "e23fc9edd8b8f72f2a81654fe5755baf0a227289501a0b749fa1ba94298d839e"
+        },
+        {
+          "file": "input-0074.ply",
+          "sha256": "0ca4fd24ba4edb9baae92f65d8b6231871dc03c35f2ac300bcc2d336463fbd6f"
+        },
+        {
+          "file": "input-0075.ply",
+          "sha256": "2c97e3154f839170c0b907045311094e6215b1c4a908a0233a5f856c0c445074"
+        },
+        {
+          "file": "input-0076.ply",
+          "sha256": "9688892dd9350d4e9cf4196e7fb153b0f5528c44d480c27d93ce851d8a56239a"
+        },
+        {
+          "file": "input-0077.ply",
+          "sha256": "769590198aec3ded15fcc6cf6e4f347e40e9923f507d8b6394feb56ebbdf7e3a"
+        },
+        {
+          "file": "input-0078.ply",
+          "sha256": "877894c795d9ca037119081c3d73e2ab8f4f999863c519275c08d58c85196041"
+        },
+        {
+          "file": "input-0079.ply",
+          "sha256": "072fa703c7970efab3cc506499f5b0c6ffbacaba0702ed067194f961e93b7dc9"
+        },
+        {
+          "file": "input-0080.ply",
+          "sha256": "2e30892c7e1d332a1333c250b93c3ab223e678f052c4343f3042af5e87d77dee"
+        },
+        {
+          "file": "input-0081.ply",
+          "sha256": "954bc3649367297343e378a6af7b0c01b86c4e3114bce1809a6ee3e118be4a45"
+        },
+        {
+          "file": "input-0082.ply",
+          "sha256": "56cc08dcd06673666d77ce3bdea74f45f482f6fc10f3021983b8994e64783254"
+        },
+        {
+          "file": "input-0083.ply",
+          "sha256": "f9737e1f0a338a1c82852737489a50cc9b176949813c392a22f0647687721cde"
+        },
+        {
+          "file": "input-0084.ply",
+          "sha256": "ccabad083a903ab725395e83b05b15efb6480178860471b564763adbe86a1068"
+        },
+        {
+          "file": "input-0085.ply",
+          "sha256": "51f4fceb28abea8df8a5f9cceb36da18289b6ec74470182ed0e8c82853f32eff"
+        },
+        {
+          "file": "input-0086.ply",
+          "sha256": "73cbba279affdaaa60b4279cd97bf7e81bb0c463bbecf56f29d99245026beee2"
+        },
+        {
+          "file": "input-0087.ply",
+          "sha256": "3860647f97581b48274c195927fec545f862450cdb249a3ca2e22a70c6dfa0e6"
+        },
+        {
+          "file": "input-0088.ply",
+          "sha256": "f8dce53596173b09d8e45d8b8c2143d67ad7e21c718c21a8320aaedd36394513"
+        },
+        {
+          "file": "input-0089.ply",
+          "sha256": "520ee2eaeeec3e55f5d813655cd864f22f957aab2063278cf6ce28b1cbeae22b"
+        },
+        {
+          "file": "input-0090.ply",
+          "sha256": "9356e4e99c63f0d760104ce4f9bd503f7a335a55a361e06e74adc02098fbc018"
+        },
+        {
+          "file": "input-0091.ply",
+          "sha256": "bcaa21b86ec96fd8fb7cc07a7957eeb6cfb45f1c8e41138a2557de921c1aa19b"
+        },
+        {
+          "file": "input-0092.ply",
+          "sha256": "a658b404ead8f19f5967a62a2b1cebc2e8ad360ab2866a861c5a3716ae4ff756"
+        },
+        {
+          "file": "input-0093.ply",
+          "sha256": "0f2ba48b6502baedc652c1ae33bc3fd0c41d59c1711abe8e45521f4d6c4e8035"
+        },
+        {
+          "file": "input-0094.ply",
+          "sha256": "8bfdc5d13fc6f391725536d8e45938e4ac42f358d24408762b0d27474ff0fb20"
+        },
+        {
+          "file": "input-0095.ply",
+          "sha256": "210109e317728097da94ec82dafd269cea56590309c4188bdfaa6dbdf98c17bc"
+        },
+        {
+          "file": "input-0096.ply",
+          "sha256": "e82d7237d5aa90f35f9680a31de3c9643a9f9722278357c165466af10948ea29"
+        },
+        {
+          "file": "input-0097.ply",
+          "sha256": "b50bede69139a78717adb5ff779a703277b43ec8f189deef65c184a20d4ea2f8"
+        },
+        {
+          "file": "input-0098.ply",
+          "sha256": "0a2f6679798654b6058dd6396bbc0809f059a0a174d414ad93a5779164a620d9"
+        },
+        {
+          "file": "input-0099.ply",
+          "sha256": "a148eed9eb8f26b0b8f0e423a1ef91cf202f066996819bc2ef3b2eeb1ed03ff7"
+        },
+        {
+          "file": "input-0100.ply",
+          "sha256": "065d74b734109eb9db2c6648bb80c263585324fc80f0002e9bbade87efe74694"
+        },
+        {
+          "file": "input-0101.ply",
+          "sha256": "78140209596ca4d841000fc939ca1a125d8b539751060053895e753bd3a8cbd0"
+        },
+        {
+          "file": "input-0102.ply",
+          "sha256": "b9c9a3aefa57131d050a6e20cb900ae0eaed5f6388799764542123fbb03e99e8"
+        },
+        {
+          "file": "input-0103.ply",
+          "sha256": "6a7a3e5bd3cbb8ab8d7f93dcc583d720e595b85c2cb9310ddfcaf34e92d33ed3"
+        },
+        {
+          "file": "input-0104.ply",
+          "sha256": "dc668eee46402bc0a3ab6c8e36d70fbb8349ff5f5a9b27cae49b078cb5b64aae"
+        },
+        {
+          "file": "input-0105.ply",
+          "sha256": "717f04158f9d08f9a8c233c9e7724c9125f7fa47a6313db12453ba334be9217c"
+        },
+        {
+          "file": "input-0106.ply",
+          "sha256": "967388dd5d357695f8793630f4512f2fc9831ffa22e94a1e178d4c0233c3d45b"
+        },
+        {
+          "file": "input-0107.ply",
+          "sha256": "e45f999b5502a25bc3955aeeb841ab97972dcaff714300cdc0acbfec3f48aa1e"
+        },
+        {
+          "file": "input-0108.ply",
+          "sha256": "17b89fbb98c22048835855a8d792d978e20dd770e4ec5d9c9c3a8fb58564bf05"
+        },
+        {
+          "file": "input-0109.ply",
+          "sha256": "fafc411b7db0c29d68a3ed2f5edfa51bbc7c04d56e1be5c1dd76af17af089633"
+        },
+        {
+          "file": "input-0110.ply",
+          "sha256": "d518e284b18e400e199b39123b0ac6b0c437fa84002ec6b30045a9982004b2f8"
+        },
+        {
+          "file": "input-0111.ply",
+          "sha256": "d5fb5816812e49d20bcebf9a2684a4baedce1071e5de7fe5941ad02b6c2724c8"
+        },
+        {
+          "file": "input-0112.ply",
+          "sha256": "0ef27f84fac465be3db363a6b07bb372e8cd6447ece7662142380efab421dc8e"
+        },
+        {
+          "file": "input-0113.ply",
+          "sha256": "5ae415f38153a7258129ec428c30ef5711b12511d8463efd86e086da3785d77a"
+        },
+        {
+          "file": "input-0114.ply",
+          "sha256": "b287254c619b9f861d598006452d8d0518f4cf8b5505c82896d864e3d30ba426"
+        },
+        {
+          "file": "input-0115.ply",
+          "sha256": "2552c856d311b0452e620e792d748c26867c620f6031c61fabf08800d083ef8c"
+        },
+        {
+          "file": "input-0116.ply",
+          "sha256": "3978c8b1c2ed9f7f94375614a08d11ef90698c7bafbc38e883bf087ea6937909"
+        },
+        {
+          "file": "input-0117.ply",
+          "sha256": "6d510e8b1387584d4fba065f3e80971b2154a5a246ba12f27822fd14250d77c6"
+        },
+        {
+          "file": "input-0118.ply",
+          "sha256": "3b599f49387ef1bcb74dcb6179469f87a4870ca90b6cad9e12cad1fc5de10379"
+        },
+        {
+          "file": "input-0119.ply",
+          "sha256": "437aa711d263a736eae657b0b10081e7eb089ed88832bc762ad13dcff3349a53"
+        }
+      ],
+      "points": 1460277
+    }
+  },
+  "heldout_timestamps_disjoint_from_reconstruction": true,
+  "calibration": {
+    "width": 160,
+    "height": 120,
+    "fx": 131.25,
+    "fy": 131.25,
+    "cx": 79.875,
+    "cy": 59.875
+  },
+  "fused": {
+    "summary": {
+      "points": 94842,
+      "frames": 12,
+      "valid_sensor_pixels": 175516,
+      "projected_sensor_pixels": 152924,
+      "coverage": 0.8712823902094396,
+      "within_50mm_fraction_of_sensor_pixels": 0.761377880079309,
+      "mean_absolute_depth_error_m": 0.0411959068284007,
+      "rmse_depth_m": 0.14715412004835232,
+      "nearer_than_50mm_fraction_of_projected_pixels": 0.10062514713190866,
+      "farther_than_50mm_fraction_of_projected_pixels": 0.02551594255970286
+    },
+    "per_frame": [
+      {
+        "frame": 0,
+        "source_depth_timestamp": 1305031102.19433,
+        "valid_sensor_pixels": 14391,
+        "projected_sensor_pixels": 12792,
+        "coverage": 0.8888888888888888,
+        "within_threshold_pixels": 9684,
+        "absolute_residual_sum_m": 892.1418670487138,
+        "squared_residual_sum_m2": 565.275275012978,
+        "mean_absolute_depth_error_m": 0.06974217222081878,
+        "rmse_depth_m": 0.21021358056461892,
+        "median_signed_depth_error_m": -0.0229283964820719,
+        "p95_absolute_depth_error_m": 0.1937714177073981,
+        "nearer_than_sensor_threshold_pixels": 2947,
+        "farther_than_sensor_threshold_pixels": 161
+      },
+      {
+        "frame": 1,
+        "source_depth_timestamp": 1305031104.563149,
+        "valid_sensor_pixels": 14139,
+        "projected_sensor_pixels": 12885,
+        "coverage": 0.911309144918311,
+        "within_threshold_pixels": 11183,
+        "absolute_residual_sum_m": 586.4855835556335,
+        "squared_residual_sum_m2": 388.17247852850704,
+        "mean_absolute_depth_error_m": 0.045516925382664615,
+        "rmse_depth_m": 0.17356819970226597,
+        "median_signed_depth_error_m": -0.007998516042210135,
+        "p95_absolute_depth_error_m": 0.110979441141467,
+        "nearer_than_sensor_threshold_pixels": 1509,
+        "farther_than_sensor_threshold_pixels": 193
+      },
+      {
+        "frame": 2,
+        "source_depth_timestamp": 1305031106.998876,
+        "valid_sensor_pixels": 14655,
+        "projected_sensor_pixels": 13663,
+        "coverage": 0.9323097918799045,
+        "within_threshold_pixels": 12295,
+        "absolute_residual_sum_m": 340.7349259299436,
+        "squared_residual_sum_m2": 118.06717953857114,
+        "mean_absolute_depth_error_m": 0.02493851466954136,
+        "rmse_depth_m": 0.09295902504098844,
+        "median_signed_depth_error_m": 0.003525230671073687,
+        "p95_absolute_depth_error_m": 0.08175631118618107,
+        "nearer_than_sensor_threshold_pixels": 449,
+        "farther_than_sensor_threshold_pixels": 919
+      },
+      {
+        "frame": 3,
+        "source_depth_timestamp": 1305031109.503193,
+        "valid_sensor_pixels": 15171,
+        "projected_sensor_pixels": 11617,
+        "coverage": 0.7657372618812207,
+        "within_threshold_pixels": 9565,
+        "absolute_residual_sum_m": 582.0442853589836,
+        "squared_residual_sum_m2": 215.77805330254694,
+        "mean_absolute_depth_error_m": 0.05010280497193627,
+        "rmse_depth_m": 0.13628769317344955,
+        "median_signed_depth_error_m": -0.013159087095074185,
+        "p95_absolute_depth_error_m": 0.2141571520634981,
+        "nearer_than_sensor_threshold_pixels": 1651,
+        "farther_than_sensor_threshold_pixels": 401
+      },
+      {
+        "frame": 4,
+        "source_depth_timestamp": 1305031111.903356,
+        "valid_sensor_pixels": 14637,
+        "projected_sensor_pixels": 12522,
+        "coverage": 0.8555031768805083,
+        "within_threshold_pixels": 11400,
+        "absolute_residual_sum_m": 389.18241759770035,
+        "squared_residual_sum_m2": 128.9841354010572,
+        "mean_absolute_depth_error_m": 0.0310798927964942,
+        "rmse_depth_m": 0.10149188033022227,
+        "median_signed_depth_error_m": -0.008759512324143515,
+        "p95_absolute_depth_error_m": 0.11286820361971413,
+        "nearer_than_sensor_threshold_pixels": 808,
+        "farther_than_sensor_threshold_pixels": 314
+      },
+      {
+        "frame": 5,
+        "source_depth_timestamp": 1305031114.30671,
+        "valid_sensor_pixels": 14771,
+        "projected_sensor_pixels": 12182,
+        "coverage": 0.8247241215896013,
+        "within_threshold_pixels": 10191,
+        "absolute_residual_sum_m": 506.8756504922004,
+        "squared_residual_sum_m2": 214.00330434312795,
+        "mean_absolute_depth_error_m": 0.041608574166163224,
+        "rmse_depth_m": 0.1325412133433856,
+        "median_signed_depth_error_m": -0.006929000911484018,
+        "p95_absolute_depth_error_m": 0.15017479504668393,
+        "nearer_than_sensor_threshold_pixels": 1682,
+        "farther_than_sensor_threshold_pixels": 309
+      },
+      {
+        "frame": 6,
+        "source_depth_timestamp": 1305031116.710942,
+        "valid_sensor_pixels": 15388,
+        "projected_sensor_pixels": 8730,
+        "coverage": 0.5673251884585391,
+        "within_threshold_pixels": 7681,
+        "absolute_residual_sum_m": 577.605762928537,
+        "squared_residual_sum_m2": 306.9485094941948,
+        "mean_absolute_depth_error_m": 0.06616331763213483,
+        "rmse_depth_m": 0.1875105218870395,
+        "median_signed_depth_error_m": -0.011383680729060153,
+        "p95_absolute_depth_error_m": 0.6852379572973616,
+        "nearer_than_sensor_threshold_pixels": 319,
+        "farther_than_sensor_threshold_pixels": 730
+      },
+      {
+        "frame": 7,
+        "source_depth_timestamp": 1305031119.110884,
+        "valid_sensor_pixels": 14145,
+        "projected_sensor_pixels": 13283,
+        "coverage": 0.9390597384234712,
+        "within_threshold_pixels": 11833,
+        "absolute_residual_sum_m": 448.4271489396856,
+        "squared_residual_sum_m2": 224.36392660926805,
+        "mean_absolute_depth_error_m": 0.033759478200684,
+        "rmse_depth_m": 0.12996560406720384,
+        "median_signed_depth_error_m": -0.007056955852596247,
+        "p95_absolute_depth_error_m": 0.10910443702658036,
+        "nearer_than_sensor_threshold_pixels": 1291,
+        "farther_than_sensor_threshold_pixels": 159
+      },
+      {
+        "frame": 8,
+        "source_depth_timestamp": 1305031121.514164,
+        "valid_sensor_pixels": 13888,
+        "projected_sensor_pixels": 13026,
+        "coverage": 0.9379320276497696,
+        "within_threshold_pixels": 11424,
+        "absolute_residual_sum_m": 604.142284909447,
+        "squared_residual_sum_m2": 357.42682374740673,
+        "mean_absolute_depth_error_m": 0.04637972400655972,
+        "rmse_depth_m": 0.1656487007897923,
+        "median_signed_depth_error_m": -0.013146607651680187,
+        "p95_absolute_depth_error_m": 0.11556372661141606,
+        "nearer_than_sensor_threshold_pixels": 1363,
+        "farther_than_sensor_threshold_pixels": 239
+      },
+      {
+        "frame": 9,
+        "source_depth_timestamp": 1305031123.915794,
+        "valid_sensor_pixels": 15160,
+        "projected_sensor_pixels": 14561,
+        "coverage": 0.9604881266490766,
+        "within_threshold_pixels": 14267,
+        "absolute_residual_sum_m": 256.6914134906614,
+        "squared_residual_sum_m2": 99.36112663705829,
+        "mean_absolute_depth_error_m": 0.01762869401075897,
+        "rmse_depth_m": 0.08260620156243896,
+        "median_signed_depth_error_m": 0.005299472262251248,
+        "p95_absolute_depth_error_m": 0.025459249156277175,
+        "nearer_than_sensor_threshold_pixels": 170,
+        "farther_than_sensor_threshold_pixels": 124
+      },
+      {
+        "frame": 10,
+        "source_depth_timestamp": 1305031126.355415,
+        "valid_sensor_pixels": 14701,
+        "projected_sensor_pixels": 13850,
+        "coverage": 0.9421127814434392,
+        "within_threshold_pixels": 11117,
+        "absolute_residual_sum_m": 747.0196855779153,
+        "squared_residual_sum_m2": 489.9559570641687,
+        "mean_absolute_depth_error_m": 0.053936439391907245,
+        "rmse_depth_m": 0.18808477178249777,
+        "median_signed_depth_error_m": -0.00980058981605314,
+        "p95_absolute_depth_error_m": 0.16331940842223727,
+        "nearer_than_sensor_threshold_pixels": 2585,
+        "farther_than_sensor_threshold_pixels": 148
+      },
+      {
+        "frame": 11,
+        "source_depth_timestamp": 1305031128.722976,
+        "valid_sensor_pixels": 14470,
+        "projected_sensor_pixels": 13813,
+        "coverage": 0.9545957152729786,
+        "within_threshold_pixels": 12994,
+        "absolute_residual_sum_m": 368.4918299969269,
+        "squared_residual_sum_m2": 203.13076307987558,
+        "mean_absolute_depth_error_m": 0.026677175848615575,
+        "rmse_depth_m": 0.12126733795225755,
+        "median_signed_depth_error_m": -0.00027173792393830887,
+        "p95_absolute_depth_error_m": 0.06760288791915632,
+        "nearer_than_sensor_threshold_pixels": 614,
+        "farther_than_sensor_threshold_pixels": 205
+      }
+    ]
+  },
+  "raw_union": {
+    "summary": {
+      "points": 1460277,
+      "frames": 12,
+      "valid_sensor_pixels": 175516,
+      "projected_sensor_pixels": 174912,
+      "coverage": 0.996558718293489,
+      "within_50mm_fraction_of_sensor_pixels": 0.8069748626905809,
+      "mean_absolute_depth_error_m": 0.05068218147798594,
+      "rmse_depth_m": 0.14720625593717684,
+      "nearer_than_50mm_fraction_of_projected_pixels": 0.18631083058909623,
+      "farther_than_50mm_fraction_of_projected_pixels": 0.003927689352360044
+    },
+    "per_frame": [
+      {
+        "frame": 0,
+        "source_depth_timestamp": 1305031102.19433,
+        "valid_sensor_pixels": 14391,
+        "projected_sensor_pixels": 14383,
+        "coverage": 0.9994440970050726,
+        "within_threshold_pixels": 9341,
+        "absolute_residual_sum_m": 1256.874254850996,
+        "squared_residual_sum_m2": 670.9202544310724,
+        "mean_absolute_depth_error_m": 0.08738609850872531,
+        "rmse_depth_m": 0.21597859481760925,
+        "median_signed_depth_error_m": -0.03600500148431807,
+        "p95_absolute_depth_error_m": 0.23302969508162757,
+        "nearer_than_sensor_threshold_pixels": 5007,
+        "farther_than_sensor_threshold_pixels": 35
+      },
+      {
+        "frame": 1,
+        "source_depth_timestamp": 1305031104.563149,
+        "valid_sensor_pixels": 14139,
+        "projected_sensor_pixels": 14103,
+        "coverage": 0.9974538510502864,
+        "within_threshold_pixels": 10764,
+        "absolute_residual_sum_m": 902.2626035158676,
+        "squared_residual_sum_m2": 504.6763986323063,
+        "mean_absolute_depth_error_m": 0.06397664351668919,
+        "rmse_depth_m": 0.1891693382852548,
+        "median_signed_depth_error_m": -0.022164428722226237,
+        "p95_absolute_depth_error_m": 0.16911313375558334,
+        "nearer_than_sensor_threshold_pixels": 3222,
+        "farther_than_sensor_threshold_pixels": 117
+      },
+      {
+        "frame": 2,
+        "source_depth_timestamp": 1305031106.998876,
+        "valid_sensor_pixels": 14655,
+        "projected_sensor_pixels": 14646,
+        "coverage": 0.9993858751279426,
+        "within_threshold_pixels": 13432,
+        "absolute_residual_sum_m": 411.0730087430477,
+        "squared_residual_sum_m2": 139.51469931907837,
+        "mean_absolute_depth_error_m": 0.028067254454666644,
+        "rmse_depth_m": 0.09760014633561223,
+        "median_signed_depth_error_m": -0.010249036699553349,
+        "p95_absolute_depth_error_m": 0.0940905037319803,
+        "nearer_than_sensor_threshold_pixels": 1146,
+        "farther_than_sensor_threshold_pixels": 68
+      },
+      {
+        "frame": 3,
+        "source_depth_timestamp": 1305031109.503193,
+        "valid_sensor_pixels": 15171,
+        "projected_sensor_pixels": 15171,
+        "coverage": 1.0,
+        "within_threshold_pixels": 12051,
+        "absolute_residual_sum_m": 804.0338611272936,
+        "squared_residual_sum_m2": 239.86185771461683,
+        "mean_absolute_depth_error_m": 0.0529980793044159,
+        "rmse_depth_m": 0.12574001050403197,
+        "median_signed_depth_error_m": -0.022146115724044346,
+        "p95_absolute_depth_error_m": 0.17489273652595083,
+        "nearer_than_sensor_threshold_pixels": 3090,
+        "farther_than_sensor_threshold_pixels": 30
+      },
+      {
+        "frame": 4,
+        "source_depth_timestamp": 1305031111.903356,
+        "valid_sensor_pixels": 14637,
+        "projected_sensor_pixels": 14637,
+        "coverage": 1.0,
+        "within_threshold_pixels": 11969,
+        "absolute_residual_sum_m": 661.010093542121,
+        "squared_residual_sum_m2": 167.8578591514237,
+        "mean_absolute_depth_error_m": 0.0451602168164324,
+        "rmse_depth_m": 0.10708898529780451,
+        "median_signed_depth_error_m": -0.021646351675986275,
+        "p95_absolute_depth_error_m": 0.14325575761886053,
+        "nearer_than_sensor_threshold_pixels": 2665,
+        "farther_than_sensor_threshold_pixels": 3
+      },
+      {
+        "frame": 5,
+        "source_depth_timestamp": 1305031114.30671,
+        "valid_sensor_pixels": 14771,
+        "projected_sensor_pixels": 14663,
+        "coverage": 0.9926883758716404,
+        "within_threshold_pixels": 10401,
+        "absolute_residual_sum_m": 867.4467329331395,
+        "squared_residual_sum_m2": 299.286285971692,
+        "mean_absolute_depth_error_m": 0.05915888514854665,
+        "rmse_depth_m": 0.14286702167016632,
+        "median_signed_depth_error_m": -0.023676588462078096,
+        "p95_absolute_depth_error_m": 0.16812641801321368,
+        "nearer_than_sensor_threshold_pixels": 4048,
+        "farther_than_sensor_threshold_pixels": 214
+      },
+      {
+        "frame": 6,
+        "source_depth_timestamp": 1305031116.710942,
+        "valid_sensor_pixels": 15388,
+        "projected_sensor_pixels": 15342,
+        "coverage": 0.9970106576553158,
+        "within_threshold_pixels": 14491,
+        "absolute_residual_sum_m": 361.9556839891401,
+        "squared_residual_sum_m2": 34.28351648512249,
+        "mean_absolute_depth_error_m": 0.023592470602864037,
+        "rmse_depth_m": 0.047271751233481145,
+        "median_signed_depth_error_m": -0.01897544237742871,
+        "p95_absolute_depth_error_m": 0.053096113348160605,
+        "nearer_than_sensor_threshold_pixels": 838,
+        "farther_than_sensor_threshold_pixels": 13
+      },
+      {
+        "frame": 7,
+        "source_depth_timestamp": 1305031119.110884,
+        "valid_sensor_pixels": 14145,
+        "projected_sensor_pixels": 14128,
+        "coverage": 0.9987981618946624,
+        "within_threshold_pixels": 10855,
+        "absolute_residual_sum_m": 744.848838308022,
+        "squared_residual_sum_m2": 277.2182452890511,
+        "mean_absolute_depth_error_m": 0.052721463640148784,
+        "rmse_depth_m": 0.14007820308357433,
+        "median_signed_depth_error_m": -0.022734962704511974,
+        "p95_absolute_depth_error_m": 0.1535355292407801,
+        "nearer_than_sensor_threshold_pixels": 3243,
+        "farther_than_sensor_threshold_pixels": 30
+      },
+      {
+        "frame": 8,
+        "source_depth_timestamp": 1305031121.514164,
+        "valid_sensor_pixels": 13888,
+        "projected_sensor_pixels": 13789,
+        "coverage": 0.9928715437788018,
+        "within_threshold_pixels": 10045,
+        "absolute_residual_sum_m": 1083.276050985207,
+        "squared_residual_sum_m2": 595.8917991864145,
+        "mean_absolute_depth_error_m": 0.07856088555988157,
+        "rmse_depth_m": 0.20788220680726235,
+        "median_signed_depth_error_m": -0.032683898322732,
+        "p95_absolute_depth_error_m": 0.2086320485004779,
+        "nearer_than_sensor_threshold_pixels": 3655,
+        "farther_than_sensor_threshold_pixels": 89
+      },
+      {
+        "frame": 9,
+        "source_depth_timestamp": 1305031123.915794,
+        "valid_sensor_pixels": 15160,
+        "projected_sensor_pixels": 14889,
+        "coverage": 0.9821240105540897,
+        "within_threshold_pixels": 14548,
+        "absolute_residual_sum_m": 228.19902738538428,
+        "squared_residual_sum_m2": 103.91098952880733,
+        "mean_absolute_depth_error_m": 0.015326685968526045,
+        "rmse_depth_m": 0.0835406741008037,
+        "median_signed_depth_error_m": -0.0026170806724937767,
+        "p95_absolute_depth_error_m": 0.02269946861126605,
+        "nearer_than_sensor_threshold_pixels": 271,
+        "farther_than_sensor_threshold_pixels": 70
+      },
+      {
+        "frame": 10,
+        "source_depth_timestamp": 1305031126.355415,
+        "valid_sensor_pixels": 14701,
+        "projected_sensor_pixels": 14692,
+        "coverage": 0.9993877967485205,
+        "within_threshold_pixels": 10521,
+        "absolute_residual_sum_m": 1035.7387952342642,
+        "squared_residual_sum_m2": 563.2867568964036,
+        "mean_absolute_depth_error_m": 0.07049678704289847,
+        "rmse_depth_m": 0.1958052403239863,
+        "median_signed_depth_error_m": -0.023955883532466915,
+        "p95_absolute_depth_error_m": 0.2127560285530225,
+        "nearer_than_sensor_threshold_pixels": 4168,
+        "farther_than_sensor_threshold_pixels": 3
+      },
+      {
+        "frame": 11,
+        "source_depth_timestamp": 1305031128.722976,
+        "valid_sensor_pixels": 14470,
+        "projected_sensor_pixels": 14469,
+        "coverage": 0.9999308914996544,
+        "within_threshold_pixels": 13219,
+        "absolute_residual_sum_m": 508.2027760629951,
+        "squared_residual_sum_m2": 193.57871812903403,
+        "mean_absolute_depth_error_m": 0.035123559061648706,
+        "rmse_depth_m": 0.11566701993924852,
+        "median_signed_depth_error_m": -0.013054032373382873,
+        "p95_absolute_depth_error_m": 0.0986276506180323,
+        "nearer_than_sensor_threshold_pixels": 1235,
+        "farther_than_sensor_threshold_pixels": 15
+      }
+    ]
+  }
+}

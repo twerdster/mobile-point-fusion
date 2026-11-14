@@ -1,6 +1,7 @@
 #include "correspondence.hpp"
 #include "fixture.hpp"
 #include "gles.hpp"
+#include "live.hpp"
 #include <filesystem>
 #include <iomanip>
 #include <limits>
@@ -295,7 +296,8 @@ int main(int argc, char **argv) {
   try {
     bool cpu = false, gpu = false, run = false;
     int frames = 48;
-    fs::path out = "mobile-fusion-output", obj;
+    fs::path out = "mobile-fusion-output", obj, recording;
+    bool export_inputs = false;
     for (int i = 1; i < argc; i++) {
       std::string a = argv[i];
       if (a == "--cpu-test")
@@ -310,14 +312,57 @@ int main(int argc, char **argv) {
         frames = std::stoi(argv[++i]);
       else if (a == "--obj" && i + 1 < argc)
         obj = argv[++i];
+      else if (a == "--recording" && i + 1 < argc)
+        recording = argv[++i];
+      else if (a == "--export-inputs")
+        export_inputs = true;
       else
         throw std::runtime_error(
             "usage: points_fusion --cpu-test | --gpu-test | --demo [--frames "
-            "N] [--obj ordered-v-vn.obj] [--output DIR]");
+            "N] [--obj ordered-v-vn.obj] [--output DIR] | --recording PACK "
+            "[--export-inputs] [--output DIR]");
     }
     require(frames >= 2 && frames <= 300, "frames must be 2..300");
     if (cpu)
       cpu_tests();
+    if (!recording.empty()) {
+      require(!run && obj.empty() && !gpu,
+              "recording and generated demo/GPU tests are separate actions");
+      LiveFusion fusion(SOURCE_ROOT, out.string(), recording.string(), false,
+                        false);
+      fs::create_directories(out / "inputs");
+      std::ofstream metrics(out / "frames.jsonl");
+      require(bool(metrics), "cannot open per-frame metrics");
+      for (int i = 0; i < fusion.frames; i++) {
+        fusion.step();
+        if (i == 0)
+          ply(out / "first-input.ply", fusion.input, all_ids(fusion.input),
+              "recorded depth unprojection; supplied pose; metres; no fusion");
+        if (export_inputs) {
+          std::ostringstream name;
+          name << "input-" << std::setw(4) << std::setfill('0') << i << ".ply";
+          ply(out / "inputs" / name.str(), fusion.input, all_ids(fusion.input),
+              "recorded depth unprojection; supplied pose; metres; no fusion");
+        }
+        metrics << std::setprecision(17) << "{\"frame\":" << fusion.frame
+                << ",\"source_depth_timestamp\":" << fusion.source_timestamp
+                << ",\"elapsed_source_seconds\":"
+                << fusion.elapsed_source_seconds
+                << ",\"input_points\":" << fusion.input.size() - 1
+                << ",\"model_points\":" << fusion.model.size()
+                << ",\"merged_total\":" << fusion.model.merged
+                << ",\"inserted_total\":" << fusion.model.inserted
+                << ",\"removed_total\":" << fusion.model.removed
+                << ",\"reused_total\":" << fusion.model.reused
+                << ",\"CPU_checked_records_total\":" << fusion.compared
+                << "}\n";
+        std::cout << "RECORDED_FUSION frame=" << fusion.frame << '/'
+                  << fusion.frames << " points=" << fusion.model.size()
+                  << std::endl;
+      }
+      metrics.flush();
+      require(bool(metrics), "cannot write per-frame metrics");
+    }
     if (gpu || run) {
       GL gl(gpu ? 64 : 192, gpu ? 48 : 144);
       std::cout << "renderer=" << gl.renderer << "\nversion=" << gl.version
@@ -327,7 +372,7 @@ int main(int argc, char **argv) {
       if (run)
         demo(gl, out, frames, obj);
     }
-    if (!cpu && !gpu && !run)
+    if (!cpu && !gpu && !run && recording.empty())
       throw std::runtime_error("no action requested");
     for (auto &c : checks)
       std::cout << "PASS " << c << '\n';

@@ -19,6 +19,12 @@ struct V3 {
   V3 operator*(float s) const { return {x * s, y * s, z * s}; }
   V3 operator/(float s) const { return *this * (1 / s); }
 };
+// Shared FP32 value: strict 20-degree normal gate, evaluated once per process.
+// GLSL cosine precision is unspecified, so Fusion receives this as a uniform.
+inline float fusion_normal_cutoff() {
+  static const float value = std::cos(20 * 3.14159265f / 180);
+  return value;
+}
 inline float dot(V3 a, V3 b) { return a.x * b.x + a.y * b.y + a.z * b.z; }
 inline V3 cross(V3 a, V3 b) {
   return {a.y * b.z - a.z * b.y, a.z * b.x - a.x * b.z, a.x * b.y - a.y * b.x};

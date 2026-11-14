@@ -1,0 +1,353 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-14",
+  "status": "passed",
+  "scope": "120 selected measured RGB-D frames from TUM Freiburg1xyz with supplied mocap poses. Actual native execution on four platforms; no camera capture or pose estimation.",
+  "source_sha256": {
+    "updated/CMakeLists.txt": "ecb98be56ec2d7ad27951e806cdabeaf708204e1f37557675e32ba18803e41dc",
+    "updated/platforms/android/AndroidManifest.xml": "85a5c6799cb055cf44c93c12cb79483e108ad49ff96a35ca6e41999b5909d027",
+    "updated/platforms/android/FusionActivity.java": "5077bcb336ae29fea0ffaeabadfa660a1f9a06d5f0050d41b0936f2496c333ae",
+    "updated/platforms/android/build.py": "5026a1fc6c1ca73b73c0e190496aa2356e1621a697ea96858b0a3f81ba9f8c5f",
+    "updated/platforms/android/jni.cpp": "02a8a3c9ad1546a075e0d67ae686c71f8bf3d2ccf2a7606ebc498e0c671bf355",
+    "updated/platforms/apple/build.py": "ea202cdcc3ae25df9522c01c6641a9bad668b85164a1c5d09a4df33f5d4c66c9",
+    "updated/platforms/apple/generate_ios_project.py": "4c269a0b0ecdcdaa6ba9c9a5a14518b5c365b851ad78299260e23c137d2fb5b7",
+    "updated/platforms/apple/main.mm": "c50f8d88f2b27f3fe12dd15d867286e8d74cc076991f0fbd7db7b6423d6d646d",
+    "updated/platforms/linux/main.cpp": "a7aa058e8167124565c468f35269743c6f87071e929ac7acbcbe1f1dc9e83920",
+    "updated/platforms/recording_resources.py": "3ec81460525f01ed49bf9ee20186a28b315e02b89114d1b5239a993b373ce72c",
+    "updated/shaders/Fusion.fsh": "add40cd30f68287fe2e285fac6d3ca0312cf384dbcefe9b6aa1b5fcffe5056fc",
+    "updated/shaders/Fusion.vsh": "73e67ba652766d53c95e1441ac164141b9075acd9095325c18c77fce0f5487da",
+    "updated/shaders/PointRemoval.fsh": "078c3a870b42eee7459c756af64618674f04b8ba49a8bff799d0157411e40680",
+    "updated/shaders/PointRemoval.vsh": "18f15f07781a0a3f4fde523310f7a7f9768c646604fa68cac7bd351dd1960829",
+    "updated/src/core.hpp": "a12be8eb7fce1ab9a45d5a7f345815babad8bd6fd321369d5dc69b405179b768",
+    "updated/src/correspondence.hpp": "d7912d226c6f3df79a4c46e8839a113d4f1fa384912720edd39480a4c7108775",
+    "updated/src/fixture.hpp": "7dd06ce3089c78d0d47d9bfb4bafd18d6ea3472d68743e7cb805436dc9bf315b",
+    "updated/src/gles.hpp": "19641db8529dfe1e9013fdef7ebd77cf9516069ec0f4be9c5b1c35382f51d726",
+    "updated/src/input_sequence.hpp": "6f243680b226e85a1232d1faa3045504d6e257785826d2dc172138e8b87eae78",
+    "updated/src/live.hpp": "69335f8497ac6e36567835961f9775ce7d4f9820281b28f0744f4e3b75c61e62",
+    "updated/src/main.cpp": "715b0b7d20788efb422f3dca65248b4e61b8e277d3bae0834e4b44e4801e0ebe",
+    "updated/src/precision.hpp": "f19c777582d35bb39d918040bf2b1005840fca676e8a7652b0707331d162d8e7",
+    "updated/tests/original_faults.cpp": "911adadda12a13e1a409769276197d23d66a71e6c113a938f41f5b1cefc31ee7",
+    "updated/tests/rgbd_input_tests.cpp": "065a64aa0991a7691d73750c2d696a25a39ec7f55b73306059f47a46bb58ea1f",
+    "updated/tests/test_evaluate_rgbd.py": "b4dcebce06fb5f3d9464f1ba5766a204b8abb442b41844e83966931b5e8baab7",
+    "updated/tests/test_prepare_tum_rgbd.py": "9b7bf07dc46d5ae492e8290750ceaf82021b0365b6e9002136c7b1b95c601b85",
+    "updated/tools/analyze_demo.py": "df58bbd2cd167e4c2ec17f5a2942f010a495d6ef6b63b24391e981a8b94ee3c2",
+    "updated/tools/evaluate_rgbd.py": "2212ec0c9bd83eff91fd029459fd8932e83f255bb2a0fa259d7206a66904a850",
+    "updated/tools/prepare_tum_rgbd.py": "c2c6f20e58174fe1fad7ac6c57f11449d0d330a902f04ccbdf73514ffbc743e9",
+    "updated/tools/prepare_xcode_fixture.py": "13b59b63674dbcc3cdd328c68e57921f362a88a9a3609ee2e4a5633cc81b85b7",
+    "updated/tools/render_demo.py": "0c9a0de3a1f852a081556637816da54717f2f11e028e846f65148b238e6ea984",
+    "updated/tools/render_rgbd.py": "d503369af918f6b28b031274fbfecb5f669cac225f1267f9d883f4c82e0c1be4"
+  },
+  "prepared_data": {
+    "tum-fr1-xyz-holdout-12.json": {
+      "bytes": 27916,
+      "sha256": "372560064e843008c53acf8c170255cee38a6b1bbfe8f72a827df7c8ee5e62bb"
+    },
+    "tum-fr1-xyz-120.json": {
+      "bytes": 222064,
+      "sha256": "fd162983c544747fecf996c9a562779567913ea8a5f9c723b9d6cd1840a31e22"
+    },
+    "tum-fr1-xyz-holdout-12.pfrgbd": {
+      "bytes": 1152904,
+      "sha256": "10aa619d7909209b9be3ddd7859a9d1bb1c50e01fb6d71daed8a5714b5e43b2a"
+    },
+    "NOTICE.txt": {
+      "bytes": 1991,
+      "sha256": "ce7fa05f4d52f10ba9c3cc32fcaf1eecb9af5da7909f0ab326846407dc4aa222"
+    },
+    "tum-fr1-xyz-120.pfrgbd": {
+      "bytes": 11528680,
+      "sha256": "1033e30ae101dea653b1be77aaa3972c8a026ca5a152a9bf479cee07a12ff39c"
+    }
+  },
+  "build_artifacts": {
+    "ios_executable": {
+      "bytes": 230848,
+      "sha256": "9c4efb91ff383e0ee8568fed5f34f9841897a4c50a9ea98318db6ffa2f314243"
+    },
+    "macos_executable": {
+      "bytes": 191232,
+      "sha256": "acb3305ad9942e73b7a9979f9f8c01b4e7f74839cbfc0ccbdb097732689f65d0"
+    },
+    "android_APK": {
+      "bytes": 8111316,
+      "sha256": "da8069a46c2a28bfbaa7d923474609d89056e706ea21abb2f40eab26ade3906a"
+    },
+    "linux_cli_executable": {
+      "sha256": "5bd3586d5e4454bd26b456d814fe14bc0d83c5073785e87c04c64e813807ff69"
+    },
+    "linux_ui_executable": {
+      "sha256": "6be7193e12cda803eba53233e63ea5cda7c9c2f3ba316f414fac6458f1980352"
+    }
+  },
+  "platform_states": {
+    "ios": "ios-state.json",
+    "android": "android-state.json",
+    "macos": "macos-state.json",
+    "linux": "linux-state.json"
+  },
+  "platform_summary": {
+    "ios": {
+      "frame": 120,
+      "model_points": 94847,
+      "merged_total": 1133815,
+      "removed_total": 231615,
+      "strict_CPU_transform_matches": 1460276,
+      "GPU_query_rechecks_accepted": 1
+    },
+    "android": {
+      "frame": 120,
+      "model_points": 94842,
+      "merged_total": 1133815,
+      "removed_total": 231620,
+      "strict_CPU_transform_matches": 1460277,
+      "GPU_query_rechecks_accepted": 0
+    },
+    "macos": {
+      "frame": 120,
+      "model_points": 94847,
+      "merged_total": 1133813,
+      "removed_total": 231617,
+      "strict_CPU_transform_matches": 1460276,
+      "GPU_query_rechecks_accepted": 1
+    },
+    "linux": {
+      "frame": 120,
+      "model_points": 94842,
+      "merged_total": 1133826,
+      "removed_total": 231609,
+      "strict_CPU_transform_matches": 1460277,
+      "GPU_query_rechecks_accepted": 0
+    }
+  },
+  "final_clouds": {
+    "ios": {
+      "bytes": 7772314,
+      "sha256": "c9ac706f487265ef7b8fa29eab7f2626c2dc8702d249e32ac16eca710869de20"
+    },
+    "android": {
+      "bytes": 7771737,
+      "sha256": "48bcb781d5506bc30a01cb6e4a912fec4c911709c1b5ea1eff21fa6af551b887"
+    },
+    "macos": {
+      "bytes": 7772126,
+      "sha256": "80d144ccdb6e6d46f4cdbbb324236c3f0b7c382947e74c6e74e451c758744dad"
+    },
+    "linux": {
+      "bytes": 7771733,
+      "sha256": "49f0214f4a935268601ae2a8edd8311ff35e1fae0931e536076fbf00518b61f7"
+    }
+  },
+  "linux_full_run_sanitizer": {
+    "frames": 120,
+    "halt_on_error": true,
+    "reports": 0,
+    "leak_detection": false,
+    "Mesa_and_shaders_instrumented": false,
+    "release_and_sanitizer_PLY_identical": true,
+    "fused_sha256": "49f0214f4a935268601ae2a8edd8311ff35e1fae0931e536076fbf00518b61f7"
+  },
+  "constructed_tests": "input-tests.json",
+  "python_tests": "evaluation-tests.json",
+  "depth_agreement": "heldout-depth-agreement.json",
+  "historical_generated_baseline": "../../NATIVE_VALIDATION.json",
+  "reviews": [
+    {
+      "session_id": "ce644706-c082-4424-bb49-b469afba827e",
+      "tools_disabled": true,
+      "result": "completed",
+      "scope": "Static code/editorial review; no runtime evidence",
+      "review_result_sha256": "97309610a37d250114743b4df3454b0c49f86cd3841d7cbf66d7c5fe393a4919"
+    },
+    {
+      "session_id": "574433c1-7106-4793-8f51-a85d3ea09b23",
+      "tools_disabled": true,
+      "result": "completed",
+      "scope": "Static code/editorial review; no runtime evidence",
+      "review_result_sha256": "d11d268e49d000e068e97cf659e04bff7ee8a5ab9a4b336d6407a7f2ee1c320d"
+    },
+    {
+      "session_id": "45cd85df-b76c-407e-8659-2d03dd9f1d00",
+      "tools_disabled": true,
+      "result": "completed",
+      "scope": "Static code/editorial review; no runtime evidence",
+      "review_result_sha256": "8092fb94dbaaae77efab51792e9e63a6529cf24ab7d303a19464f6ee3a7b8092"
+    },
+    {
+      "session_id": "dc3d929e-e0b3-4585-b4cb-b868416ae496",
+      "tools_disabled": true,
+      "result": "completed",
+      "scope": "Static code/editorial review; no runtime evidence",
+      "review_result_sha256": "962798410ecac0684c06ed7e334fde5f023ac7df4e6beecaa7c3e513f5607860"
+    },
+    {
+      "session_id": "9266ad24-6632-4396-bfe8-1245809a998f",
+      "tools_disabled": true,
+      "result": "completed",
+      "scope": "Static code/editorial review; no runtime evidence",
+      "review_result_sha256": "1dd28dcd7608fe04fc6112be733ee388dfa59d5c5b7da4a02f938384cb215e6b"
+    },
+    {
+      "session_id": "55acf4af-8317-4a7c-be98-f4eb54edaa1f",
+      "tools_disabled": true,
+      "result": "completed",
+      "scope": "Static code/editorial review; no runtime evidence",
+      "review_result_sha256": "d5e0b316456f5b724a7ea70739aabb9b709fbd25dbe0fa82b6a22d4106ddf8dc"
+    },
+    {
+      "session_id": "329b2c1e-3bf9-4356-956a-3490830c46b4",
+      "tools_disabled": true,
+      "result": "completed",
+      "scope": "Final revised prose and per-platform state consistency review; no runtime evidence",
+      "review_result_sha256": "d6bb8bb1d28894d5ac7d1983f624b2b772f7e955b3f1012e851afe1ed19b1579"
+    }
+  ],
+  "review_resolutions": [
+    "ES3 indexed transform-feedback draw replaced with DrawArrays preserving input ID",
+    "Unneeded arithmetic-interval acceptance removed completely; exact measured-query CPU winner required",
+    "GPU-query transform and normal separately bounded against double reference",
+    "Fusion cutoff evaluated once and shared by CPU, uniform and reporting; PointRemoval cutoff unchanged",
+    "Invariant query outputs; desktop-only invariant matching inputs; both language rules checked in primary specifications",
+    "NaN sentinel and exactly-one captured primitive check",
+    "GPU query errors wrapped with original mismatch diagnostic; GL flags drained in setup and completion paths",
+    "Execution failure remains visible until reset; stale previous failure file removed on construction/reset",
+    "Final prose matches all four actual states; separate native/offline output paths prevent mixed-run evaluation",
+    "Direct-run EGL vendor export distinguished from CTest CMake cache option"
+  ],
+  "limitations": [
+    "One recorded scene;120 selected frames, not all798 original frames",
+    "Supplied camera calibration and motion-capture poses; no tracking benchmark",
+    "Fusion selections use read-back GPU index map; index rasterization/removal outputs not independently checked in native runs",
+    "One Mac and one iOS record require bounded transformed GPU query followed by EXACT CPU winner; no selection tolerance or arithmetic-interval fallback",
+    "Platform output counts differ; source-view rasterization and floating-point behavior can differ",
+    "Held-out frames are interleaved nearby viewpoints of same noisy sensor/scene, not independent surface truth",
+    "MAE/RMSE use different overlapping pixel subsets; raw union scores higher on coverage and within50mm over all valid pixels",
+    "Actual screen clips are excerpts; iOS USB stream timing differs from wall time; no playback throughput claim"
+  ],
+  "media": {
+    "ios": {
+      "assets/ios-real-rgbd.png": {
+        "bytes": 134559,
+        "sha256": "341e0cdc761038273c8271611c0fa2517b31d459d9a9b6ebda1a4e9820e81b46"
+      },
+      "assets/ios-real-rgbd.mp4": {
+        "bytes": 129647,
+        "sha256": "2e10e7d7bafc8fc602fe264faccbdef57482b1c14701accefdfa1293725e6c96"
+      },
+      "assets/ios-real-rgbd.gif": {
+        "bytes": 139090,
+        "sha256": "d51d9780d33881c6928980b7aa72e6a20245140f9b6e3dcdc7cec73e7d12b181"
+      }
+    },
+    "android": {
+      "assets/android-real-rgbd.png": {
+        "bytes": 141054,
+        "sha256": "c8065c557ca7fe4c1c1cbbba043e8eb4bd13c340017bc4d0efef66dbdfba3893"
+      },
+      "assets/android-real-rgbd.gif": {
+        "bytes": 536101,
+        "sha256": "86b36788eb348ba3e0ed3b8cc9d3d82c5b34228b7c4fb2b89f57c6076262bde8"
+      },
+      "assets/android-real-rgbd.mp4": {
+        "bytes": 441173,
+        "sha256": "2f36e8985a049748f6a1f4a4eb172761d41b03dc57717b363928a6ea981ecd42"
+      }
+    },
+    "macos": {
+      "assets/macos-real-rgbd.png": {
+        "bytes": 249046,
+        "sha256": "5867cfac4e2f82cd4871684c74a1b65f8c80f196352b083f155af41ad4588ea7"
+      },
+      "assets/macos-real-rgbd.gif": {
+        "bytes": 1326233,
+        "sha256": "448339f32aa69d348c1be42402bf5be5d57f5ba4fe922bd21812bc2ae323d9e9"
+      },
+      "assets/macos-real-rgbd.mp4": {
+        "bytes": 776046,
+        "sha256": "9325871a0b5e4558b0a37d1474a28408a91ddedc71b2d1c2179a069f19622b5c"
+      }
+    },
+    "linux": {
+      "assets/linux-real-rgbd.png": {
+        "bytes": 209136,
+        "sha256": "2dc6f345c212e93c0140e09db6f0bd9acd10fbecf7b7c9826e77881595d5ea84"
+      },
+      "assets/linux-real-rgbd.mp4": {
+        "bytes": 952511,
+        "sha256": "4c826d874163bc755f9e5b8f0e5e7af32820eaa36d28f2f8d8d6ffa094f15cf6"
+      },
+      "assets/linux-real-rgbd.gif": {
+        "bytes": 1181372,
+        "sha256": "09f27215a2f59585f2bd038ce943eb865d20e6631590ccb54f2e799bc99dad37"
+      }
+    }
+  },
+  "media_provenance": {
+    "ios": {
+      "file": "../../assets/ios-real-rgbd-provenance.json",
+      "bytes": 9497,
+      "sha256": "4aa4e714184fce374e26772864fd3172dec915f20b1d22d5eacc51a02c6563fa"
+    },
+    "android": {
+      "file": "../../assets/android-real-rgbd-provenance.json",
+      "bytes": 9503,
+      "sha256": "04084d258568c808047abb1a909bbf90fff5d3b20f89ce89ee71cedb4648034c"
+    },
+    "macos": {
+      "file": "../../assets/macos-real-rgbd-provenance.json",
+      "bytes": 37876,
+      "sha256": "b3c183fa62d09cd1f4c32eec5c8e5fae231e2369f888a6cd5b7f9c83c20a135a"
+    },
+    "linux": {
+      "file": "../../assets/linux-real-rgbd-provenance.json",
+      "bytes": 33900,
+      "sha256": "be25ac72cad5eeb651f7edcd77a45a3bc9807ccbdb7891a888f1d5eecf73f5e1"
+    }
+  },
+  "bundled_resources_verified": {
+    "ios": {
+      "recording.pfrgbd": {
+        "bytes": 11528680,
+        "sha256": "1033e30ae101dea653b1be77aaa3972c8a026ca5a152a9bf479cee07a12ff39c"
+      },
+      "recording.json": {
+        "bytes": 222064,
+        "sha256": "fd162983c544747fecf996c9a562779567913ea8a5f9c723b9d6cd1840a31e22"
+      },
+      "recording-NOTICE.txt": {
+        "bytes": 1991,
+        "sha256": "ce7fa05f4d52f10ba9c3cc32fcaf1eecb9af5da7909f0ab326846407dc4aa222"
+      }
+    },
+    "macos": {
+      "recording.pfrgbd": {
+        "bytes": 11528680,
+        "sha256": "1033e30ae101dea653b1be77aaa3972c8a026ca5a152a9bf479cee07a12ff39c"
+      },
+      "recording.json": {
+        "bytes": 222064,
+        "sha256": "fd162983c544747fecf996c9a562779567913ea8a5f9c723b9d6cd1840a31e22"
+      },
+      "recording-NOTICE.txt": {
+        "bytes": 1991,
+        "sha256": "ce7fa05f4d52f10ba9c3cc32fcaf1eecb9af5da7909f0ab326846407dc4aa222"
+      }
+    },
+    "android": {
+      "recording.pfrgbd": {
+        "bytes": 11528680,
+        "sha256": "1033e30ae101dea653b1be77aaa3972c8a026ca5a152a9bf479cee07a12ff39c"
+      },
+      "recording.json": {
+        "bytes": 222064,
+        "sha256": "fd162983c544747fecf996c9a562779567913ea8a5f9c723b9d6cd1840a31e22"
+      },
+      "recording-NOTICE.txt": {
+        "bytes": 1991,
+        "sha256": "ce7fa05f4d52f10ba9c3cc32fcaf1eecb9af5da7909f0ab326846407dc4aa222"
+      }
+    }
+  },
+  "state_field_notes": {
+    "valid_depth_pixels_total": "Nonzero depths inside0.5\u20133.5m, before normal filtering; excludes rejected_range_pixels_total"
+  }
+}

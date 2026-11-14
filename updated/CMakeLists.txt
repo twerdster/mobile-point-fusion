@@ -39,3 +39,17 @@ if(NATIVE_UI)
     target_link_options(points_fusion_ui PRIVATE -fsanitize=address,undefined)
   endif()
 endif()
+
+# Independent hand-authored calibrated RGB-D packs and actual shader-fusion checks.
+# Existing 25 synthetic assertions stay in their original two CTest entries.
+add_executable(rgbd_input_tests tests/rgbd_input_tests.cpp)
+target_link_libraries(rgbd_input_tests PRIVATE PkgConfig::EGL PkgConfig::GLES)
+target_compile_definitions(rgbd_input_tests PRIVATE SOURCE_ROOT="${CMAKE_CURRENT_SOURCE_DIR}/..")
+target_compile_options(rgbd_input_tests PRIVATE -Wall -Wextra -Wpedantic)
+if(SANITIZERS)
+  target_compile_options(rgbd_input_tests PRIVATE -fsanitize=address,undefined -fno-sanitize-recover=undefined -fno-omit-frame-pointer -g)
+  target_link_options(rgbd_input_tests PRIVATE -fsanitize=address,undefined)
+endif()
+add_test(NAME rgbd_input_regressions COMMAND rgbd_input_tests --cpu)
+add_test(NAME rgbd_calibrated_gpu_regressions COMMAND rgbd_input_tests --gpu)
+set_tests_properties(rgbd_calibrated_gpu_regressions PROPERTIES ENVIRONMENT "LIBGL_ALWAYS_SOFTWARE=1;EGL_PLATFORM=surfaceless;__EGL_VENDOR_LIBRARY_FILENAMES=${MESA_EGL_VENDOR_FILE};LP_NUM_THREADS=2" TIMEOUT 90)

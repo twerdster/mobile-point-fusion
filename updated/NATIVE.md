@@ -2,13 +2,15 @@
 
 These are new 2026 frontends around the updated fusion adapter, not restored historical mobile applications. Each runs correspondence shaders, C++ weighted averages and bounded overlap-removal shaders while rendering the current observations and accumulated model. The app does not play a precomputed cloud or video.
 
-Input remains the generated 21,824-point ellipsoid fixture: observations are selected from supplied world-space poses and receive the same bounded sinusoidal normal offsets as the offline demo. No platform captures RGB-D, estimates poses or validates a live sensor pipeline. The displayed orbit can be changed without changing the supplied acquisition poses.
+The default input is the generated 21,824-point ellipsoid fixture: observations are selected from supplied world-space poses and receive the same bounded sinusoidal normal offsets as the offline demo. The optional `--recording` build input selects measured TUM RGB-D with supplied motion-capture poses; see [real-data replay](REAL_RGBD.md). No platform captures a live sensor or estimates poses. The displayed orbit can be changed without changing the supplied acquisition poses.
 
 ## Controls and output
 
-The app automatically processes 48 views: 47 distinct acquisition poses, followed by a revisit of the first pose with a new deterministic noise seed. Pause/Resume stops and resumes processing of supplied views; Reset and run clears the model and recomputes the sequence. Drag either view to change the display orbit. Linux also accepts Space, R and Escape. The nominal minimum interval between processing views is 0.15 seconds; actual processing and recording delays vary, so playback is not a performance benchmark.
+The default generated example automatically processes 48 views: 47 distinct acquisition poses, followed by a revisit of the first pose with a new deterministic noise seed. Pause/Resume stops and resumes processing of supplied views; Reset and run clears the model and recomputes the sequence. Drag either view to change the display orbit. Linux also accepts Space, R and Escape. The nominal minimum interval between processing views is 0.15 seconds; actual processing and recording delays vary, so playback is not a performance benchmark.
 
-Every fusion-pass correspondence selection is compared with a CPU selection computed from the read-back GPU index map before application; a mismatch throws. Index-map rasterization and removal-shader output are not independently checked in native runs. `native-state.json` records actual counters, renderer and GL version after each view. `fused.ply` is written after view 48. These targeted comparisons do not establish correctness for arbitrary inputs, views or drivers. The existing finite-reference error/coverage limitations still apply; broader coverage is not demonstrated denoising.
+Every fusion-pass selection is compared with a CPU selection using the read-back GPU index map. If IDs differ, the program captures one transformed query from the same Fusion vertex program, checks it against a double-precision reference with bounded FP32 arithmetic error, then requires an exact CPU selection from that measured query. Other mismatches stop execution. The shader retains its strict normal gate and inclusive distance gate; no matching tolerance is added. `native-state.json` separates strict CPU-transform matches from GPU-query rechecks, and `correspondence-boundaries.txt` records each recheck. Index rasterization and removal outputs are not independently checked in native runs. These comparisons do not establish correctness for arbitrary inputs or drivers.
+
+State JSON records actual counters, renderer and GL version after each view. `fused.ply` is written after the last supplied view (48 in the generated example; 120 in the prepared real recording). Execution errors stay visible until Reset. The existing finite-reference error/coverage limitations still apply; broader coverage is not demonstrated denoising.
 
 Output locations:
 
@@ -71,9 +73,9 @@ export __EGL_VENDOR_LIBRARY_FILENAMES=/usr/share/glvnd/egl_vendor.d/50_mesa.json
 build/native-linux/points_fusion_ui --output native-linux-output
 ```
 
-`--auto-exit` closes the UI after completing 48 views, for a bounded validation run. `-DSANITIZERS=ON` instruments the UI target as well as the command-line targets. Set `ASAN_OPTIONS=detect_leaks=0 UBSAN_OPTIONS=halt_on_error=1`; Mesa/shader machine code is not instrumented and leak detection remains disabled. `-DINTEGER_FLOAT_STORAGE=ON` exercises the same lossless storage used on iOS; ordinary Linux runs retain RGBA32F.
+`--auto-exit` closes the UI after completing the selected sequence, for a bounded validation run. `-DSANITIZERS=ON` instruments the UI target as well as the command-line targets. Set `ASAN_OPTIONS=detect_leaks=0 UBSAN_OPTIONS=halt_on_error=1`; Mesa/shader machine code is not instrumented and leak detection remains disabled. `-DINTEGER_FLOAT_STORAGE=ON` exercises the same lossless storage used on iOS; ordinary Linux runs retain RGBA32F.
 
-## Recorded platform results
+## Generated-fixture platform results
 
 The initial macOS run completed 48 views on Apple M3 Max/OpenGL 4.1: 9,227 final points, 81,563 merges, 5,000 removals and 95,790 CPU-checked shader records. Reset/Pause/Resume were exercised through native controls; the point clouds were visually inspected. Linux X11/EGL on an isolated Xvfb display completed 48 views on Mesa llvmpipe: 9,232 points, 81,563 merges, 4,996 removals and 95,791 checked records. Its full UI sanitizer run completed without reports. Observed platform differences are recorded rather than forcing a universal point count; their precise cause has not been isolated.
 
@@ -81,7 +83,7 @@ A physical Pixel 2/Android 10 run on Adreno 540 completed the same 48-view fixtu
 
 One [iOS background/foreground check](validation/native-platforms/ios-lifecycle.json) after view 48 retained the same process. At 20 seconds in that separate recording, both clouds and the completed counters remained visible without error text. This checks return to the completed scene; interruption during fusion and repeated lifecycle cycles were not tested. Recordings retain generated-input/supplied-pose qualifications and identify their actual platform. Original credits and source-license limitations remain unchanged.
 
-## Screen recordings
+## Generated-fixture screen recordings
 
 | Native app | Recording | Final points / merges / removals |
 | --- | --- | --- |
@@ -92,4 +94,8 @@ One [iOS background/foreground check](validation/native-platforms/ios-lifecycle.
 
 These are actual app-window captures with generated input and supplied poses. Their on-screen CPU count refers specifically to fusion correspondence selections from the GPU index map; it does not independently verify index rasterization or removal decisions. The separate offline preview in README reprojects saved PLYs. Source-screenshot hashes and encode/probe details accompany the recordings.
 
-The UIKit display link pauses and flushes GL before resigning active, resumes on activation, and avoids GL drawing in the background. Drawable allocation skips zero sizes and unchanged sizes; layout/display exceptions are contained and shown on screen. Android releases native state on finishing and discards old context handles safely; an EGL context loss restarts the generated fixture. The manifest handles orientation/screen-size changes without recreating the activity. The storage wrappers target the supplied shader declarations, not arbitrary GLSL; test both representations after shader edits.
+The UIKit display link pauses and flushes GL before resigning active, resumes on activation, and avoids GL drawing in the background. Drawable allocation skips zero sizes and unchanged sizes; layout/display exceptions are contained and shown on screen. Android releases native state on finishing and discards old context handles safely; an EGL context loss restarts the bundled sequence. The manifest handles orientation/screen-size changes without recreating the activity. The storage wrappers target the supplied shader declarations, not arbitrary GLSL; test both representations after shader edits.
+
+## Recorded RGB-D option
+
+All three Apple/Android build scripts accept `--recording PATH`; for the included sequence, use `--recording updated/data/tum-fr1-xyz-120.pfrgbd`. This bundles raw measured depths/RGB, external camera poses, source metadata and the data notice. The running C++ loader computes points/normals and executes fusion on the current device. Linux accepts `--recording PATH` at runtime instead. Build without the option to retain the generated fixture; stale recording resources are cleared. See [REAL_RGBD.md](REAL_RGBD.md) for units, tests, held-out depth agreement and current platform records. The table above remains the earlier generated-fixture record, not real-sensor evidence.

@@ -1,11 +1,15 @@
 #!/usr/bin/env python3
 """Build new native app with installed Apple SDK; never edits historical project."""
-import argparse, pathlib, plistlib, shutil, subprocess
+import argparse, pathlib, plistlib, shutil, subprocess, sys
+
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
+from recording_resources import bundle_recording
 
 p = argparse.ArgumentParser()
 p.add_argument("--platform", choices=["macos", "simulator"], required=True)
 p.add_argument("--output", type=pathlib.Path, required=True)
 p.add_argument("--sign", default="-")
+p.add_argument("--recording", type=pathlib.Path)
 a = p.parse_args()
 root = pathlib.Path(__file__).resolve().parents[3]
 app = a.output.resolve() / "MobilePointFusion.app"
@@ -15,6 +19,7 @@ contents = app / "Contents" if mac else app
 binary = contents / "MacOS" / "MobilePointFusion" if mac else app / "MobilePointFusion"
 binary.parent.mkdir(parents=True, exist_ok=True)
 resources = contents / "Resources" if mac else app
+bundle_recording(a.recording, resources / "fusion")
 for relative in [
     "source/original/PointsFusion/PointsFusion/indexMap.vsh",
     "source/original/PointsFusion/PointsFusion/indexMap.fsh",

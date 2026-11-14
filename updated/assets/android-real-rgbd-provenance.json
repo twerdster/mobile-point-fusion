@@ -1,0 +1,340 @@
+{
+  "platform": "android",
+  "capture_method": "Physical Pixel 2 adb screenrecord excerpt; recorded stream timing retained without retiming; playback is not throughput.",
+  "scope": "Actual native app screen capture using recorded TUM Freiburg 1 xyz RGB-D samples in metres and supplied motion-capture poses. The app unprojects depth and executes fusion; it does not estimate camera poses. Capture playback is not a performance benchmark.",
+  "recorded_dataset_attribution": {
+    "dataset": "TUM RGB-D benchmark, Freiburg 1 xyz",
+    "authors": [
+      "J\u00fcrgen Sturm",
+      "Nikolas Engelhard",
+      "Felix Endres",
+      "Wolfram Burgard",
+      "Daniel Cremers"
+    ],
+    "publication": "A Benchmark for the Evaluation of RGB-D SLAM Systems, IROS 2012",
+    "source": "https://cvg.cit.tum.de/data/datasets/rgbd-dataset",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "derived_input_notice": "updated/data/NOTICE.txt"
+  },
+  "source": {
+    "kind": "native screen video recording",
+    "file": "android-real-frozen.mp4",
+    "bytes": 5321462,
+    "sha256": "9a340cbf93b898c3c30c2dd4b6b03718678e32f2a56c1d83558d8560af12ebe7",
+    "probe": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 1080,
+          "height": 1920,
+          "pix_fmt": "yuv420p",
+          "r_frame_rate": "60/1",
+          "avg_frame_rate": "135090000/2699203",
+          "time_base": "1/90000",
+          "duration": "29.991144",
+          "nb_frames": "1501"
+        }
+      ],
+      "format": {
+        "duration": "29.991144",
+        "size": "5321462"
+      }
+    }
+  },
+  "clean_source_segment_seconds": {
+    "start": 1.0,
+    "duration": 23.0,
+    "end": 24.0
+  },
+  "image_operations": {
+    "owner_specified_crop": null,
+    "mp4_scaling": "area resampling; even output height",
+    "gif": "4 fps sampling of recorded images, area scaling, palette quantization; no motion interpolation",
+    "audio_removed": true,
+    "speed_factor_relative_to_recorded_stream_timestamps": 1
+  },
+  "mp4_encoding_attempts": [
+    {
+      "crf": 24,
+      "width": 480,
+      "bytes": 441173
+    }
+  ],
+  "gif_encoding_attempts": [
+    {
+      "fps": 4,
+      "width": 320,
+      "palette_colors": 96,
+      "bytes": 536101
+    }
+  ],
+  "poster": {
+    "decoded_mp4_frame_index": 1089,
+    "frame_count": 1090
+  },
+  "media": [
+    {
+      "file": "android-real-rgbd.mp4",
+      "bytes": 441173,
+      "sha256": "2f36e8985a049748f6a1f4a4eb172761d41b03dc57717b363928a6ea981ecd42"
+    },
+    {
+      "file": "android-real-rgbd.gif",
+      "bytes": 536101,
+      "sha256": "86b36788eb348ba3e0ed3b8cc9d3d82c5b34228b7c4fb2b89f57c6076262bde8"
+    },
+    {
+      "file": "android-real-rgbd.png",
+      "bytes": 141054,
+      "sha256": "c8065c557ca7fe4c1c1cbbba043e8eb4bd13c340017bc4d0efef66dbdfba3893"
+    }
+  ],
+  "automated_qa": {
+    "full_ffmpeg_decode_pass": true,
+    "decoded_media": {
+      "mp4": {
+        "probe": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "codec_name": "h264",
+              "width": 480,
+              "height": 854,
+              "pix_fmt": "yuv420p",
+              "r_frame_rate": "60/1",
+              "avg_frame_rate": "65400/1379",
+              "time_base": "1/15360",
+              "duration": "22.983333",
+              "nb_frames": "1090",
+              "nb_read_frames": "1090"
+            }
+          ],
+          "format": {
+            "duration": "22.983333",
+            "size": "441173"
+          }
+        },
+        "frame_indices": [
+          0,
+          544,
+          1089
+        ],
+        "extracted_frames": [
+          {
+            "file": "01.png",
+            "bytes": 134532,
+            "sha256": "955e3caf9accf69e33b7d03149286ad48b47337d66ab9ffb99e8fbdc00a8f0df"
+          },
+          {
+            "file": "02.png",
+            "bytes": 146233,
+            "sha256": "6cf657c56c4348943bea1f16c2207e3b8e38725384bd81ea1ce0f780faf47af7"
+          },
+          {
+            "file": "03.png",
+            "bytes": 141054,
+            "sha256": "c8065c557ca7fe4c1c1cbbba043e8eb4bd13c340017bc4d0efef66dbdfba3893"
+          }
+        ]
+      },
+      "gif": {
+        "probe": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "codec_name": "gif",
+              "width": 320,
+              "height": 570,
+              "pix_fmt": "bgra",
+              "r_frame_rate": "4/1",
+              "avg_frame_rate": "4/1",
+              "time_base": "1/100",
+              "duration": "23.000000",
+              "nb_frames": "92",
+              "nb_read_frames": "92"
+            }
+          ],
+          "format": {
+            "duration": "23.000000",
+            "size": "536101"
+          }
+        },
+        "frame_indices": [
+          0,
+          45,
+          91
+        ],
+        "extracted_frames": [
+          {
+            "file": "01.png",
+            "bytes": 70956,
+            "sha256": "4e3be2c3daadccd06451741273b69d8f897e87020250bcd0259d1e61b9f28d83"
+          },
+          {
+            "file": "02.png",
+            "bytes": 75351,
+            "sha256": "46e039869d09642f3d89ae359d0d3e8175bdb4bc1d95af5734a07f28d1d53c62"
+          },
+          {
+            "file": "03.png",
+            "bytes": 73201,
+            "sha256": "1ccc8c0a7951ec26e230c91a072330d97020b06fcfd22ec982e303e05a9efdba"
+          }
+        ]
+      }
+    },
+    "pillow_gif": {
+      "all_frames_decoded": 92,
+      "unique_rgb_frame_count": 87,
+      "duration_ms": 23000,
+      "loop": 0
+    },
+    "mp4_faststart_verified": true,
+    "strict_mp4_limit_bytes": 10000000,
+    "strict_gif_limit_bytes": 2000000
+  },
+  "encoder": {
+    "ffmpeg_version": "ffmpeg version 8.1.1 Copyright (c) 2000-2026 the FFmpeg developers",
+    "helper_sha256": "2a3612e0b3d93dcbd1ebe30179370802d96c119564bd82426932e00d013432f3",
+    "commands": [
+      [
+        "ffmpeg",
+        "-v",
+        "error",
+        "-y",
+        "-i",
+        "SOURCE/android-real-frozen.mp4",
+        "-ss",
+        "1.0",
+        "-t",
+        "23.0",
+        "-map",
+        "0:v:0",
+        "-an",
+        "-map_metadata",
+        "-1",
+        "-vf",
+        "scale=480:-2:flags=area,setpts=PTS-STARTPTS",
+        "-c:v",
+        "libx264",
+        "-preset",
+        "slow",
+        "-crf",
+        "24",
+        "-pix_fmt",
+        "yuv420p",
+        "-fps_mode",
+        "vfr",
+        "-movflags",
+        "+faststart",
+        "-metadata",
+        "title=Mobile Point Fusion: android recorded RGB-D native capture",
+        "-metadata",
+        "comment=Actual native app screen capture using recorded TUM Freiburg 1 xyz RGB-D samples in metres and supplied motion-capture poses. The app unprojects depth and executes fusion; it does not estimate camera poses. Capture playback is not a performance benchmark.",
+        "SCRATCH/android-real-rgbd.mp4"
+      ],
+      [
+        "ffmpeg",
+        "-v",
+        "error",
+        "-y",
+        "-i",
+        "SCRATCH/android-real-rgbd.mp4",
+        "-filter_complex",
+        "[0:v]fps=4,scale=320:-2:flags=area,split[a][b];[a]palettegen=max_colors=96:stats_mode=diff[p];[b][p]paletteuse=dither=bayer:bayer_scale=5:diff_mode=rectangle",
+        "-an",
+        "-map_metadata",
+        "-1",
+        "-loop",
+        "0",
+        "SCRATCH/android-real-rgbd.gif"
+      ],
+      [
+        "ffmpeg",
+        "-v",
+        "error",
+        "-i",
+        "SCRATCH/android-real-rgbd.mp4",
+        "-map",
+        "0:v:0",
+        "-f",
+        "null",
+        "-"
+      ],
+      [
+        "ffmpeg",
+        "-v",
+        "error",
+        "-y",
+        "-i",
+        "SCRATCH/android-real-rgbd.mp4",
+        "-vf",
+        "select=eq(n\\,0)+eq(n\\,544)+eq(n\\,1089)",
+        "-fps_mode",
+        "vfr",
+        "-frames:v",
+        "3",
+        "SCRATCH/mp4-qa-frames/%02d.png"
+      ],
+      [
+        "ffmpeg",
+        "-v",
+        "error",
+        "-i",
+        "SCRATCH/android-real-rgbd.gif",
+        "-map",
+        "0:v:0",
+        "-f",
+        "null",
+        "-"
+      ],
+      [
+        "ffmpeg",
+        "-v",
+        "error",
+        "-y",
+        "-i",
+        "SCRATCH/android-real-rgbd.gif",
+        "-vf",
+        "select=eq(n\\,0)+eq(n\\,45)+eq(n\\,91)",
+        "-fps_mode",
+        "vfr",
+        "-frames:v",
+        "3",
+        "SCRATCH/gif-qa-frames/%02d.png"
+      ],
+      [
+        "ffmpeg",
+        "-v",
+        "error",
+        "-y",
+        "-i",
+        "SCRATCH/android-real-rgbd.mp4",
+        "-vf",
+        "select=eq(n\\,1089)",
+        "-frames:v",
+        "1",
+        "-fps_mode",
+        "vfr",
+        "-map_metadata",
+        "-1",
+        "SCRATCH/android-real-rgbd.png"
+      ]
+    ]
+  },
+  "visual_review": {
+    "status": "passed",
+    "reviewers": [
+      "encoding agent",
+      "capture-owner agent"
+    ],
+    "method": "Separate visual inspection through image tools of actual first, middle and last decoded MP4 and GIF frames, plus full-size poster inspection by the encoding agent.",
+    "observations": "Full native app visible, recorded RGB-D/supplied-pose labels visible, both observation and accumulated point views visible, no home screen or error text in inspected frames, final frame visibly120/120.",
+    "limits": "Selected-frame visual review does not verify every app state or algorithm correctness. Full media decoding is checked separately."
+  }
+}

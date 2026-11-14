@@ -1,0 +1,9 @@
+Consolidate compiler generated dependencies of target points_fusion
+[ 33%] Built target original_faults
+[ 50%] Building CXX object CMakeFiles/points_fusion.dir/src/main.cpp.o
+Consolidate compiler generated dependencies of target rgbd_input_tests
+[ 66%] Building CXX object CMakeFiles/rgbd_input_tests.dir/tests/rgbd_input_tests.cpp.o
+[ 83%] Linking CXX executable points_fusion
+[ 83%] Built target points_fusion
+[100%] Linking CXX executable rgbd_input_tests
+[100%] Built target rgbd_input_tests

@@ -1,0 +1,19 @@
+test_bad_depth_encoding_rejected_and_partial_output_removed (test_prepare_tum_rgbd.ConversionTests.test_bad_depth_encoding_rejected_and_partial_output_removed) ... ok
+test_bad_indices_calibration_and_selection_rejected (test_prepare_tum_rgbd.ConversionTests.test_bad_indices_calibration_and_selection_rejected) ... ok
+test_binary_sampling_units_colors_and_frame_selection (test_prepare_tum_rgbd.ConversionTests.test_binary_sampling_units_colors_and_frame_selection) ... ok
+test_heldout_explicit_indices_keep_original_anchor (test_prepare_tum_rgbd.ConversionTests.test_heldout_explicit_indices_keep_original_anchor) ... ok
+test_known_translation_and_first_depth_anchor (test_prepare_tum_rgbd.ConversionTests.test_known_translation_and_first_depth_anchor) ... ok
+test_manifest_alone_prevents_overwrite (test_prepare_tum_rgbd.ConversionTests.test_manifest_alone_prevents_overwrite) ... ok
+test_manifest_roundtrip_and_source_hashes (test_prepare_tum_rgbd.ConversionTests.test_manifest_roundtrip_and_source_hashes) ... ok
+test_nonmonotonic_index_and_invalid_quaternion_rejected (test_prepare_tum_rgbd.ConversionTests.test_nonmonotonic_index_and_invalid_quaternion_rejected) ... ok
+test_overwrite_protection (test_prepare_tum_rgbd.ConversionTests.test_overwrite_protection) ... ok
+test_path_escape_rejected_and_partial_output_removed (test_prepare_tum_rgbd.ConversionTests.test_path_escape_rejected_and_partial_output_removed) ... ok
+test_pose_gap_is_rejected_without_extrapolation (test_prepare_tum_rgbd.ConversionTests.test_pose_gap_is_rejected_without_extrapolation) ... ok
+test_rgb_dimension_mismatch_rejected (test_prepare_tum_rgbd.ConversionTests.test_rgb_dimension_mismatch_rejected) ... ok
+test_rgb_nearest_tie_and_threshold (test_prepare_tum_rgbd.ConversionTests.test_rgb_nearest_tie_and_threshold) ... ok
+test_spherical_rotation_interpolation_and_antipodal_quaternions (test_prepare_tum_rgbd.ConversionTests.test_spherical_rotation_interpolation_and_antipodal_quaternions) ... ok
+
+----------------------------------------------------------------------
+Ran 14 tests in 0.069s
+
+OK

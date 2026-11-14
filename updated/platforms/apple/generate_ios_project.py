@@ -1,14 +1,19 @@
 #!/usr/bin/env python3
 """Create a standalone private Xcode target; signing settings supplied externally."""
 from pathlib import Path
-import argparse, hashlib, plistlib, shutil
+import argparse, hashlib, plistlib, shutil, sys
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from recording_resources import bundle_recording
 
 p = argparse.ArgumentParser()
 p.add_argument("--output", type=Path, required=True)
+p.add_argument("--recording", type=Path)
 a = p.parse_args()
 root = Path(__file__).resolve().parents[3]
 out = a.output.resolve()
 out.mkdir(parents=True, exist_ok=True)
+bundle_recording(a.recording, out / "fusion")
 objects = {}
 
 

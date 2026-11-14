@@ -1,0 +1,35 @@
+TUM RGB-D Freiburg 1 xyz — selected recorded RGB/depth and supplied poses
+
+Data authors: Jürgen Sturm, Nikolas Engelhard, Felix Endres, Wolfram Burgard
+and Daniel Cremers.
+
+Publication: A Benchmark for the Evaluation of RGB-D SLAM Systems, IROS 2012.
+
+Official dataset: https://cvg.cit.tum.de/data/datasets/rgbd-dataset
+Downloads: https://cvg.cit.tum.de/data/datasets/rgbd-dataset/download
+Format/calibration: https://cvg.cit.tum.de/data/datasets/rgbd-dataset/file_formats
+Official license statement:
+https://cvg.cit.tum.de/data/datasets/rgbd-dataset#license
+License: Creative Commons Attribution 4.0 International (CC BY 4.0), unless
+otherwise stated by the dataset authors.
+https://creativecommons.org/licenses/by/4.0/
+
+Prepared 2026-11-14 for Aaron Wetzler's updated Mobile Point Fusion adapter.
+Changes: selected 120 reconstruction views and 12 disjoint held-out views from
+the original sequence; exact pixel-stride-four sampling of depth and RGB from
+640x480 to 160x120 without interpolation; nearest RGB timestamps within 30 ms;
+interpolated motion-capture poses with both endpoints within 20 ms; conversion to
+the first original depth camera's GL basis, x right/y up/-z forward, in metres;
+and lossless raw-image-value binary packaging with JSON provenance.
+
+Raw depth values remain unchanged: 5000 units per metre, zero missing.
+No additional depth scale correction, undistortion, hole filling or depth
+filtering is applied by this converter. Source motion-capture poses are
+supplied to fusion; this input does not demonstrate camera pose estimation.
+The held-out pack is marked validation_only in its sidecar and must not be
+fused into the reconstruction used for its consistency check.
+
+These selected/converted inputs and any reconstructions made from them are
+maintenance transformations, not outputs supplied by the dataset authors.
+No endorsement by the dataset authors is implied. Dataset license terms are
+separate from the recovered software's individual source notices.

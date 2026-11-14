@@ -17,6 +17,11 @@ flat in highp int  newVertexID;
 flat in highp vec4 projCoords;
 flat in highp vec4 newNormal; //in cam coords
 flat in highp vec4 newCoords; //in cam cords
+#ifndef GL_ES
+// GLSL330 requires matching invariant inputs; ESSL300 forbids them.
+invariant newCoords;
+invariant newNormal;
+#endif
 
 layout (location = 3) out highp vec4 fusion;
 //out idtext
@@ -27,8 +32,9 @@ uniform highp sampler2D normalTexture;
 uniform highp float xfactor;
 uniform highp float yfactor;
 uniform highp int superSampleFactor;
-uniform highp float maxDegree;
 uniform highp float maxDistance;
+// Updated: evaluate the same strict 20-degree FP32 cutoff once on the CPU.
+uniform highp float minNormalDot;
 
 highp float delta(highp float depth) {
     // Historical unused helper. Neighborhood alignment now uses gl_FragCoord.
@@ -83,7 +89,7 @@ void main()
                     radius = normal.w;
                     normal.w = 1.0;
                     //if degree is less then 20 degree continue // pass as uniform must pass in radians 
-                    if ( dot(newNormal.xyz,normal.xyz) > cos(maxDegree) ) { // dot of vec 3 not vec 4 need to be
+                    if ( dot(newNormal.xyz,normal.xyz) > minNormalDot ) { // dot of vec 3 not vec 4 need to be
                         if (confidence < tempConfidence) {
                             
                             confidence = tempConfidence;

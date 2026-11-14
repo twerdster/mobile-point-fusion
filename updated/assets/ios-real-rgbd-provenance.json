@@ -1,0 +1,340 @@
+{
+  "platform": "ios",
+  "capture_method": "Physical iPhone USB display stream excerpt; recorded stream timing retained without retiming. Source stream duration 10.222117 seconds covers 32 wall-clock seconds; playback is not throughput.",
+  "scope": "Actual native app screen capture using recorded TUM Freiburg 1 xyz RGB-D samples in metres and supplied motion-capture poses. The app unprojects depth and executes fusion; it does not estimate camera poses. Capture playback is not a performance benchmark.",
+  "recorded_dataset_attribution": {
+    "dataset": "TUM RGB-D benchmark, Freiburg 1 xyz",
+    "authors": [
+      "J\u00fcrgen Sturm",
+      "Nikolas Engelhard",
+      "Felix Endres",
+      "Wolfram Burgard",
+      "Daniel Cremers"
+    ],
+    "publication": "A Benchmark for the Evaluation of RGB-D SLAM Systems, IROS 2012",
+    "source": "https://cvg.cit.tum.de/data/datasets/rgbd-dataset",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "derived_input_notice": "updated/data/NOTICE.txt"
+  },
+  "source": {
+    "kind": "native screen video recording",
+    "file": "ios-real-frozen.mov",
+    "bytes": 12441217,
+    "sha256": "e9309d7ddf679c45a5f060f9e7da59a91a54b8af41a60e69e93d0f52c313d6fd",
+    "probe": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 1170,
+          "height": 2532,
+          "pix_fmt": "yuvj420p",
+          "r_frame_rate": "60/1",
+          "avg_frame_rate": "21630000/552779",
+          "time_base": "1/60000",
+          "duration": "10.222117",
+          "nb_frames": "721"
+        }
+      ],
+      "format": {
+        "duration": "10.222117",
+        "size": "12441217"
+      }
+    }
+  },
+  "clean_source_segment_seconds": {
+    "start": 1.0,
+    "duration": 8.8,
+    "end": 9.8
+  },
+  "image_operations": {
+    "owner_specified_crop": null,
+    "mp4_scaling": "area resampling; even output height",
+    "gif": "4 fps sampling of recorded images, area scaling, palette quantization; no motion interpolation",
+    "audio_removed": true,
+    "speed_factor_relative_to_recorded_stream_timestamps": 1
+  },
+  "mp4_encoding_attempts": [
+    {
+      "crf": 24,
+      "width": 480,
+      "bytes": 129647
+    }
+  ],
+  "gif_encoding_attempts": [
+    {
+      "fps": 4,
+      "width": 320,
+      "palette_colors": 96,
+      "bytes": 139090
+    }
+  ],
+  "poster": {
+    "decoded_mp4_frame_index": 294,
+    "frame_count": 295
+  },
+  "media": [
+    {
+      "file": "ios-real-rgbd.mp4",
+      "bytes": 129647,
+      "sha256": "2e10e7d7bafc8fc602fe264faccbdef57482b1c14701accefdfa1293725e6c96"
+    },
+    {
+      "file": "ios-real-rgbd.gif",
+      "bytes": 139090,
+      "sha256": "d51d9780d33881c6928980b7aa72e6a20245140f9b6e3dcdc7cec73e7d12b181"
+    },
+    {
+      "file": "ios-real-rgbd.png",
+      "bytes": 134559,
+      "sha256": "341e0cdc761038273c8271611c0fa2517b31d459d9a9b6ebda1a4e9820e81b46"
+    }
+  ],
+  "automated_qa": {
+    "full_ffmpeg_decode_pass": true,
+    "decoded_media": {
+      "mp4": {
+        "probe": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "codec_name": "h264",
+              "width": 480,
+              "height": 1038,
+              "pix_fmt": "yuvj420p",
+              "r_frame_rate": "60/1",
+              "avg_frame_rate": "17700/529",
+              "time_base": "1/15360",
+              "duration": "8.816667",
+              "nb_frames": "295",
+              "nb_read_frames": "295"
+            }
+          ],
+          "format": {
+            "duration": "8.816667",
+            "size": "129647"
+          }
+        },
+        "frame_indices": [
+          0,
+          147,
+          294
+        ],
+        "extracted_frames": [
+          {
+            "file": "01.png",
+            "bytes": 150256,
+            "sha256": "a745e4fbbebf00e3059e395230c0394b8783ad653e3d21b45e04c393ea6949b8"
+          },
+          {
+            "file": "02.png",
+            "bytes": 137772,
+            "sha256": "34ac0d6ad208eb2cc26cd1be8f7e15b51916c1a3a19b8f9fbb197135bb8a6fa4"
+          },
+          {
+            "file": "03.png",
+            "bytes": 134559,
+            "sha256": "341e0cdc761038273c8271611c0fa2517b31d459d9a9b6ebda1a4e9820e81b46"
+          }
+        ]
+      },
+      "gif": {
+        "probe": {
+          "programs": [],
+          "stream_groups": [],
+          "streams": [
+            {
+              "codec_name": "gif",
+              "width": 320,
+              "height": 692,
+              "pix_fmt": "bgra",
+              "r_frame_rate": "4/1",
+              "avg_frame_rate": "4/1",
+              "time_base": "1/100",
+              "duration": "8.750000",
+              "nb_frames": "35",
+              "nb_read_frames": "35"
+            }
+          ],
+          "format": {
+            "duration": "8.750000",
+            "size": "139090"
+          }
+        },
+        "frame_indices": [
+          0,
+          17,
+          34
+        ],
+        "extracted_frames": [
+          {
+            "file": "01.png",
+            "bytes": 90048,
+            "sha256": "3a9bfcb21aa739210232d0d068e26b8b769289f164ad9f4386b2a86b9b68d224"
+          },
+          {
+            "file": "02.png",
+            "bytes": 84030,
+            "sha256": "257ab7a98ea4454ac51f2a2358141a72ce42145f9090aa8372f5d1becb43e0a0"
+          },
+          {
+            "file": "03.png",
+            "bytes": 81883,
+            "sha256": "6292239b86a875bdf46aa45252fbeabe8e9ca471cfbaddacf9e9b639fd5f2498"
+          }
+        ]
+      }
+    },
+    "pillow_gif": {
+      "all_frames_decoded": 35,
+      "unique_rgb_frame_count": 26,
+      "duration_ms": 8750,
+      "loop": 0
+    },
+    "mp4_faststart_verified": true,
+    "strict_mp4_limit_bytes": 10000000,
+    "strict_gif_limit_bytes": 2000000
+  },
+  "encoder": {
+    "ffmpeg_version": "ffmpeg version 8.1.1 Copyright (c) 2000-2026 the FFmpeg developers",
+    "helper_sha256": "2a3612e0b3d93dcbd1ebe30179370802d96c119564bd82426932e00d013432f3",
+    "commands": [
+      [
+        "ffmpeg",
+        "-v",
+        "error",
+        "-y",
+        "-i",
+        "SOURCE/ios-real-frozen.mov",
+        "-ss",
+        "1.0",
+        "-t",
+        "8.8",
+        "-map",
+        "0:v:0",
+        "-an",
+        "-map_metadata",
+        "-1",
+        "-vf",
+        "scale=480:-2:flags=area,setpts=PTS-STARTPTS",
+        "-c:v",
+        "libx264",
+        "-preset",
+        "slow",
+        "-crf",
+        "24",
+        "-pix_fmt",
+        "yuv420p",
+        "-fps_mode",
+        "vfr",
+        "-movflags",
+        "+faststart",
+        "-metadata",
+        "title=Mobile Point Fusion: ios recorded RGB-D native capture",
+        "-metadata",
+        "comment=Actual native app screen capture using recorded TUM Freiburg 1 xyz RGB-D samples in metres and supplied motion-capture poses. The app unprojects depth and executes fusion; it does not estimate camera poses. Capture playback is not a performance benchmark.",
+        "SCRATCH/ios-real-rgbd.mp4"
+      ],
+      [
+        "ffmpeg",
+        "-v",
+        "error",
+        "-y",
+        "-i",
+        "SCRATCH/ios-real-rgbd.mp4",
+        "-filter_complex",
+        "[0:v]fps=4,scale=320:-2:flags=area,split[a][b];[a]palettegen=max_colors=96:stats_mode=diff[p];[b][p]paletteuse=dither=bayer:bayer_scale=5:diff_mode=rectangle",
+        "-an",
+        "-map_metadata",
+        "-1",
+        "-loop",
+        "0",
+        "SCRATCH/ios-real-rgbd.gif"
+      ],
+      [
+        "ffmpeg",
+        "-v",
+        "error",
+        "-i",
+        "SCRATCH/ios-real-rgbd.mp4",
+        "-map",
+        "0:v:0",
+        "-f",
+        "null",
+        "-"
+      ],
+      [
+        "ffmpeg",
+        "-v",
+        "error",
+        "-y",
+        "-i",
+        "SCRATCH/ios-real-rgbd.mp4",
+        "-vf",
+        "select=eq(n\\,0)+eq(n\\,147)+eq(n\\,294)",
+        "-fps_mode",
+        "vfr",
+        "-frames:v",
+        "3",
+        "SCRATCH/mp4-qa-frames/%02d.png"
+      ],
+      [
+        "ffmpeg",
+        "-v",
+        "error",
+        "-i",
+        "SCRATCH/ios-real-rgbd.gif",
+        "-map",
+        "0:v:0",
+        "-f",
+        "null",
+        "-"
+      ],
+      [
+        "ffmpeg",
+        "-v",
+        "error",
+        "-y",
+        "-i",
+        "SCRATCH/ios-real-rgbd.gif",
+        "-vf",
+        "select=eq(n\\,0)+eq(n\\,17)+eq(n\\,34)",
+        "-fps_mode",
+        "vfr",
+        "-frames:v",
+        "3",
+        "SCRATCH/gif-qa-frames/%02d.png"
+      ],
+      [
+        "ffmpeg",
+        "-v",
+        "error",
+        "-y",
+        "-i",
+        "SCRATCH/ios-real-rgbd.mp4",
+        "-vf",
+        "select=eq(n\\,294)",
+        "-frames:v",
+        "1",
+        "-fps_mode",
+        "vfr",
+        "-map_metadata",
+        "-1",
+        "SCRATCH/ios-real-rgbd.png"
+      ]
+    ]
+  },
+  "visual_review": {
+    "status": "passed",
+    "reviewers": [
+      "encoding agent",
+      "capture-owner agent"
+    ],
+    "method": "Separate visual inspection through image tools of actual first, middle and last decoded MP4 and GIF frames, plus full-size poster inspection by the encoding agent.",
+    "observations": "Full native app visible, recorded RGB-D/supplied-pose labels visible, both observation and accumulated point views visible, no home screen or error text in inspected frames, final frame visibly120/120.",
+    "limits": "Selected-frame visual review does not verify every app state or algorithm correctness. Full media decoding is checked separately."
+  }
+}

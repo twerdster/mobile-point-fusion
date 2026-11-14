@@ -9,17 +9,20 @@
 using namespace pf;
 int main(int argc, char **argv) {
   try {
-    std::string root = SOURCE_ROOT, output = "mobile-fusion-native-output";
+    std::string root = SOURCE_ROOT, output = "mobile-fusion-native-output",
+                recording;
     bool auto_exit = false;
     for (int i = 1; i < argc; i++) {
       std::string a = argv[i];
       if (a == "--output" && i + 1 < argc)
         output = argv[++i];
+      else if (a == "--recording" && i + 1 < argc)
+        recording = argv[++i];
       else if (a == "--auto-exit")
         auto_exit = true;
       else
-        throw std::runtime_error(
-            "usage: points_fusion_ui [--output DIR] [--auto-exit]");
+        throw std::runtime_error("usage: points_fusion_ui [--output DIR] "
+                                 "[--recording PACK] [--auto-exit]");
     }
     Display *xd = XOpenDisplay(nullptr);
     require(xd, "X11 display unavailable");
@@ -87,7 +90,7 @@ int main(int argc, char **argv) {
     int previous_x = 0;
     auto last = std::chrono::steady_clock::now();
     {
-      LiveFusion fusion(root, output);
+      LiveFusion fusion(root, output, recording, true, false);
       while (!quit) {
         while (XPending(xd)) {
           XEvent e;
@@ -142,13 +145,21 @@ int main(int argc, char **argv) {
         XClearArea(xd, win, 0, height - 150, width, 150, False);
         text(24, 32, "MOBILE POINT FUSION");
         text(24, 60,
-             "Native ES3 shader + CPU execution | Generated observations | "
-             "Supplied poses");
-        text(24, 84, "No real RGB-D, camera input or tracking. Drag to orbit.");
+             fusion.sequence.real()
+                 ? "Native ES3 shader + CPU execution | Recorded RGB-D | "
+                   "Supplied camera poses"
+                 : "Native ES3 shader + CPU execution | Generated observations "
+                   "| Supplied poses");
+        text(24, 84,
+             fusion.sequence.real()
+                 ? "Recorded depth + RGB, metres. No pose estimation. Drag to "
+                   "orbit."
+                 : "No real RGB-D, camera input or tracking. Drag to orbit.");
         text(30, 116, "CURRENT OBSERVATION");
         text(width / 2 + 16, 116, "ACCUMULATED MODEL");
         std::string status =
-            "View " + std::to_string(fusion.frame) + " / 48 | " +
+            "View " + std::to_string(fusion.frame) + " / " +
+            std::to_string(fusion.frames) + " | " +
             std::to_string(fusion.model.size()) + " points | " +
             std::to_string(fusion.model.merged) + " merges | " +
             std::to_string(fusion.model.removed) + " removals";
@@ -166,7 +177,7 @@ int main(int argc, char **argv) {
                       orbit);
         require(eglSwapBuffers(ed, surface), "EGL swap failed");
         XFlush(xd);
-        if (auto_exit && fusion.frame == 48)
+        if (auto_exit && fusion.frame == fusion.frames)
           quit = true;
         std::this_thread::sleep_for(std::chrono::milliseconds(15));
       }

@@ -4,3 +4,6 @@
 /mobile-fusion-native-output/
 __pycache__/
 .DS_Store
+/fusion-output-rgbd/
+/fusion-output-rgbd-native/
+/fusion-rgbd-asan/

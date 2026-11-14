@@ -1,0 +1,21 @@
+{
+  "status": "passed",
+  "command": "python3 -m unittest discover -s updated/tests -p 'test_*rgbd.py' -v",
+  "environment": "Python3.14 with NumPy/Pillow in existing task virtual environment",
+  "test_counts": {
+    "converter": 14,
+    "evaluator": 6,
+    "total": 20
+  },
+  "source_sha256": {
+    "updated/tools/prepare_tum_rgbd.py": "c2c6f20e58174fe1fad7ac6c57f11449d0d330a902f04ccbdf73514ffbc743e9",
+    "updated/tests/test_prepare_tum_rgbd.py": "9b7bf07dc46d5ae492e8290750ceaf82021b0365b6e9002136c7b1b95c601b85",
+    "updated/tools/evaluate_rgbd.py": "2212ec0c9bd83eff91fd029459fd8932e83f255bb2a0fa259d7206a66904a850",
+    "updated/tests/test_evaluate_rgbd.py": "b4dcebce06fb5f3d9464f1ba5766a204b8abb442b41844e83966931b5e8baab7"
+  },
+  "log": {
+    "bytes": 2905,
+    "sha256": "7c366af8cf34eeec8a7f7480b1437c7a178a3a3ffcd83417477454bdf3c697e8"
+  },
+  "scope": "Constructed inputs, analytic projection controls and file handling; no additional real sequences"
+}

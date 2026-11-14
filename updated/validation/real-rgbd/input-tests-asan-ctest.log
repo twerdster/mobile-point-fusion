@@ -1,0 +1,162 @@
+Internal ctest changing into directory: <asan-build>
+UpdateCTestConfiguration  from :<asan-build>/DartConfiguration.tcl
+UpdateCTestConfiguration  from :<asan-build>/DartConfiguration.tcl
+Test project <asan-build>
+Constructing a list of tests
+Done constructing a list of tests
+Updating test list for fixtures
+Added 0 tests to meet fixture requirements
+Checking test dependency graph...
+Checking test dependency graph end
+test 1
+    Start 1: cpu_regressions
+
+1: Test command: <asan-build>/points_fusion "--cpu-test"
+1: Test timeout computed to be: 10000000
+1: PASS new sentinel inserts without reading model[-1]
+1: PASS Gaussian weighted position and normal averages
+1: PASS invalid model ID rejected
+1: PASS removal count beyond three is rejected
+1: PASS duplicate removal creates one free slot
+1: PASS free slot reused and off-axis Gaussian applied
+1: PASS age boundary retains point at six seconds
+1: PASS old low-confidence point removed
+1: PASS stable point survives age removal
+1: PASS invalid input ID rejected
+1: PASS nonfinite removal count rejected before integer conversion
+1/4 Test #1: cpu_regressions ...................   Passed    0.00 sec
+test 2
+    Start 2: gles_shader_references
+
+2: Test command: <asan-build>/points_fusion "--gpu-test"
+2: Environment variables: 
+2:  LIBGL_ALWAYS_SOFTWARE=1
+2:  EGL_PLATFORM=surfaceless
+2:  __EGL_VENDOR_LIBRARY_FILENAMES=/usr/share/glvnd/egl_vendor.d/50_mesa.json
+2:  LP_NUM_THREADS=2
+2: Test timeout computed to be: 10000000
+2: libEGL warning: failed to open /dev/dri/card1: Permission denied
+2: 
+2: libEGL warning: failed to open /dev/dri/card0: Permission denied
+2: 
+2: renderer=llvmpipe (LLVM 15.0.7, 256 bits)
+2: version=OpenGL ES 3.2 Mesa 23.2.1-1ubuntu3.1~22.04.4
+2: PASS original indexMap ES3 pair compiles and links
+2: PASS original Fusion ES3 pair compiles and links
+2: PASS original PointRemoval ES3 pair compiles and links
+2: PASS index depth buffer retains nearest overlapping point
+2: PASS index positions and confidence equal CPU transform
+2: PASS index shader normalizes stored weighted normals
+2: PASS ES3 candidates match CPU confidence/ray-distance selection
+2: PASS normal-angle rejection inserts a new point
+2: PASS Euclidean gate rejects another surface on same ray
+2: PASS overlap removal emits at most three IDs
+2: PASS bounded overlap IDs match CPU neighborhood reference
+2: PASS original normalized-coordinate overlap fixture misses neighbors
+2: PASS bounded CPU removal consumes shader IDs once
+2: PASS confidence then lower ID prevents mutual deletion
+2/4 Test #2: gles_shader_references ............   Passed    0.05 sec
+test 3
+    Start 3: rgbd_input_regressions
+
+3: Test command: <asan-build>/rgbd_input_tests "--cpu"
+3: Test timeout computed to be: 10000000
+3: PASS independent little-endian pack length is40+frames*(72+5wh)
+3: PASS header units/calibration/count fields
+3: PASS constant plane retains25interior normals and rejects24border pixels
+3: PASS raw7500 converts to1.5metres with optical-to-GL axes
+3: PASS plane normal is unit and faces actual camera
+3: PASS RGB uses matching top-left row and channel order
+3: PASS literal asymmetric rotated/translated pose witness
+3: PASS world-to-camera view is rigid inverse of packed column-major pose
+3: PASS absolute timestamp preserves subsecond float64 difference
+3: PASS out-of-order frame reads do not reuse a stale frame
+3: PASS nonidentity first packed pose is retained for held-out shared anchor
+3: PASS calibrated projection maps integer image centres to GL half-pixel centres including vertical flip
+3: PASS zero centre and its four normal-dependent neighbors are excluded
+3: PASS depth discontinuity above0.05m prevents bridging normals
+3: PASS inclusive metric depth range and rejection counts/raw=2500
+3: PASS inclusive metric depth range and rejection counts/raw=17500
+3: PASS inclusive metric depth range and rejection counts/raw=2450
+3: PASS inclusive metric depth range and rejection counts/raw=17550
+3: PASS bad magic is rejected
+3: PASS zero dimensions are rejected
+3: PASS oversized dimensions are rejected before allocation
+3: PASS zero frame count is rejected
+3: PASS excessive frame count is rejected
+3: PASS nonpositive depth scale is rejected
+3: PASS negative focal length is rejected
+3: PASS nonfinite calibration is rejected
+3: PASS principal point outside image is rejected
+3: PASS truncated data is rejected
+3: PASS trailing data is rejected
+3: PASS nonfinite timestamp is rejected
+3: PASS timestamps must increase
+3: PASS nonfinite pose is rejected
+3: PASS invalid homogeneous pose row is rejected
+3: PASS nonorthonormal pose is rejected
+3: PASS reflected pose is rejected
+3: PASS negative frame index is rejected
+3: PASS past-end frame index is rejected
+3: PASS weighted geometry merges while original first-insert color/radius policy is retained
+3: PASS literal GPU-query arithmetic witness satisfies double-reference FP32 bounds
+3: PASS one-ULP query perturbation is bounded without changing the matching gates
+3: PASS one-millimetre transform error cannot pass the query arithmetic audit
+3: PASS material transformed-normal error cannot pass the query arithmetic audit
+3: PASS nonfinite input, matrix and GPU-query values are rejected by arithmetic audit
+3: PASS GPU query position and normal homogeneous components must be one
+3: PASS degenerate reference normal cannot pass the query arithmetic audit
+3: RGBD_REGRESSION_CHECKS=45
+3/4 Test #3: rgbd_input_regressions ............   Passed    0.01 sec
+test 4
+    Start 4: rgbd_calibrated_gpu_regressions
+
+4: Test command: <asan-build>/rgbd_input_tests "--gpu"
+4: Environment variables: 
+4:  LIBGL_ALWAYS_SOFTWARE=1
+4:  EGL_PLATFORM=surfaceless
+4:  __EGL_VENDOR_LIBRARY_FILENAMES=/usr/share/glvnd/egl_vendor.d/50_mesa.json
+4:  LP_NUM_THREADS=2
+4: Test timeout computed to be: 90
+4: libEGL warning: failed to open /dev/dri/card1: Permission denied
+4: 
+4: libEGL warning: failed to open /dev/dri/card0: Permission denied
+4: 
+4: PASS oversized supersampled FBO rejected before GPU attachments
+4: PASS calibrated index z-buffer keeps nearer overlapping point despite higher far confidence
+4: PASS independent top-left pixel witness lands inside exact supersampled block
+4: PASS index camera position/confidence/unit normal match independent witness
+4: PASS calibrated fusion writes correct GL pixel and NDC Gaussian coordinates
+4: PASS one point produces one rasterized query rather than a duplicated cloud
+4: BEGIN_EXPECTED_INJECTED_CORRESPONDENCE_DIAGNOSTIC
+4: GPU/CPU correspondence mismatch: frame 108, pixel 15371, GPU 2, CPU 1
+4: input_id=1 image_xy=11,96 camera_point=-0.73466664552688599,0.39333334565162659,-1.3999999761581421 camera_normal=0,0,1 max_distance=0.054999999701976776 min_normal_dot=0.93969261646270752
+4: candidate_id=1 index_xy=45,385 confidence=2 position=-0.73466664552688599,0.39333334565162659,-1.3999999761581421 normal=0,0,1 euclidean_distance=0 normal_dot=1 ray_distance=5.9604644775390625e-08 cpu_gate=1
+4: GPU query valid=1 point_reference_max_delta=0 point_reference_bound=1.1682519925678901e-06 normal_reference_L2_delta=0 normal_reference_L2_bound=5.0068061341907176e-06 reason=
+4: measured_GPU_camera_point=-0.73466664552688599,0.39333334565162659,-1.3999999761581421 measured_GPU_camera_normal=0,0,1 measured_query_CPU_ID=1
+4: Exact measured-query CPU winner still disagrees; failing
+4: libEGL warning: failed to open /dev/dri/card1: Permission denied
+4: 
+4: libEGL warning: failed to open /dev/dri/card0: Permission denied
+4: 
+4: libEGL warning: failed to open /dev/dri/card1: Permission denied
+4: 
+4: libEGL warning: failed to open /dev/dri/card0: Permission denied
+4: 
+4: END_EXPECTED_INJECTED_CORRESPONDENCE_DIAGNOSTIC
+4: PASS injected wrong GPU ID reports exact frame/pixel/IDs, candidate gates and thresholds before counting a comparison
+4: PASS actual Fusion vertex transform-feedback selects inputID3 and captures its asymmetric position and normalized-normal witness
+4: PASS actual GPU strict normal gate rejects one-ULP-below and exact cutoff, accepts one-ULP-above, and uploads the identical FP32 cutoff
+4: PASS first calibrated plane executes shader-driven insertion
+4: PASS second noisy plane merges into weighted intermediate geometry instead of concatenating raw depths
+4: PASS translated supplied-pose view executes further real fusion with finite metric-plane geometry and fewer points than raw union
+4: native renderer=llvmpipe (LLVM 15.0.7, 256 bits) version=OpenGL ES 3.2 Mesa 23.2.1-1ubuntu3.1~22.04.4
+4: PASS shared native loop subtracts original double timestamps before float model-time conversion
+4: NATIVE_FUSION_COMPLETE frames=25 points=0 merged=165 compared=330
+4: PASS real source clock triggers six-second low-confidence expiration rather than synthetic frame time
+4: RGBD_REGRESSION_CHECKS=14
+4/4 Test #4: rgbd_calibrated_gpu_regressions ...   Passed    0.12 sec
+
+100% tests passed, 0 tests failed out of 4
+
+Total Test time (real) =   0.18 sec

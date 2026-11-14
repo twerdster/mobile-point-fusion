@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 """Build a task-local debug APK using existing Android SDK/NDK/JDK, no Gradle download."""
-import argparse, pathlib, shutil, subprocess, os, zipfile
+import argparse, pathlib, shutil, subprocess, os, zipfile, sys
+
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
+from recording_resources import bundle_recording
 
 p = argparse.ArgumentParser()
 p.add_argument("--sdk", type=pathlib.Path, required=True)
@@ -9,6 +12,7 @@ p.add_argument("--ndk-version", default="27.2.12479018")
 p.add_argument("--build-tools", default="34.0.0")
 p.add_argument("--r8-jar", type=pathlib.Path, required=True)
 p.add_argument("--integer-float-storage", action="store_true")
+p.add_argument("--recording", type=pathlib.Path)
 a = p.parse_args()
 root = pathlib.Path(__file__).resolve().parents[3]
 src = pathlib.Path(__file__).parent
@@ -45,6 +49,7 @@ subprocess.run(
     check=True,
 )
 assets = out / "assets"
+bundle_recording(a.recording, assets / "fusion")
 shaders = [
     "source/original/PointsFusion/PointsFusion/indexMap.vsh",
     "source/original/PointsFusion/PointsFusion/indexMap.fsh",

@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "recorded_at_utc": "2026-11-14T08:28:31.554592+00:00",
+  "status": "passed",
+  "scope": "RGB-D conversion and byte/pixel/pose packaging checks, not fusion execution or reconstruction accuracy",
+  "python_tests": {
+    "passed": 14,
+    "total": 14,
+    "meaning": "14 constructed-input regressions, not 14 camera sequences",
+    "command": "python3 -m unittest discover -s updated/tests -p test_prepare_tum_rgbd.py -v",
+    "log": "conversion-tests.log",
+    "covers": [
+      "exact raw-depth units, colors, frame selection and spatial sampling",
+      "first-original-depth pose anchoring, including later held-out subsets",
+      "known translation and spherical rotation interpolation, antipodal quaternion signs",
+      "RGB nearest association, timing gaps and no extrapolation",
+      "overwrite protection, path escape, partial-output cleanup and malformed inputs"
+    ],
+    "log_sha256": "efe151c93d34e8d735e1b98c841f02c892d4d1796a5099b5dab5a1c19ad86d19"
+  },
+  "environment": {
+    "os": "Darwin",
+    "machine": "arm64",
+    "python": "3.14.4",
+    "numpy": "2.5.4",
+    "pillow": "13.0.0"
+  },
+  "source_files_sha256": {
+    "updated/tools/prepare_tum_rgbd.py": "c2c6f20e58174fe1fad7ac6c57f11449d0d330a902f04ccbdf73514ffbc743e9",
+    "updated/tests/test_prepare_tum_rgbd.py": "9b7bf07dc46d5ae492e8290750ceaf82021b0365b6e9002136c7b1b95c601b85"
+  },
+  "data_files": {
+    "NOTICE.txt": {
+      "bytes": 1991,
+      "sha256": "ce7fa05f4d52f10ba9c3cc32fcaf1eecb9af5da7909f0ab326846407dc4aa222"
+    },
+    "tum-fr1-xyz-120.json": {
+      "bytes": 222064,
+      "sha256": "fd162983c544747fecf996c9a562779567913ea8a5f9c723b9d6cd1840a31e22"
+    },
+    "tum-fr1-xyz-120.pfrgbd": {
+      "bytes": 11528680,
+      "sha256": "1033e30ae101dea653b1be77aaa3972c8a026ca5a152a9bf479cee07a12ff39c"
+    },
+    "tum-fr1-xyz-holdout-12.json": {
+      "bytes": 27916,
+      "sha256": "372560064e843008c53acf8c170255cee38a6b1bbfe8f72a827df7c8ee5e62bb"
+    },
+    "tum-fr1-xyz-holdout-12.pfrgbd": {
+      "bytes": 1152904,
+      "sha256": "10aa619d7909209b9be3ddd7859a9d1bb1c50e01fb6d71daed8a5714b5e43b2a"
+    }
+  },
+  "final_converter_reproduced_120_pack_byte_for_byte": true,
+  "actual_source_pack_checks": {
+    "reconstruction_frames": 120,
+    "heldout_frames": 12,
+    "depth_pixels_compared": 2534400,
+    "RGB_pixels_compared": 2534400,
+    "checks": [
+      "every packed raw-depth/RGB value compared with original PNG pixel-stride samples",
+      "source PNG hashes agree with current source and previously published OpenFusion conversion manifest",
+      "original float64 depth timestamps preserved exactly",
+      "every supplied pose compared with prior independent motion-capture evaluator after explicit coordinate and unit conversion"
+    ],
+    "max_pose_matrix_entry_difference": 2.979527191637743e-08,
+    "qualification": "Prior evaluator uses the same underlying TUM motion capture; this independently checks implementation arithmetic, not calibration accuracy."
+  },
+  "limitations": [
+    "Python conversion and packaging only; no shader, native platform, pose-estimation or surface-accuracy result follows.",
+    "Real source is one TUM Kinect sequence, with externally supplied motion-capture poses.",
+    "Depth is sampled every 4 pixels without interpolation; ROS default intrinsics are not a full lens-distortion model.",
+    "Held-out images share camera/calibration and motion-capture system with reconstruction inputs; their measured depths are consistency targets, not independent surface ground truth."
+  ],
+  "documentation_only_converter_revision": {
+    "previous_tested_converter_sha256": "de92ae9c593780a3d685c1a88e03d57dce6fbd3f5eb8a93468f8cdf892928cec",
+    "current_tested_converter_sha256": "c2c6f20e58174fe1fad7ac6c57f11449d0d330a902f04ccbdf73514ffbc743e9",
+    "previous_test_record_timestamp_utc": "2026-11-14T08:05:40.208250+00:00",
+    "only_module_and_function_docstrings_changed": true,
+    "executable_AST_equal_excluding_docstrings": true,
+    "current_source_tests_rerun": true
+  },
+  "retained_pack_checks": {
+    "previous_record_timestamp_utc": "2026-11-14T08:05:40.208250+00:00",
+    "all_prepared_input_hashes_rechecked": true,
+    "input_files_checked": 5,
+    "scope": "Earlier 120-frame byte-for-byte reproduction and 132-frame pixel/timestamp/pose comparisons are retained without repeating source comparisons for this docstring-only revision.",
+    "converter_sha256_at_recorded_pack_checks": "de92ae9c593780a3d685c1a88e03d57dce6fbd3f5eb8a93468f8cdf892928cec"
+  }
+}

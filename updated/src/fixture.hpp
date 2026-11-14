@@ -79,14 +79,15 @@ inline std::vector<Point> read_obj(const fs::path &path) {
   return p;
 }
 inline void ply(const fs::path &path, const std::vector<Point> &pts,
-                const std::vector<uint32_t> &active) {
+                const std::vector<uint32_t> &active,
+                const std::string &description =
+                    "generated input, known poses, not a mesh") {
   std::ofstream f(path);
   require(bool(f), "cannot open point output for writing");
   size_t n = std::count_if(active.begin(), active.end(),
                            [](uint32_t x) { return x != 0; });
   f << "ply\nformat ascii 1.0\ncomment Actual updated point-fusion output; "
-       "generated input, known poses, not a mesh\nelement vertex "
-    << n
+    << description << "\nelement vertex " << n
     << "\nproperty float x\nproperty float y\nproperty float z\nproperty float "
        "nx\nproperty float ny\nproperty float nz\nproperty uchar red\nproperty "
        "uchar green\nproperty uchar blue\nproperty float "

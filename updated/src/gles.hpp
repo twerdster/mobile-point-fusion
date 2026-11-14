@@ -16,6 +16,7 @@
 #endif
 #include <fstream>
 #include <iostream>
+#include <limits>
 #include <sstream>
 #include <string>
 
@@ -41,6 +42,7 @@ struct GL {
   static constexpr bool integer_float_storage = false;
 #endif
   int w, h, s;
+  M4 projection;
 #if !defined(__APPLE__)
   EGLDisplay display = EGL_NO_DISPLAY;
   EGLContext context = EGL_NO_CONTEXT;
@@ -59,7 +61,8 @@ struct GL {
   bool float_color_extension = false;
   GL(int width = 192, int height = 144, int sample = 4,
      const std::string &root = SOURCE_ROOT, bool external_context = false)
-      : w(width), h(height), s(sample) {
+      : w(width), h(height), s(sample),
+        projection(perspective(float(width) / height)) {
 #if !defined(__APPLE__)
     if (!external_context) {
       owns_context = true;
@@ -99,6 +102,13 @@ struct GL {
             "Apple frontend must provide a current GL context");
 #endif
     require(glGetString(GL_RENDERER) != nullptr, "no current GL context");
+    GLint max_texture = 0;
+    glGetIntegerv(GL_MAX_TEXTURE_SIZE, &max_texture);
+    require(
+        w > 0 && h > 0 && s > 0 && s <= 4 && w <= max_texture / s &&
+            h <= max_texture / s &&
+            uint64_t(w) * uint64_t(h) * uint64_t(s) * uint64_t(s) <= 1228800,
+        "fusion framebuffer dimensions exceed driver or bounded-memory limits");
     renderer = reinterpret_cast<const char *>(glGetString(GL_RENDERER));
     version = reinterpret_cast<const char *>(glGetString(GL_VERSION));
 #if defined(PF_DESKTOP_GL)
@@ -123,7 +133,7 @@ struct GL {
     auto old = path + "/source/original/PointsFusion/PointsFusion/";
     auto updated = path + "/updated/shaders/";
     index_program = program(old + "indexMap.vsh", old + "indexMap.fsh");
-    fusion_program = program(updated + "Fusion.vsh", updated + "Fusion.fsh");
+    fusion_program = program(updated + "Fusion.vsh", updated + "Fusion.fsh", true);
     removal_program =
         program(updated + "PointRemoval.vsh", updated + "PointRemoval.fsh");
     glGenFramebuffers(1, &index_fbo);
@@ -236,7 +246,8 @@ struct GL {
     }
     return sh;
   }
-  GLuint program(const std::string &v, const std::string &f) {
+  GLuint program(const std::string &v, const std::string &f,
+                 bool capture_fusion_query = false) {
     auto vs = shader(GL_VERTEX_SHADER, v), fs = shader(GL_FRAGMENT_SHADER, f);
     auto p = glCreateProgram();
     glAttachShader(p, vs);
@@ -245,6 +256,10 @@ struct GL {
     glBindAttribLocation(p, 1, "normal");
     glBindAttribLocation(p, 2, "radius");
     glBindAttribLocation(p, 3, "confidence");
+    if (capture_fusion_query) {
+      const char *outputs[] = {"newCoords", "newNormal"};
+      glTransformFeedbackVaryings(p, 2, outputs, GL_INTERLEAVED_ATTRIBS);
+    }
     glLinkProgram(p);
     GLint ok;
     glGetProgramiv(p, GL_LINK_STATUS, &ok);
@@ -290,7 +305,7 @@ struct GL {
     return d;
   }
   void uniforms(GLuint p, M4 view) {
-    M4 proj = perspective(float(w) / h), mvp = proj * view;
+    M4 mvp = projection * view;
     float n[9] = {view.m[0], view.m[1], view.m[2], view.m[4], view.m[5],
                   view.m[6], view.m[8], view.m[9], view.m[10]};
     glUseProgram(p);
@@ -307,6 +322,9 @@ struct GL {
     glUniform1f(glGetUniformLocation(p, "yfactor"), h);
     glUniform1f(glGetUniformLocation(p, "maxDegree"), 20 * 3.14159265f / 180);
     glUniform1f(glGetUniformLocation(p, "maxDistance"), .055f);
+    // One shared FP32 cutoff avoids unspecified GLSL cosine accuracy.
+    glUniform1f(glGetUniformLocation(p, "minNormalDot"),
+                fusion_normal_cutoff());
   }
   void upload(const std::vector<Point> &points,
               const std::vector<uint32_t> &indices) {
@@ -384,6 +402,64 @@ struct GL {
     for (uint32_t i = 1; i < points.size(); i++)
       ids.push_back(i);
     return draw(fusion_program, points, ids, view);
+  }
+  // Reexecute one vertex using the linked Fusion program and read its output
+  // varyings. The repeat draw is separately audited against FP64; it does not
+  // prove bitwise identity to intermediates in the original fragment draw.
+  std::array<float, 8> fusion_query(const std::vector<Point> &points,
+                                   uint32_t id, M4 view) {
+    require(id > 0 && id < points.size(), "query input ID outside buffer");
+    GLuint buffer = 0, query = 0;
+    glGenBuffers(1, &buffer);
+    glGenQueries(1, &query);
+    glBindBuffer(GL_TRANSFORM_FEEDBACK_BUFFER, buffer);
+    std::array<float,8> sentinel;
+    sentinel.fill(std::numeric_limits<float>::quiet_NaN());
+    glBufferData(GL_TRANSFORM_FEEDBACK_BUFFER, 8 * sizeof(float), sentinel.data(),
+                 GL_STREAM_READ);
+    glBindBufferBase(GL_TRANSFORM_FEEDBACK_BUFFER, 0, buffer);
+    uniforms(fusion_program, view);
+    upload(points, {});
+    GLenum setup_error = glGetError();
+    if (setup_error != GL_NO_ERROR) {
+      glBindBufferBase(GL_TRANSFORM_FEEDBACK_BUFFER,0,0);
+      glBindBuffer(GL_TRANSFORM_FEEDBACK_BUFFER,0);
+      glDeleteBuffers(1,&buffer); glDeleteQueries(1,&query);
+      std::ostringstream errors;
+      errors << setup_error;
+      for (GLenum e=glGetError();e!=GL_NO_ERROR;e=glGetError()) errors << ' ' << e;
+      throw std::runtime_error("Fusion query setup GL errors "+errors.str());
+    }
+    glEnable(GL_RASTERIZER_DISCARD);
+    glBeginQuery(GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN,query);
+    glBeginTransformFeedback(GL_POINTS);
+    // ES3 forbids indexed draws during transform feedback. first=id keeps
+    // gl_VertexID identical to the indexed fusion draw without repacking VBO.
+    glDrawArrays(GL_POINTS, GLint(id), 1);
+    glEndTransformFeedback();
+    glEndQuery(GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN);
+    glDisable(GL_RASTERIZER_DISCARD);
+    GLuint written=0;
+    glGetQueryObjectuiv(query,GL_QUERY_RESULT,&written);
+    auto *data = static_cast<const float *>(glMapBufferRange(
+        GL_TRANSFORM_FEEDBACK_BUFFER, 0, 8 * sizeof(float), GL_MAP_READ_BIT));
+    std::array<float, 8> result{};
+    if (data)
+      std::copy(data, data + 8, result.begin());
+    bool mapped = data != nullptr;
+    bool unmapped = mapped && glUnmapBuffer(GL_TRANSFORM_FEEDBACK_BUFFER);
+    glBindBufferBase(GL_TRANSFORM_FEEDBACK_BUFFER, 0, 0);
+    glBindBuffer(GL_TRANSFORM_FEEDBACK_BUFFER, 0);
+    glDeleteBuffers(1, &buffer);
+    glDeleteQueries(1,&query);
+    // Drain errors before logical checks so reset never inherits a stale flag.
+    std::ostringstream errors;
+    for (GLenum e=glGetError();e!=GL_NO_ERROR;e=glGetError()) errors << ' ' << e;
+    require(errors.str().empty(),
+            ("Fusion query transform feedback GL errors"+errors.str()).c_str());
+    require(written == 1,"Fusion query did not capture exactly one primitive");
+    require(mapped && unmapped, "Fusion query transform feedback read failed");
+    return result;
   }
   struct Map {
     std::vector<int> id;

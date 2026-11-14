@@ -29,14 +29,27 @@ static std::string outputRoot() {
   return [[base stringByAppendingPathComponent:@"MobilePointFusionNative"]
       UTF8String];
 }
+static bool recordingRequested() {
+  return pf::fs::exists(pf::fs::path(resourceRoot()) / "recording.pfrgbd") ||
+         [NSProcessInfo.processInfo.arguments containsObject:@"--recording"];
+}
+static std::string recordingArgument() {
+  NSArray<NSString *> *args = NSProcessInfo.processInfo.arguments;
+  for (NSUInteger i = 0; i < args.count; i++)
+    if ([args[i] isEqualToString:@"--recording"]) {
+      require(i + 1 < args.count, "--recording requires a pack path");
+      return args[i + 1].UTF8String;
+    }
+  return "";
+}
 static NSString *stats(LiveFusion *f) {
   if (!f)
     return @"Preparing native GL context…";
   return
       [NSString stringWithFormat:
-                    @"View %d / 48  •  %zu points  •  %zu merges  •  %zu "
+                    @"View %d / %d  •  %zu points  •  %zu merges  •  %zu "
                     @"removals\n%zu fusion correspondences checked against CPU",
-                    f->frame, f->model.size(), f->model.merged,
+                    f->frame, f->frames, f->model.size(), f->model.merged,
                     f->model.removed, f->compared];
 }
 #if TARGET_OS_IPHONE
@@ -71,7 +84,8 @@ static NSString *stats(LiveFusion *f) {
     _context = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES3];
     require(_context != nil, "EAGL ES3 unavailable");
     [EAGLContext setCurrentContext:_context];
-    _fusion = std::make_unique<LiveFusion>(resourceRoot(), outputRoot());
+    _fusion = std::make_unique<LiveFusion>(resourceRoot(), outputRoot(),
+                                           recordingArgument());
     UIPanGestureRecognizer *pan =
         [[UIPanGestureRecognizer alloc] initWithTarget:self
                                                 action:@selector(pan:)];
@@ -131,7 +145,6 @@ static NSString *stats(LiveFusion *f) {
     glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT,
                               GL_RENDERBUFFER, _depth);
     pf::GL::check_framebuffer("display", "RGBA8/depth24");
-    _error = nil;
     [self draw];
   } catch (const std::exception &e) {
     _error = [NSString stringWithUTF8String:e.what()];
@@ -220,10 +233,16 @@ static NSString *stats(LiveFusion *f) {
       };
   [stack addArrangedSubview:label(@"Mobile Point Fusion", 26)];
   [stack addArrangedSubview:
-             label(@"On-device shader + CPU execution · generated input", 15)];
-  [stack
-      addArrangedSubview:label(@"Supplied poses · no real RGB-D · no tracking",
-                               13)];
+             label(recordingRequested()
+                       ? @"On-device shader + CPU execution · recorded RGB-D"
+                       : @"On-device shader + CPU execution · generated input",
+                   15)];
+  [stack addArrangedSubview:
+             label(recordingRequested()
+                       ? @"Supplied camera poses · metres · no pose "
+                         @"estimation"
+                       : @"Supplied poses · no real RGB-D · no tracking",
+                   13)];
   UIStackView *head = [[UIStackView alloc] init];
   head.distribution = UIStackViewDistributionFillEqually;
   [head addArrangedSubview:label(@"CURRENT OBSERVATION", 12)];
@@ -310,12 +329,15 @@ static NSString *stats(LiveFusion *f) {
   try {
     [EAGLContext setCurrentContext:_scene->_context];
     _scene->_fusion->reset();
+    _scene->_error = nil;
     _scene->_orbit = 0;
     _running = YES;
     [_pause setTitle:@"Pause" forState:UIControlStateNormal];
   } catch (const std::exception &e) {
     _running = NO;
-    _status.text = [NSString stringWithUTF8String:e.what()];
+    _scene->_error =
+        [NSString stringWithFormat:@"Execution failed: %s", e.what()];
+    _status.text = _scene->_error;
   }
 }
 - (void)dealloc {
@@ -342,8 +364,9 @@ static NSString *stats(LiveFusion *f) {
     _status.text = stats(_scene->_fusion.get());
   } catch (const std::exception &e) {
     _running = NO;
-    _status.text =
+    _scene->_error =
         [NSString stringWithFormat:@"Execution failed: %s", e.what()];
+    _status.text = _scene->_error;
     NSLog(@"Fusion failure: %s", e.what());
   }
 }
@@ -390,7 +413,8 @@ int main(int argc, char **argv) {
   if (self) {
     self.wantsBestResolutionOpenGLSurface = YES;
     [self.openGLContext makeCurrentContext];
-    _fusion = std::make_unique<LiveFusion>(resourceRoot(), outputRoot());
+    _fusion = std::make_unique<LiveFusion>(resourceRoot(), outputRoot(),
+                                           recordingArgument());
   }
   return self;
 }
@@ -450,8 +474,11 @@ int main(int argc, char **argv) {
   [self label:@"Mobile Point Fusion"
         frame:NSMakeRect(24, 742, 1000, 36)
          size:28];
-  [self label:@"Native shader + CPU execution · generated observations · "
-              @"supplied poses · no real RGB-D or tracking"
+  [self label:recordingRequested()
+                  ? @"Native shader + CPU execution · recorded RGB-D · "
+                    @"supplied camera poses · no pose estimation"
+                  : @"Native shader + CPU execution · generated observations · "
+                    @"supplied poses · no real RGB-D or tracking"
         frame:NSMakeRect(24, 710, 1100, 25)
          size:15];
   [self label:@"CURRENT OBSERVATION"
@@ -503,15 +530,28 @@ int main(int argc, char **argv) {
 - (void)reset {
   if (!_scene)
     return;
-  [_scene.openGLContext makeCurrentContext];
-  _scene->_fusion->reset();
-  _scene->_orbit = 0;
-  _running = YES;
-  _pause.title = @"Pause";
+  try {
+    [_scene.openGLContext makeCurrentContext];
+    _scene->_fusion->reset();
+    _scene->_error = nil;
+    _scene->_orbit = 0;
+    _running = YES;
+    _pause.title = @"Pause";
+  } catch (const std::exception &e) {
+    _running = NO;
+    _scene->_error =
+        [NSString stringWithFormat:@"Execution failed: %s", e.what()];
+    _status.stringValue = _scene->_error;
+  }
 }
 - (void)tick:(NSTimer *)timer {
   if (!_scene)
     return;
+  if (_scene->_error) {
+    _running = NO;
+    _status.stringValue = _scene->_error;
+    return;
+  }
   try {
     [_scene.openGLContext makeCurrentContext];
     if (_running)
@@ -521,8 +561,9 @@ int main(int argc, char **argv) {
     [_scene setNeedsDisplay:YES];
   } catch (const std::exception &e) {
     _running = NO;
-    _status.stringValue =
+    _scene->_error =
         [NSString stringWithFormat:@"Execution failed: %s", e.what()];
+    _status.stringValue = _scene->_error;
     NSLog(@"Fusion failure: %s", e.what());
   }
 }
