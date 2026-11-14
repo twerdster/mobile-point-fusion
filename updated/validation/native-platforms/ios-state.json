@@ -1,0 +1,19 @@
+{
+"frame":48,
+"frames":48,
+"input":"generated ellipsoid fixture; known analytic poses; no camera or tracking",
+"renderer":"Apple A14 GPU",
+"gl_version":"OpenGL ES 3.0 Metal - 101",
+"framebuffer_storage":"RGBA32UI_float_bits",
+"CPU_check_scope":"fusion-pass selection from GPU index map; index rasterization and removal outputs not independently checked in native runs",
+"model_points":9227,
+"merged_total":81563,
+"inserted_total":14227,
+"removed_total":5000,
+"reused_total":4356,
+"visible_input_points":104043,
+"shader_CPU_correspondences_compared":95790,
+"operators":"indexMap shader -> adapted Fusion shader -> CPU averages -> adapted removal shader/CPU",
+"pose_estimation":false,
+"real_RGBD":false
+}

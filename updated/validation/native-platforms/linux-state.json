@@ -1,0 +1,19 @@
+{
+"frame":48,
+"frames":48,
+"input":"generated ellipsoid fixture; known analytic poses; no camera or tracking",
+"renderer":"llvmpipe (LLVM 15.0.7, 256 bits)",
+"gl_version":"OpenGL ES 3.2 Mesa 23.2.1-1ubuntu3.1~22.04.4",
+"framebuffer_storage":"RGBA32F",
+"CPU_check_scope":"fusion-pass selection from GPU index map; index rasterization and removal outputs not independently checked in native runs",
+"model_points":9232,
+"merged_total":81563,
+"inserted_total":14228,
+"removed_total":4996,
+"reused_total":4352,
+"visible_input_points":104043,
+"shader_CPU_correspondences_compared":95791,
+"operators":"indexMap shader -> adapted Fusion shader -> CPU averages -> adapted removal shader/CPU",
+"pose_estimation":false,
+"real_RGBD":false
+}

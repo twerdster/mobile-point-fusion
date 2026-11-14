@@ -1,0 +1,79 @@
+libEGL warning: failed to open /dev/dri/card1: Permission denied
+
+libEGL warning: failed to open /dev/dri/card0: Permission denied
+
+renderer=llvmpipe (LLVM 15.0.7, 256 bits)
+version=OpenGL ES 3.2 Mesa 23.2.1-1ubuntu3.1~22.04.4
+frame=0 input=392 model=343 merged=0 removed=0
+frame=1 input=385 model=482 merged=228 removed=0
+frame=2 input=390 model=591 merged=478 removed=0
+frame=3 input=383 model=674 merged=747 removed=0
+frame=4 input=374 model=760 merged=1016 removed=0
+frame=5 input=368 model=825 merged=1295 removed=0
+frame=6 input=351 model=877 merged=1568 removed=0
+frame=7 input=333 model=923 merged=1836 removed=0
+frame=8 input=320 model=968 merged=2096 removed=0
+frame=9 input=301 model=996 merged=2343 removed=0
+frame=10 input=277 model=1024 merged=2568 removed=0
+frame=11 input=267 model=1063 merged=2783 removed=0
+frame=12 input=267 model=1102 merged=2989 removed=0
+frame=13 input=270 model=1158 merged=3185 removed=1
+frame=14 input=290 model=1230 merged=3384 removed=3
+frame=15 input=294 model=1283 merged=3608 removed=5
+frame=16 input=315 model=1351 merged=3830 removed=7
+frame=17 input=327 model=1411 merged=4076 removed=9
+frame=18 input=346 model=1483 merged=4326 removed=9
+frame=19 input=355 model=1546 merged=4593 removed=10
+frame=20 input=364 model=1619 merged=4869 removed=11
+frame=21 input=371 model=1674 merged=5171 removed=15
+frame=22 input=375 model=1723 merged=5474 removed=16
+frame=23 input=381 model=1773 merged=5784 removed=17
+frame=24 input=381 model=1836 merged=6080 removed=20
+frame=25 input=375 model=1897 merged=6379 removed=22
+frame=26 input=371 model=1944 merged=6691 removed=26
+frame=27 input=364 model=1982 merged=6994 removed=29
+frame=28 input=355 model=2014 merged=7287 removed=33
+frame=29 input=346 model=2050 merged=7570 removed=37
+frame=30 input=327 model=2082 merged=7849 removed=39
+frame=31 input=315 model=2123 merged=8100 removed=42
+frame=32 input=294 model=2145 merged=8346 removed=48
+frame=33 input=290 model=2180 merged=8585 removed=50
+frame=34 input=270 model=2195 merged=8817 removed=54
+frame=35 input=267 model=2220 merged=9035 removed=57
+frame=36 input=267 model=2239 merged=9267 removed=57
+frame=37 input=277 model=2261 merged=9496 removed=58
+frame=38 input=301 model=2280 merged=9754 removed=63
+frame=39 input=320 model=2309 merged=10022 removed=64
+frame=40 input=333 model=2336 merged=10305 removed=66
+frame=41 input=351 model=2361 merged=10596 removed=68
+frame=42 input=368 model=2392 merged=10902 removed=71
+frame=43 input=374 model=2419 merged=11216 removed=77
+frame=44 input=383 model=2441 merged=11534 removed=86
+frame=45 input=390 model=2457 merged=11872 removed=94
+frame=46 input=385 model=2479 merged=12194 removed=101
+frame=47 input=392 model=2492 merged=12524 removed=121
+PASS new sentinel inserts without reading model[-1]
+PASS Gaussian weighted position and normal averages
+PASS invalid model ID rejected
+PASS removal count beyond three is rejected
+PASS duplicate removal creates one free slot
+PASS free slot reused and off-axis Gaussian applied
+PASS age boundary retains point at six seconds
+PASS old low-confidence point removed
+PASS stable point survives age removal
+PASS invalid input ID rejected
+PASS nonfinite removal count rejected before integer conversion
+PASS original indexMap ES3 pair compiles and links
+PASS original Fusion ES3 pair compiles and links
+PASS original PointRemoval ES3 pair compiles and links
+PASS index depth buffer retains nearest overlapping point
+PASS index positions and confidence equal CPU transform
+PASS index shader normalizes stored weighted normals
+PASS ES3 candidates match CPU confidence/ray-distance selection
+PASS normal-angle rejection inserts a new point
+PASS Euclidean gate rejects another surface on same ray
+PASS overlap removal emits at most three IDs
+PASS bounded overlap IDs match CPU neighborhood reference
+PASS original normalized-coordinate overlap fixture misses neighbors
+PASS bounded CPU removal consumes shader IDs once
+PASS confidence then lower ID prevents mutual deletion

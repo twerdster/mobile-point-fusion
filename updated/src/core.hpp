@@ -5,10 +5,13 @@
 #include <algorithm>
 #include <array>
 #include <cmath>
+#include <cstddef>
 #include <cstdint>
 #include <stdexcept>
+#include <type_traits>
 #include <vector>
 
+namespace pf {
 struct V3 {
   float x = 0, y = 0, z = 0;
   V3 operator+(V3 b) const { return {x + b.x, y + b.y, z + b.z}; }
@@ -85,6 +88,8 @@ static_assert(sizeof(Point) == 12 * sizeof(float),
 struct Hit {
   float model = 0, input = 0, u = 0, v = 0;
 };
+static_assert(sizeof(Hit) == 16 && std::is_trivially_copyable_v<Hit>,
+              "RGBA readback layout");
 inline void require(bool yes, const char *message) {
   if (!yes)
     throw std::runtime_error(message);
@@ -186,3 +191,5 @@ struct Model {
         erase(i);
   }
 };
+
+} // namespace pf

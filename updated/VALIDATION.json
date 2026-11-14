@@ -277,5 +277,6 @@
       "d26cd5e4-dbdb-4a50-b37d-da8f126aa475"
     ],
     "scope": "Claude editorial review of draft and verified facts; no runtime validation from reviews"
-  }
+  },
+  "record_scope": "Offline adapter at revision 4c040dff573614b5a66d06a53821145a06f0d53a; current shared/native implementation hashes and runs are recorded in NATIVE_VALIDATION.json."
 }

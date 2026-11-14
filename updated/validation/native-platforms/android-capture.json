@@ -1,0 +1,45 @@
+{
+  "platform": "android",
+  "capture": "adb screenrecord physical Pixel2 display",
+  "source_sha256": "45b39f4c3452a8d75ef58ef97759761567a9d1ad5c44b440472dc70158b1a9e7",
+  "source_probe": {
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "codec_type": "video",
+        "width": 1080,
+        "height": 1920
+      }
+    ],
+    "format": {
+      "duration": "23.970344",
+      "size": "13085801"
+    }
+  },
+  "source_start_seconds": 0.0,
+  "excerpt_duration_seconds": 22.0,
+  "crop": {
+    "top": 64,
+    "bottom": 126
+  },
+  "audio_removed": true,
+  "playback": "capture timing retained; input replay speed follows labels in app",
+  "files": [
+    {
+      "path": "updated/assets/android-native.mp4",
+      "bytes": 1560061,
+      "sha256": "f39416fbce2a84d57f00cf700c95b91e7d06a0afa59a7f420fc538d77abfe22e"
+    },
+    {
+      "path": "updated/assets/android-native.gif",
+      "bytes": 1330571,
+      "sha256": "fa5b3ff493452946c2695fdc2f014dad110c327db398978c4c65b52521ddd06b"
+    },
+    {
+      "path": "updated/assets/android-native.png",
+      "bytes": 254159,
+      "sha256": "457b1ac55bb513e0272dd92179eb2d78e420ec8ab8f6782f9413bc7aa7f63a3a"
+    }
+  ]
+}

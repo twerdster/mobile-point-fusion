@@ -1,0 +1,86 @@
+{
+  "macos": {
+    "gif": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "gif",
+          "width": 800,
+          "height": 562,
+          "pix_fmt": "bgra",
+          "nb_read_frames": "42"
+        }
+      ],
+      "format": {
+        "duration": "8.400000",
+        "size": "1591173"
+      }
+    },
+    "mp4": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 1180,
+          "height": 828,
+          "pix_fmt": "yuv420p",
+          "nb_read_frames": "50",
+          "side_data_list": [
+            {}
+          ]
+        }
+      ],
+      "format": {
+        "duration": "8.200000",
+        "size": "1512695"
+      }
+    },
+    "GIF_frames": 42,
+    "GIF_distinct_frames": 42,
+    "GIF_duration_ms": 8400,
+    "full_decode_errors": 0
+  },
+  "linux": {
+    "gif": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "gif",
+          "width": 800,
+          "height": 542,
+          "pix_fmt": "bgra",
+          "nb_read_frames": "47"
+        }
+      ],
+      "format": {
+        "duration": "9.400000",
+        "size": "1839874"
+      }
+    },
+    "mp4": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 1180,
+          "height": 800,
+          "pix_fmt": "yuv420p",
+          "nb_read_frames": "57"
+        }
+      ],
+      "format": {
+        "duration": "9.360000",
+        "size": "2068055"
+      }
+    },
+    "GIF_frames": 47,
+    "GIF_distinct_frames": 46,
+    "GIF_duration_ms": 9400,
+    "full_decode_errors": 0,
+    "visual_review": "Final PNG inspected: precise fusion-correspondence label,9232/81563/4996 counters, generated input/supplied poses; app held open through last capture."
+  }
+}

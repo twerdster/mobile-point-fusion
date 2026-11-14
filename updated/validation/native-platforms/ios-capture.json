@@ -1,0 +1,46 @@
+{
+  "platform": "ios",
+  "capture": "USB AVFoundation physical iPhone display",
+  "source_sha256": "79416ff681827289da7ec1140bd26df681a21f0a6e8dc89345dd09c937436cd3",
+  "source_probe": {
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "codec_type": "video",
+        "width": 1170,
+        "height": 2532
+      }
+    ],
+    "format": {
+      "duration": "25.608867",
+      "size": "41830324"
+    }
+  },
+  "source_start_seconds": 2.5,
+  "excerpt_duration_seconds": 22.0,
+  "crop": {
+    "top": 120,
+    "bottom": 44
+  },
+  "audio_removed": true,
+  "poster_offset_in_excerpt_seconds": 8,
+  "playback": "capture timing retained; input replay speed follows labels in app",
+  "files": [
+    {
+      "path": "updated/assets/ios-native.mp4",
+      "bytes": 1624041,
+      "sha256": "94a8174c24f6b94c94e29ccac5ca5bc25e6f63ffac5906d42e1f60b177c794ff"
+    },
+    {
+      "path": "updated/assets/ios-native.gif",
+      "bytes": 1771813,
+      "sha256": "793b5859b2087044eceb26586647e998cbbaadc02f549efc53651a4a4598ac07"
+    },
+    {
+      "path": "updated/assets/ios-native.png",
+      "bytes": 544103,
+      "sha256": "c3d929b27ffa4d330a13d01e8fec89f3fbf53c6490c17ebd860634e04a26726f"
+    }
+  ]
+}

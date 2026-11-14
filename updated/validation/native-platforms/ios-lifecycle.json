@@ -1,0 +1,21 @@
+{
+  "platform": "physical iPhone12 / iOS18.0.1",
+  "test": "Completed48-viewapp -> foreground own Heartbeat app for3seconds -> foreground existing fusion app without terminate-existing",
+  "same_process": true,
+  "capture_source": "mobile-ios-lifecycle.mov",
+  "background_foreground_cycles": 1,
+  "phase": "after all48 views completed",
+  "post_resume_visual_check": {
+    "recording_time_seconds": 20.0,
+    "current_observation_visible": true,
+    "accumulated_model_visible": true,
+    "error_text_visible": false,
+    "frame": 48,
+    "frames": 48,
+    "model_points": 9227,
+    "merged_total": 81563,
+    "removed_total": 5000,
+    "shader_CPU_correspondences_compared": 95790
+  },
+  "limitations": "Does not test interruptions during fusion, repeated cycles or context-loss recovery"
+}

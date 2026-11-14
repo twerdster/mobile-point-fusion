@@ -1,0 +1,176 @@
+{
+  "platform": "linux",
+  "method": "Pillow XCB screen capture of actual X11 app on isolated :96, crop0,0,1180,800; no generated display frames",
+  "capture_fps_nominal": 6,
+  "capture_count": 57,
+  "source_segment_seconds": [
+    0.0,
+    9.500165099666143
+  ],
+  "source_frame_sha256": {
+    "0000.png": "fb5751db852d6c7a121868c33c8f2e2bcb602e1b183422db40e6048b1322cde9",
+    "0001.png": "dbe7e631dc12f87bd473fe8126ed2d5f4ad9a1e52f0011605aebd112b01711a0",
+    "0002.png": "4467b7f390b9e38a5ed6ba4336e1ff9bb876a1af911578f4c32642c17ad63402",
+    "0003.png": "118803ca1d185de60c2dfd1bfb9c7d31562c5a5dacafc26709174deb7e065570",
+    "0004.png": "971051e6d79d8aa715788811f494f2441d0746232bb93164c0698369e91d685b",
+    "0005.png": "c65352d67a90b82c1e10b31980c9f187bdf535f94375f5c924b14b0b15fd9260",
+    "0006.png": "9df4e5b60960021267620c59feae291e06596ef71bf55d97f010d869ba237f92",
+    "0007.png": "98cacacaa5d2938bbf23f67b6fe9668ccba096e01a04420efa6ecfd094b2ec51",
+    "0008.png": "9641fb0f527e549a8af619e9ec7a00c02d495cd70954cd00f0f44b2761b89f75",
+    "0009.png": "c88a19be93b51bb1d19ed9bad87caea3e1a0ce5fcdd99b538f74c5c782f3bd88",
+    "0010.png": "4c0b03071233f8e439373746bfbc58142aae886d45983ef2e01f66eedc524092",
+    "0011.png": "9e1a76bad931c5b2ab54e58bd5b48631f82ccc0dffcb02587fd31f6723376388",
+    "0012.png": "584f64db4aac783ddd0682be34cd558711b925f72ebe2b38711763d8f20b8bcb",
+    "0013.png": "b48f74ebba79d1f91edf4131f07f3e76accf25510d1ff3affb4960ce5964ddac",
+    "0014.png": "1930f3c92468de9416217f2f25adc14dc2d9530ee53994b1da14c114e03964c9",
+    "0015.png": "707a0ac645d7dab0dc76dacf62babeedc7ef7e5eaab7a3582301be8ae470e209",
+    "0016.png": "6adfdf60aaa329cfc3816d7604de8497e89b32b6097691e2bea93801415c4ae6",
+    "0017.png": "d5772b533a59e02ad799294f0234938e1b6fcf6cb37506668fc4825cce032098",
+    "0018.png": "92b9234a6437e92d95c4f39720f89a24988b4b9d45426e80a0b614026f42892b",
+    "0019.png": "e267836f1fd8c239b543bac5d4aa59c070d6f8b683352e9b2625a7282906f753",
+    "0020.png": "87fc13482147abc51015e911f58a0bccd510bc53b07c157b54c4faf8f627ffde",
+    "0021.png": "d16e0099d98f665089feaf22bf0d4cdf05969e400fd71817e992d40ff95c42b3",
+    "0022.png": "4aed44ce9b62f7b85cbdd85bde161268e721d4ee1622f0e5683c872d45e93407",
+    "0023.png": "0bac4374059703b46d656ad93857d6c5c7c09a3aaab3420b3b0283fd476df110",
+    "0024.png": "835f11b4d5ffd563d41a6ff8011483ff875219bab74a2633168aa2f97fe78e92",
+    "0025.png": "b20bb9958490dd560fe109b1b5326bcf7bcadea911e7b14ee953dc3a012147c8",
+    "0026.png": "73405ec656f40fad42393b0f1c2647ffa6464e22bf5c309acd70c5d6ff35a231",
+    "0027.png": "79d39585ce4ce37bdda17bdfe918fcd20110244219e847f27afe1077e659ffab",
+    "0028.png": "ec5dbeaf8616d8172f5738f868248cfb44b936c1612319bb3f5db3c9fe14b327",
+    "0029.png": "70dc7330c83e62dd566bb333f3ae5ed50e8abc9791c31fa87fc4ac4857853863",
+    "0030.png": "23c783d74747046796c7ab2d7de9fc7763d723570960d7b693e9fc9e9a675b29",
+    "0031.png": "982658c9500852dc6fc5bf3557fc83a9e3cbe639cde3684d691da5a821b04681",
+    "0032.png": "d571348841564f827a2dd7c0d06f0ab2e4726e5bc50eebe688670f49a9bcb4a7",
+    "0033.png": "e18b23673641b41cc6b52e799b1299ec166f9ff7ad1acea0823f4e20801a32f6",
+    "0034.png": "c6578ebe12ff189464a6d97a7e894a39687f849bc8a9322678cbc6372bc88196",
+    "0035.png": "e6b8c4305a5ca0240af3d7d5969e1a6c3cf63be29b3f6c8d6bd8ab914291cb7c",
+    "0036.png": "1c7dd3bb507032f05698d447c12903e4a6ee4167efb583a50b1746bdf63a50b4",
+    "0037.png": "86c3ed8311b746f772600bb2618c05704c3894f711517a0fa30a679661314135",
+    "0038.png": "988908c73081a52c4782040108d7c389fbbfa1ed81c691aa946fe56f7a1db24b",
+    "0039.png": "7ce9975f8e7564be6e9fbd7f098f71bfb0c19132704a2da367711c7edf1ff925",
+    "0040.png": "185d1af68ccf187204619d06b82a02469e46e56608e023e9cfc603091eb59642",
+    "0041.png": "66ac6a7f73aee9a2f2344265012b9b1df16505b3e698a53e0e24f4c16e5a50c7",
+    "0042.png": "3cd812b817b189cd3b7a4042a8a861c66e7a1e0a0c2f80f8bbf5e2b3b27f0fee",
+    "0043.png": "e355098d1a00fe1b5b3e71a83125094c1b412f6c472425060a713250d39aa8f4",
+    "0044.png": "f06c7b07c5683dc4b27a84284dfc2fc1009090f6fde488310af29c78735fe89b",
+    "0045.png": "220f8565734557639d376ff577e87552296ec6490e7aa8dd0d63233e80d09b9d",
+    "0046.png": "482ae9f8e85db1a9eac172b6c9a1e3989e1d5688e5e6652f378a22a880dca0fe",
+    "0047.png": "2501e31e6e416a682c6da7a57f7bd34ad6037b93e3babf826743648cc3ced55d",
+    "0048.png": "2501e31e6e416a682c6da7a57f7bd34ad6037b93e3babf826743648cc3ced55d",
+    "0049.png": "2501e31e6e416a682c6da7a57f7bd34ad6037b93e3babf826743648cc3ced55d",
+    "0050.png": "2501e31e6e416a682c6da7a57f7bd34ad6037b93e3babf826743648cc3ced55d",
+    "0051.png": "2501e31e6e416a682c6da7a57f7bd34ad6037b93e3babf826743648cc3ced55d",
+    "0052.png": "2501e31e6e416a682c6da7a57f7bd34ad6037b93e3babf826743648cc3ced55d",
+    "0053.png": "2501e31e6e416a682c6da7a57f7bd34ad6037b93e3babf826743648cc3ced55d",
+    "0054.png": "2501e31e6e416a682c6da7a57f7bd34ad6037b93e3babf826743648cc3ced55d",
+    "0055.png": "2501e31e6e416a682c6da7a57f7bd34ad6037b93e3babf826743648cc3ced55d",
+    "0056.png": "2501e31e6e416a682c6da7a57f7bd34ad6037b93e3babf826743648cc3ced55d"
+  },
+  "media": {
+    "linux-native.mp4": {
+      "bytes": 2068055,
+      "sha256": "ebf1478bff1451a29c3c18007b1230ccfd92ae31fb6ea27cfc31d9b02ae73829"
+    },
+    "linux-native.gif": {
+      "bytes": 1839874,
+      "sha256": "07db83e30165cf8f559710ac3b783163aadf81ceb908011984b1745eb8c617ff"
+    },
+    "linux-native.png": {
+      "bytes": 345879,
+      "sha256": "1376be71e86820a12df2e129497920611be58b547b18030e0a266742c6dd98b9"
+    }
+  },
+  "scope": "Actual native app screen capture, generated observations and supplied poses; no camera/tracking; playback not performance benchmark",
+  "MP4_command": [
+    "ffmpeg",
+    "-v",
+    "error",
+    "-y",
+    "-f",
+    "concat",
+    "-safe",
+    "0",
+    "-i",
+    "CAPTURE/timeline.txt",
+    "-ss",
+    "0.0",
+    "-t",
+    "9.500165099666143",
+    "-vf",
+    "scale=1180:-2:flags=area",
+    "-c:v",
+    "libx264",
+    "-preset",
+    "slow",
+    "-crf",
+    "24",
+    "-pix_fmt",
+    "yuv420p",
+    "-fps_mode",
+    "vfr",
+    "-movflags",
+    "+faststart",
+    "-metadata",
+    "title=Mobile Point Fusion \u2014 actual linux native execution",
+    "-metadata",
+    "comment=Actual app-window screen capture. Generated observations and supplied poses; no real RGB-D or tracking. Recorded playback is not a performance benchmark.",
+    "CAPTURE/linux-native.mp4"
+  ],
+  "GIF_command": [
+    "ffmpeg",
+    "-v",
+    "error",
+    "-y",
+    "-i",
+    "CAPTURE/linux-native.mp4",
+    "-filter_complex",
+    "[0:v]fps=5,scale=800:-2:flags=area,split[a][b];[a]palettegen=max_colors=96:stats_mode=diff[p];[b][p]paletteuse=dither=bayer:bayer_scale=5:diff_mode=rectangle",
+    "-loop",
+    "0",
+    "CAPTURE/linux-native.gif"
+  ],
+  "source_freeze_aggregate_sha256": "1a133ebbad00e90dcc05dd02dc54432b79e832cab1fe1344491d75f5e368d137",
+  "capture_program_executable_sha256": "f57d6c1dd7b8830889592ce1daeace64ef65e6eafb865b14c300fc82bab046f5",
+  "encoded_probe": {
+    "gif": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "gif",
+          "width": 800,
+          "height": 542,
+          "pix_fmt": "bgra",
+          "nb_read_frames": "47"
+        }
+      ],
+      "format": {
+        "duration": "9.400000",
+        "size": "1839874"
+      }
+    },
+    "mp4": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 1180,
+          "height": 800,
+          "pix_fmt": "yuv420p",
+          "nb_read_frames": "57"
+        }
+      ],
+      "format": {
+        "duration": "9.360000",
+        "size": "2068055"
+      }
+    },
+    "GIF_frames": 47,
+    "GIF_distinct_frames": 46,
+    "GIF_duration_ms": 9400,
+    "full_decode_errors": 0,
+    "visual_review": "Final PNG inspected: precise fusion-correspondence label,9232/81563/4996 counters, generated input/supplied poses; app held open through last capture."
+  },
+  "intentional_harness_termination_after_completed_capture": true
+}

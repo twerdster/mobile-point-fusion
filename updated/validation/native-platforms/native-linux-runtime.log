@@ -1,0 +1,2 @@
+native renderer=llvmpipe (LLVM 15.0.7, 256 bits) version=OpenGL ES 3.2 Mesa 23.2.1-1ubuntu3.1~22.04.4
+NATIVE_FUSION_COMPLETE frames=48 points=9232 merged=81563 compared=95791

@@ -1,0 +1,6 @@
+Consolidate compiler generated dependencies of target original_faults
+Consolidate compiler generated dependencies of target points_fusion
+[ 33%] Built target original_faults
+[ 66%] Built target points_fusion
+Consolidate compiler generated dependencies of target points_fusion_ui
+[100%] Built target points_fusion_ui

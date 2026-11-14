@@ -1,16 +1,29 @@
 #pragma once
 #include "core.hpp"
+#if defined(__APPLE__)
+#include <TargetConditionals.h>
+#if TARGET_OS_IPHONE
+#include <OpenGLES/ES3/gl.h>
+#define PF_INTEGER_FLOAT_STORAGE 1
+#else
+#define PF_DESKTOP_GL 1
+#include <OpenGL/gl3.h>
+#endif
+#else
 #include <EGL/egl.h>
 #include <EGL/eglext.h>
 #include <GLES3/gl3.h>
+#endif
 #include <fstream>
 #include <iostream>
 #include <sstream>
 #include <string>
 
+namespace pf {
 inline std::string read_text(std::string path) {
   std::ifstream f(path);
-  require(bool(f), "cannot open shader");
+  if (!f)
+    throw std::runtime_error("cannot open shader: " + path);
   std::ostringstream s;
   s << f.rdbuf();
   return s.str();
@@ -22,51 +35,91 @@ inline void glcheck(const char *where) {
                              std::to_string(e));
 }
 struct GL {
+#if defined(PF_INTEGER_FLOAT_STORAGE)
+  static constexpr bool integer_float_storage = true;
+#else
+  static constexpr bool integer_float_storage = false;
+#endif
   int w, h, s;
+#if !defined(__APPLE__)
   EGLDisplay display = EGL_NO_DISPLAY;
   EGLContext context = EGL_NO_CONTEXT;
   EGLSurface surface = EGL_NO_SURFACE;
+#endif
+  bool owns_context = false, delete_objects = true;
+  GL(const GL &) = delete;
+  GL &operator=(const GL &) = delete;
+  void abandon_context() { delete_objects = false; }
   GLuint index_program = 0, fusion_program = 0, removal_program = 0,
          index_fbo = 0, output_fbo = 0;
   GLuint ids = 0, positions = 0, normals = 0, output = 0, depth_index = 0,
          depth_output = 0;
   GLuint vao = 0, vbo = 0, ebo = 0;
   std::string renderer, version;
-  GL(int width = 192, int height = 144, int sample = 4)
+  bool float_color_extension = false;
+  GL(int width = 192, int height = 144, int sample = 4,
+     const std::string &root = SOURCE_ROOT, bool external_context = false)
       : w(width), h(height), s(sample) {
-    display = eglGetDisplay(EGL_DEFAULT_DISPLAY);
-    EGLint major, minor;
-    require(eglInitialize(display, &major, &minor),
-            "EGL initialization failed");
-    require(eglBindAPI(EGL_OPENGL_ES_API), "EGL ES bind failed");
-    const EGLint attrs[] = {EGL_SURFACE_TYPE,
-                            EGL_PBUFFER_BIT,
-                            EGL_RENDERABLE_TYPE,
-                            EGL_OPENGL_ES3_BIT,
-                            EGL_RED_SIZE,
-                            8,
-                            EGL_GREEN_SIZE,
-                            8,
-                            EGL_BLUE_SIZE,
-                            8,
-                            EGL_DEPTH_SIZE,
-                            24,
-                            EGL_NONE};
-    EGLConfig config;
-    EGLint count;
-    require(eglChooseConfig(display, attrs, &config, 1, &count) && count == 1,
-            "EGL config failed");
-    const EGLint pa[] = {EGL_WIDTH, 1, EGL_HEIGHT, 1, EGL_NONE},
-                 ca[] = {EGL_CONTEXT_CLIENT_VERSION, 3, EGL_NONE};
-    surface = eglCreatePbufferSurface(display, config, pa);
-    context = eglCreateContext(display, config, EGL_NO_CONTEXT, ca);
-    require(context != EGL_NO_CONTEXT && surface != EGL_NO_SURFACE,
-            "EGL context failed");
-    require(eglMakeCurrent(display, surface, surface, context),
-            "EGL make-current failed");
+#if !defined(__APPLE__)
+    if (!external_context) {
+      owns_context = true;
+      display = eglGetDisplay(EGL_DEFAULT_DISPLAY);
+      EGLint major, minor;
+      require(eglInitialize(display, &major, &minor),
+              "EGL initialization failed");
+      require(eglBindAPI(EGL_OPENGL_ES_API), "EGL ES bind failed");
+      const EGLint attrs[] = {EGL_SURFACE_TYPE,
+                              EGL_PBUFFER_BIT,
+                              EGL_RENDERABLE_TYPE,
+                              EGL_OPENGL_ES3_BIT,
+                              EGL_RED_SIZE,
+                              8,
+                              EGL_GREEN_SIZE,
+                              8,
+                              EGL_BLUE_SIZE,
+                              8,
+                              EGL_DEPTH_SIZE,
+                              24,
+                              EGL_NONE};
+      EGLConfig config;
+      EGLint count;
+      require(eglChooseConfig(display, attrs, &config, 1, &count) && count == 1,
+              "EGL config failed");
+      const EGLint pa[] = {EGL_WIDTH, 1, EGL_HEIGHT, 1, EGL_NONE},
+                   ca[] = {EGL_CONTEXT_CLIENT_VERSION, 3, EGL_NONE};
+      surface = eglCreatePbufferSurface(display, config, pa);
+      context = eglCreateContext(display, config, EGL_NO_CONTEXT, ca);
+      require(context != EGL_NO_CONTEXT && surface != EGL_NO_SURFACE,
+              "EGL context failed");
+      require(eglMakeCurrent(display, surface, surface, context),
+              "EGL make-current failed");
+    }
+#else
+    require(external_context,
+            "Apple frontend must provide a current GL context");
+#endif
+    require(glGetString(GL_RENDERER) != nullptr, "no current GL context");
     renderer = reinterpret_cast<const char *>(glGetString(GL_RENDERER));
     version = reinterpret_cast<const char *>(glGetString(GL_VERSION));
-    auto path = std::string(SOURCE_ROOT);
+#if defined(PF_DESKTOP_GL)
+    glEnable(GL_PROGRAM_POINT_SIZE);
+#else
+    if (!integer_float_storage) {
+      GLint count = 0;
+      glGetIntegerv(GL_NUM_EXTENSIONS, &count);
+
+      for (GLint i = 0; i < count; i++)
+        float_color_extension |=
+            std::string(reinterpret_cast<const char *>(
+                glGetStringi(GL_EXTENSIONS, i))) == "GL_EXT_color_buffer_float";
+      if (!float_color_extension)
+        std::cerr << "EXT_color_buffer_float not advertised; checking RGBA32F "
+                     "framebuffer support; integer-storage build is available"
+                  << std::endl;
+    }
+#endif
+    glPixelStorei(GL_PACK_ALIGNMENT, 4);
+    auto path = root;
     auto old = path + "/source/original/PointsFusion/PointsFusion/";
     auto updated = path + "/updated/shaders/";
     index_program = program(old + "indexMap.vsh", old + "indexMap.fsh");
@@ -76,22 +129,26 @@ struct GL {
     glGenFramebuffers(1, &index_fbo);
     glBindFramebuffer(GL_FRAMEBUFFER, index_fbo);
     ids = texture(GL_R32I, GL_COLOR_ATTACHMENT0, w * s, h * s);
-    positions = texture(GL_RGBA32F, GL_COLOR_ATTACHMENT1, w * s, h * s);
-    normals = texture(GL_RGBA32F, GL_COLOR_ATTACHMENT2, w * s, h * s);
+    positions = texture(integer_float_storage ? GL_RGBA32UI : GL_RGBA32F,
+                        GL_COLOR_ATTACHMENT1, w * s, h * s);
+    normals = texture(integer_float_storage ? GL_RGBA32UI : GL_RGBA32F,
+                      GL_COLOR_ATTACHMENT2, w * s, h * s);
     GLenum three[] = {GL_COLOR_ATTACHMENT0, GL_COLOR_ATTACHMENT1,
                       GL_COLOR_ATTACHMENT2};
     glDrawBuffers(3, three);
     depth_index = depth(w * s, h * s);
-    require(glCheckFramebufferStatus(GL_FRAMEBUFFER) == GL_FRAMEBUFFER_COMPLETE,
-            "index FBO incomplete");
+    check_framebuffer("index", integer_float_storage
+                                   ? "R32I/RGBA32UI/RGBA32UI/depth24"
+                                   : "R32I/RGBA32F/RGBA32F/depth24");
     glGenFramebuffers(1, &output_fbo);
     glBindFramebuffer(GL_FRAMEBUFFER, output_fbo);
-    output = texture(GL_RGBA32F, GL_COLOR_ATTACHMENT3, w, h);
+    output = texture(integer_float_storage ? GL_RGBA32UI : GL_RGBA32F,
+                     GL_COLOR_ATTACHMENT3, w, h);
     GLenum four[] = {GL_NONE, GL_NONE, GL_NONE, GL_COLOR_ATTACHMENT3};
     glDrawBuffers(4, four);
     depth_output = depth(w, h);
-    require(glCheckFramebufferStatus(GL_FRAMEBUFFER) == GL_FRAMEBUFFER_COMPLETE,
-            "fusion FBO incomplete");
+    check_framebuffer("fusion", integer_float_storage ? "RGBA32UI/depth24"
+                                                      : "RGBA32F/depth24");
     glGenVertexArrays(1, &vao);
     glGenBuffers(1, &vbo);
     glGenBuffers(1, &ebo);
@@ -99,9 +156,74 @@ struct GL {
     glDepthFunc(GL_LESS);
     glcheck("setup");
   }
+  static void check_framebuffer(const char *name, const char *formats) {
+    GLenum status = glCheckFramebufferStatus(GL_FRAMEBUFFER);
+    if (status != GL_FRAMEBUFFER_COMPLETE) {
+      std::ostringstream s;
+      s << name << " FBO status 0x" << std::hex << status << " (" << formats
+        << ")";
+      throw std::runtime_error(s.str());
+    }
+  }
   GLuint shader(GLenum type, const std::string &path) {
     GLuint sh = glCreateShader(type);
     std::string code = read_text(path);
+#if defined(PF_DESKTOP_GL)
+    // macOS exposes desktop GL, not ES. Retain shader bodies and change only
+    // the language-version declaration; desktop GLSL accepts precision tokens.
+    auto version_pos = code.find("#version 300 es");
+    if (version_pos != std::string::npos)
+      code.replace(version_pos, 15, "#version 330 core");
+#endif
+    if (integer_float_storage && type == GL_FRAGMENT_SHADER &&
+        (path.find("indexMap.fsh") != std::string::npos ||
+         path.find("/updated/shaders/") != std::string::npos)) {
+      // ES3 integer color attachments are mandatory; RGBA32F renderability is
+      // not required by ES3; the first iPhone12 framebuffer setup rejected it.
+      // Store exact IEEE32 bits, without half-float rounding.
+      auto replace_all = [&](const std::string &from, const std::string &to) {
+        size_t pos = 0;
+        while ((pos = code.find(from, pos)) != std::string::npos) {
+          code.replace(pos, from.size(), to);
+          pos += to.size();
+        }
+      };
+      bool index = path.find("indexMap.fsh") != std::string::npos;
+      if (index) {
+        replace_all("layout (location = 1) out highp vec4 positionTex;",
+                    "highp vec4 positionTex; layout(location=1) out highp "
+                    "uvec4 positionBits;");
+        replace_all("layout (location = 2) out highp vec4 normalTex;",
+                    "highp vec4 normalTex; layout(location=2) out highp uvec4 "
+                    "normalBits;");
+        replace_all("void main", "void pf_main");
+        code += "\nvoid "
+                "main(){pf_main();positionBits=floatBitsToUint(positionTex);"
+                "normalBits=floatBitsToUint(normalTex); }\n";
+      } else {
+        replace_all("layout (location = 3) out highp vec4 fusion;",
+                    "highp vec4 fusion; layout(location=3) out highp uvec4 "
+                    "fusionBits;");
+        replace_all("layout(location=3) out highp vec4 fusion;",
+                    "highp vec4 fusion; layout(location=3) out highp uvec4 "
+                    "fusionBits;");
+        replace_all("uniform highp sampler2D", "uniform highp usampler2D");
+        replace_all("texelFetch(positionTexture,", "pfPosition(");
+        replace_all("texelFetch(normalTexture,", "pfNormal(");
+        replace_all("void main", "void pf_main");
+        const std::string helpers =
+            "highp vec4 pfPosition(highp ivec2 p,int l){return "
+            "uintBitsToFloat(texelFetch(positionTexture,p,l));}\n"
+            "highp vec4 pfNormal(highp ivec2 p,int l){return "
+            "uintBitsToFloat(texelFetch(normalTexture,p,l));}\n";
+        auto main_pos = code.find("void pf_main");
+        require(main_pos != std::string::npos,
+                "packed shader main unavailable");
+        code.insert(main_pos, helpers);
+        code +=
+            "\nvoid main(){pf_main();fusionBits=floatBitsToUint(fusion); }\n";
+      }
+    }
     auto str = code.c_str();
     glShaderSource(sh, 1, &str, nullptr);
     glCompileShader(sh);
@@ -143,7 +265,18 @@ struct GL {
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+#if defined(PF_DESKTOP_GL)
+    glTexImage2D(GL_TEXTURE_2D, 0, format, width, height, 0,
+                 format == GL_R32I
+                     ? GL_RED_INTEGER
+                     : (format == GL_RGBA32UI ? GL_RGBA_INTEGER : GL_RGBA),
+                 format == GL_R32I
+                     ? GL_INT
+                     : (format == GL_RGBA32UI ? GL_UNSIGNED_INT : GL_FLOAT),
+                 nullptr);
+#else
     glTexStorage2D(GL_TEXTURE_2D, 1, format, width, height);
+#endif
     glFramebufferTexture2D(GL_FRAMEBUFFER, attachment, GL_TEXTURE_2D, t, 0);
     return t;
   }
@@ -184,13 +317,14 @@ struct GL {
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ebo);
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, indices.size() * sizeof(uint32_t),
                  indices.data(), GL_DYNAMIC_DRAW);
-    const int offsets[] = {0, 3, 6, 10};
+    const size_t offsets[] = {offsetof(Point, p), offsetof(Point, n),
+                              offsetof(Point, radius),
+                              offsetof(Point, confidence)};
     const int sizes[] = {3, 3, 1, 1};
     for (int i = 0; i < 4; i++) {
       glEnableVertexAttribArray(i);
-      glVertexAttribPointer(
-          i, sizes[i], GL_FLOAT, GL_FALSE, sizeof(Point),
-          reinterpret_cast<void *>(offsets[i] * sizeof(float)));
+      glVertexAttribPointer(i, sizes[i], GL_FLOAT, GL_FALSE, sizeof(Point),
+                            reinterpret_cast<void *>(offsets[i]));
     }
   }
   void index(const Model &model, M4 view) {
@@ -199,8 +333,14 @@ struct GL {
     GLint zero[4] = {};
     float clear[4] = {};
     glClearBufferiv(GL_COLOR, 0, zero);
-    glClearBufferfv(GL_COLOR, 1, clear);
-    glClearBufferfv(GL_COLOR, 2, clear);
+    if (integer_float_storage) {
+      GLuint bits[4] = {};
+      glClearBufferuiv(GL_COLOR, 1, bits);
+      glClearBufferuiv(GL_COLOR, 2, bits);
+    } else {
+      glClearBufferfv(GL_COLOR, 1, clear);
+      glClearBufferfv(GL_COLOR, 2, clear);
+    }
     glClear(GL_DEPTH_BUFFER_BIT);
     uniforms(index_program, view);
     std::vector<uint32_t> active;
@@ -216,7 +356,11 @@ struct GL {
     glBindFramebuffer(GL_FRAMEBUFFER, output_fbo);
     glViewport(0, 0, w, h);
     float zero[4] = {};
-    glClearBufferfv(GL_COLOR, 3, zero);
+    if (integer_float_storage) {
+      GLuint bits[4] = {};
+      glClearBufferuiv(GL_COLOR, 3, bits);
+    } else
+      glClearBufferfv(GL_COLOR, 3, zero);
     glClear(GL_DEPTH_BUFFER_BIT);
     glActiveTexture(GL_TEXTURE0);
     glBindTexture(GL_TEXTURE_2D, ids);
@@ -229,7 +373,9 @@ struct GL {
     glDrawElements(GL_POINTS, active.size(), GL_UNSIGNED_INT, nullptr);
     std::vector<Hit> result(w * h);
     glReadBuffer(GL_COLOR_ATTACHMENT3);
-    glReadPixels(0, 0, w, h, GL_RGBA, GL_FLOAT, result.data());
+    glReadPixels(0, 0, w, h, integer_float_storage ? GL_RGBA_INTEGER : GL_RGBA,
+                 integer_float_storage ? GL_UNSIGNED_INT : GL_FLOAT,
+                 result.data());
     glcheck("fusion/removal readback");
     return result;
   }
@@ -250,16 +396,27 @@ struct GL {
     m.normal.resize(m.id.size());
     glBindFramebuffer(GL_FRAMEBUFFER, index_fbo);
     glReadBuffer(GL_COLOR_ATTACHMENT0);
-    glReadPixels(0, 0, w * s, h * s, GL_RED_INTEGER, GL_INT, m.id.data());
+    {
+      std::vector<std::array<int, 4>> id_rgba(m.id.size());
+      glReadPixels(0, 0, w * s, h * s, GL_RGBA_INTEGER, GL_INT, id_rgba.data());
+      for (size_t i = 0; i < m.id.size(); i++)
+        m.id[i] = id_rgba[i][0];
+    }
     glReadBuffer(GL_COLOR_ATTACHMENT1);
-    glReadPixels(0, 0, w * s, h * s, GL_RGBA, GL_FLOAT, m.position.data());
+    glReadPixels(
+        0, 0, w * s, h * s, integer_float_storage ? GL_RGBA_INTEGER : GL_RGBA,
+        integer_float_storage ? GL_UNSIGNED_INT : GL_FLOAT, m.position.data());
     glReadBuffer(GL_COLOR_ATTACHMENT2);
-    glReadPixels(0, 0, w * s, h * s, GL_RGBA, GL_FLOAT, m.normal.data());
+    glReadPixels(
+        0, 0, w * s, h * s, integer_float_storage ? GL_RGBA_INTEGER : GL_RGBA,
+        integer_float_storage ? GL_UNSIGNED_INT : GL_FLOAT, m.normal.data());
     glcheck("map readback");
     return m;
   }
   ~GL() {
-    if (display != EGL_NO_DISPLAY) {
+    if (!delete_objects)
+      return;
+    {
       GLuint programs[] = {index_program, fusion_program, removal_program};
       for (auto p : programs)
         if (p)
@@ -273,10 +430,16 @@ struct GL {
       glDeleteVertexArrays(1, &vao);
       glDeleteBuffers(1, &vbo);
       glDeleteBuffers(1, &ebo);
-      eglMakeCurrent(display, EGL_NO_SURFACE, EGL_NO_SURFACE, EGL_NO_CONTEXT);
-      eglDestroyContext(display, context);
-      eglDestroySurface(display, surface);
-      eglTerminate(display);
+#if !defined(__APPLE__)
+      if (owns_context && display != EGL_NO_DISPLAY) {
+        eglMakeCurrent(display, EGL_NO_SURFACE, EGL_NO_SURFACE, EGL_NO_CONTEXT);
+        eglDestroyContext(display, context);
+        eglDestroySurface(display, surface);
+        eglTerminate(display);
+      }
+#endif
     }
   }
 };
+
+} // namespace pf

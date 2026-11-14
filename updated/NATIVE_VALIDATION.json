@@ -1,0 +1,218 @@
+{
+  "date": "2026-11-14",
+  "scope": "New native frontends execute updated generated-input/supplied-pose shader and CPU fusion; no real RGB-D or tracking",
+  "platform_results": {
+    "macos": {
+      "frame": 48,
+      "frames": 48,
+      "input": "generated ellipsoid fixture; known analytic poses; no camera or tracking",
+      "renderer": "Apple M3 Max",
+      "gl_version": "4.1 Metal - 89.3",
+      "framebuffer_storage": "RGBA32F",
+      "CPU_check_scope": "fusion-pass selection from GPU index map; index rasterization and removal outputs not independently checked in native runs",
+      "model_points": 9227,
+      "merged_total": 81563,
+      "inserted_total": 14227,
+      "removed_total": 5000,
+      "reused_total": 4356,
+      "visible_input_points": 104043,
+      "shader_CPU_correspondences_compared": 95790,
+      "operators": "indexMap shader -> adapted Fusion shader -> CPU averages -> adapted removal shader/CPU",
+      "pose_estimation": false,
+      "real_RGBD": false
+    },
+    "linux": {
+      "frame": 48,
+      "frames": 48,
+      "input": "generated ellipsoid fixture; known analytic poses; no camera or tracking",
+      "renderer": "llvmpipe (LLVM 15.0.7, 256 bits)",
+      "gl_version": "OpenGL ES 3.2 Mesa 23.2.1-1ubuntu3.1~22.04.4",
+      "framebuffer_storage": "RGBA32F",
+      "CPU_check_scope": "fusion-pass selection from GPU index map; index rasterization and removal outputs not independently checked in native runs",
+      "model_points": 9232,
+      "merged_total": 81563,
+      "inserted_total": 14228,
+      "removed_total": 4996,
+      "reused_total": 4352,
+      "visible_input_points": 104043,
+      "shader_CPU_correspondences_compared": 95791,
+      "operators": "indexMap shader -> adapted Fusion shader -> CPU averages -> adapted removal shader/CPU",
+      "pose_estimation": false,
+      "real_RGBD": false
+    },
+    "android": {
+      "frame": 48,
+      "frames": 48,
+      "input": "generated ellipsoid fixture; known analytic poses; no camera or tracking",
+      "renderer": "Adreno (TM) 540",
+      "gl_version": "OpenGL ES 3.2 V@385.0 (GIT@bc00834, I609ab310b2) (Date:04/11/19)",
+      "framebuffer_storage": "RGBA32F",
+      "CPU_check_scope": "fusion-pass selection from GPU index map; index rasterization and removal outputs not independently checked in native runs",
+      "model_points": 9227,
+      "merged_total": 81563,
+      "inserted_total": 14227,
+      "removed_total": 5000,
+      "reused_total": 4356,
+      "visible_input_points": 104043,
+      "shader_CPU_correspondences_compared": 95790,
+      "operators": "indexMap shader -> adapted Fusion shader -> CPU averages -> adapted removal shader/CPU",
+      "pose_estimation": false,
+      "real_RGBD": false
+    },
+    "ios": {
+      "frame": 48,
+      "frames": 48,
+      "input": "generated ellipsoid fixture; known analytic poses; no camera or tracking",
+      "renderer": "Apple A14 GPU",
+      "gl_version": "OpenGL ES 3.0 Metal - 101",
+      "framebuffer_storage": "RGBA32UI_float_bits",
+      "CPU_check_scope": "fusion-pass selection from GPU index map; index rasterization and removal outputs not independently checked in native runs",
+      "model_points": 9227,
+      "merged_total": 81563,
+      "inserted_total": 14227,
+      "removed_total": 5000,
+      "reused_total": 4356,
+      "visible_input_points": 104043,
+      "shader_CPU_correspondences_compared": 95790,
+      "operators": "indexMap shader -> adapted Fusion shader -> CPU averages -> adapted removal shader/CPU",
+      "pose_estimation": false,
+      "real_RGBD": false
+    }
+  },
+  "iOS_status": "Frozen signed build completed48 views on physical iPhone12/iOS18.0.1; actual capture complete; one completed-run background/foreground cycle retained same process and visible clouds after resume",
+  "linux_lossless_integer_control": {
+    "ctest_entries_passed": 2,
+    "targeted_assertions": 25,
+    "full_frames": 48,
+    "sanitizer_exit": 0,
+    "sanitizer_reports": 0,
+    "fused_PLY_matches_float_storage_sha256": "54bc9b77ad84adb068388e3833110df69a216d1dfc59b6216436c10c45e07bdd"
+  },
+  "linux_native_UI_sanitizer": {
+    "full_frames": 48,
+    "exit": 0,
+    "reported_errors": 0,
+    "leak_detection": false,
+    "Mesa_and_shaders_instrumented": false
+  },
+  "native_Mac_controls_checked": [
+    "reset reruns and clears counters",
+    "pause holds view25",
+    "resume advances to view27"
+  ],
+  "source_sha256": {
+    "updated/CMakeLists.txt": "01631b22b1d777b05247d3281feb3e45850799516f49da66c5e9ea62a1683941",
+    "updated/platforms/android/AndroidManifest.xml": "85a5c6799cb055cf44c93c12cb79483e108ad49ff96a35ca6e41999b5909d027",
+    "updated/platforms/android/FusionActivity.java": "30a648c87f7b9d007b0486fdbcfe55562254ecc131ab33d149799ee52dc118e4",
+    "updated/platforms/android/build.py": "704ec3531382cf18dd31a6ddc0a2a56ecd601e7ed1bc252ac369934a2ec64727",
+    "updated/platforms/android/jni.cpp": "0b11e26e8e130749c0c6062d661f318617a82970ebac1b40a5c3cd71ab8eb5c1",
+    "updated/platforms/apple/build.py": "ddcc4b593df06cce6da93a4c2b8fee05df8560ca6e1ba13166d274799a737839",
+    "updated/platforms/apple/generate_ios_project.py": "282ae63645b3e560c29970cee291d61253d1a237682290fb6c60aa401592fd69",
+    "updated/platforms/apple/main.mm": "e90af283df01ee08e515cea71021c709cb1323ab82e0ddd4a2b445f93b459b9b",
+    "updated/platforms/linux/main.cpp": "33195377bd763a11f00d4664c80abf10233a1f7d22a0f9cbd2d5e2cb2206862f",
+    "updated/shaders/Fusion.fsh": "4b7fd89290db5d29dbe89b38976f96387252824bdb2b65eacae1a5a19ec21bdd",
+    "updated/shaders/Fusion.vsh": "7b8d72c9c0582fa895912120af2da15ccd4ba19a4edd504bc9fceaa0985f1d4a",
+    "updated/shaders/PointRemoval.fsh": "078c3a870b42eee7459c756af64618674f04b8ba49a8bff799d0157411e40680",
+    "updated/shaders/PointRemoval.vsh": "18f15f07781a0a3f4fde523310f7a7f9768c646604fa68cac7bd351dd1960829",
+    "updated/src/core.hpp": "9b3b7c84dfa60ced24af18d66f219a97cf0705e7f027fa4fb36ed81a782940e0",
+    "updated/src/correspondence.hpp": "1ad2d018881ebe13c20ce6b1c101862ec70e4c8f236c9cc422653b25b1d9005e",
+    "updated/src/fixture.hpp": "bc111a63194ea679372167a834598d10271ceafcf664c5c0241e7372adf23d0c",
+    "updated/src/gles.hpp": "0d40bfcb863e058eb75474d8298a90cf1251af06188e44e73557cd7844eb9fe2",
+    "updated/src/live.hpp": "1c62cacc091ea9728d8be320bd05d1cc498af526ab65123898fe128cfa174e94",
+    "updated/src/main.cpp": "aba1e418ff693e3bb3cb1308de667836c58a0c0df2b1d2313b452ab1a5376415",
+    "updated/tests/original_faults.cpp": "911adadda12a13e1a409769276197d23d66a71e6c113a938f41f5b1cefc31ee7",
+    "updated/tools/analyze_demo.py": "df58bbd2cd167e4c2ec17f5a2942f010a495d6ef6b63b24391e981a8b94ee3c2",
+    "updated/tools/prepare_xcode_fixture.py": "13b59b63674dbcc3cdd328c68e57921f362a88a9a3609ee2e4a5633cc81b85b7",
+    "updated/tools/render_demo.py": "0c9a0de3a1f852a081556637816da54717f2f11e028e846f65148b238e6ea984"
+  },
+  "original_allowlist_sha256_match": true,
+  "root_README_matches_HEAD": true,
+  "media_qa": "validation/native-platforms/macos-linux-media-qa.json",
+  "limitations": [
+    "One generated fixture and supplied orbit",
+    "CPU correspondence agreement is a targeted check, not general correctness",
+    "Per-platform rasterization/numeric differences retained in counters",
+    "No pose estimation, real-sensor evaluation or performance claim",
+    "New native frontends are separate from the preserved original iOS application"
+  ],
+  "claude_reviews": [
+    {
+      "session": "5ec45954-ce58-45c8-b309-1a93de54ea15",
+      "tools_disabled": true,
+      "exit": 0,
+      "scope": "static code/editorial review; no runtime validation",
+      "useful_feedback_applied": [
+        "iOS inactive GL pause/finish and callback containment",
+        "zero-size and redundant drawable-allocation guards",
+        "framebuffer status diagnostics",
+        "portable RGBA signed-ID readback",
+        "external-context cleanup",
+        "precise correspondence-check scope",
+        "47distinctposes plusrevisit documented",
+        "platform difference cause notisolated",
+        "generated resource rebuild and arm64 scope documented"
+      ],
+      "new_lifecycle_iOS_retest_pending": false
+    },
+    {
+      "session": "a287c29f-711c-4885-807c-69f18e6a34c9",
+      "tools_disabled": true,
+      "exit": 0,
+      "scope": "focused static follow-up of lifecycle fixes; no material remaining iOS fix bug found; hardware lifecycle validation remains separate",
+      "useful_feedback_applied": [
+        "Android native cleanup also on configuration recreation",
+        "checked native JSON, PLY and OBJ output writes",
+        "initial background guard before Apple GL construction"
+      ]
+    }
+  ],
+  "source_freeze_aggregate_sha256": "1a133ebbad00e90dcc05dd02dc54432b79e832cab1fe1344491d75f5e368d137",
+  "frozen_build_artifacts": {
+    "ios_executable": {
+      "bytes": 189568,
+      "sha256": "b15ac3bd3c08348430ab24f52c1401c3fb0622ea807e239fd880c674f3722290"
+    },
+    "macos_executable": {
+      "bytes": 149904,
+      "sha256": "2fa9178a83a9b6ac1d7505fb90e573452363633be38fb3f0650ef035cd7737be"
+    },
+    "simulator_executable": {
+      "bytes": 172448,
+      "sha256": "83a5fefb8546e0d2e0ba16157a458060ac795cbc98a3686ad15c4b75ea5b50cd"
+    },
+    "android_APK": {
+      "bytes": 627694,
+      "sha256": "1776cdb1871773eaa38cb1d3bc0071a5903ceb7a10c8935d94395583b1a0b3df"
+    },
+    "linux_UI_executable": {
+      "sha256": "f57d6c1dd7b8830889592ce1daeace64ef65e6eafb865b14c300fc82bab046f5"
+    }
+  },
+  "source_freeze_tests": {
+    "apple_builds": [
+      "macos",
+      "arm64 simulator build-only",
+      "signed arm64 iOS build"
+    ],
+    "Android_build": "arm64/API26 debug APK signed and verified",
+    "macos_native_frames": 48,
+    "macos_native_results_unchanged": true,
+    "Linux_UI_ASan_UBSan_frames": 48,
+    "integer_mode_ASan_UBSan_targeted_assertions": 25,
+    "integer_mode_ASan_UBSan_demo_frames": 48,
+    "completed_logs_checked_for_reports": true,
+    "sanitizer_reports": 0,
+    "leak_detection": false,
+    "Mesa_shaders_instrumented": false,
+    "iOS_lifecycle_hardened_physical_retest": "passed: one completed-run background/foreground cycle; same process; clouds and completed counters visible afterward; interrupted-fusion/repeated-cycle behavior untested",
+    "Android_frozen_APK_physical_retest": "passed: physical Pixel2/Android10 completed48 views with recorded counters and actual screen capture"
+  },
+  "frozen_desktop_capture_source_match": true,
+  "mobile_capture_records": {
+    "ios": "validation/native-platforms/ios-capture.json",
+    "android": "validation/native-platforms/android-capture.json"
+  },
+  "iOS_lifecycle_record": "validation/native-platforms/ios-lifecycle.json",
+  "frozen_mobile_capture_artifact_match": true,
+  "all_native_media_full_decode_and_caps_pass": true
+}

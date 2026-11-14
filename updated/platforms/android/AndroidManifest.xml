@@ -1,0 +1,9 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="io.github.twerdster.mobilepointfusion" android:versionCode="1" android:versionName="1.0">
+  <uses-sdk android:minSdkVersion="26" android:targetSdkVersion="34" />
+  <uses-feature android:glEsVersion="0x00030000" android:required="true" />
+  <application android:label="Mobile Point Fusion" android:theme="@android:style/Theme.Material.NoActionBar" android:debuggable="true" android:allowBackup="false">
+    <activity android:name=".FusionActivity" android:exported="true" android:configChanges="orientation|screenSize">
+      <intent-filter><action android:name="android.intent.action.MAIN"/><category android:name="android.intent.category.LAUNCHER"/></intent-filter>
+    </activity>
+  </application>
+</manifest>
