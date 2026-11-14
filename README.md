@@ -1,5 +1,9 @@
 # Mobile Point Fusion
 
+[![New!](updated/assets/new-badge.svg)](updated/README.md#updated-and-ported-for-modern-hardware) [Updated and ported for modern hardware](updated/README.md#updated-and-ported-for-modern-hardware)
+
+*Historical project reference follows. Current builds and results are in the updated section above.*
+
 <p align="center"><img src="assets/project-preview.webp" alt="Original tablet-based point-fusion project photograph" width="360"></p>
 
 ![Code](https://img.shields.io/badge/code-Objective--C%20%2F%20GLSL-blue)

@@ -1,5 +1,9 @@
 # Point-fusion adapter
 
+## Updated and ported for modern hardware
+
+This 2026 port reimplements the historical CPU fusion loop in C++ and retains the original index-map shaders, with targeted changes to matching, removal and buffer safety. New iOS, Android, macOS and Linux frontends run generated input or recorded Kinect depth; real-data replay uses supplied camera poses, without live capture or motion estimation.
+
 | Saved real-data result | Actual iPhone app |
 | --- | --- |
 | <img src="assets/real-rgbd-preview.gif" width="620" alt="Recorded Kinect RGB and depth beside the saved final Point Fusion cloud"> | <img src="assets/ios-real-rgbd.gif" width="240" alt="Physical iPhone 12 fusing the recorded Kinect input"> |

@@ -2,6 +2,12 @@
 
 Read this file first, then SKILL.md and README.md. Updated 2026-11-14. The root README is the preserved project reference for the current revival task; current executable setup/results are in updated/README.md.
 
+## Updated-work navigation (2026-11-14)
+
+Aaron authorized a top-of-page `New!` badge and “Updated and ported for modern hardware” link in the root README. Both lead to the corresponding heading in `updated/README.md`, which now opens with a brief description of the actual port, repairs or reimplementation and its limits. An italic line marks the following content as the historical reference. The historical root reference body remains unchanged; current implementation details stay under `updated/`.
+
+This documentation change does not alter source, submodule pins, media or recorded validation. Earlier root-README byte-identity statements and hashes apply to their recorded baseline; current preservation checks remove only the authorized navigation block before comparing the historical body.
+
 ## Historical source and attribution
 
 January 2015 PointsFusion v2.3 Objective-C/OpenGL ES correspondence-shader and CPU-fusion snapshot; earlier than the October 2015 release reported by the preserved root README, which remains unrecovered/unverified. Original project credits: D. Ben-Hoda, G. Kamar, Aaron Wetzler, Y. Honen, Ron Kimmel. Source notices retain Daniel & Gal copyright.
