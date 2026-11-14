@@ -52,3 +52,5 @@ Actual Mac/Linux app-window and physical Android/iOS recordings/GIFs/PNGs are in
 Actual native Mac/Linux build paths and verified SSD data/media paths are recorded in the private task handoff. No environments/build trees were placed on exFAT. Recheck the SSD mount/space/task write access before large future writes.
 
 Preserve attribution/notices and original published hashes. Keep new work under updated/, synchronize this file/SKILL before commits, check source hashes, root README identity, Markdown/media links and real outputs. The 2026-11-12 prose revision had two actual Claude reviews. Two offline-revival Claude reviews and two further tools-disabled native code/editorial reviews completed 2026-11-14; useful feedback was checked against code/results and applied, including survivor ordering, lossless iOS storage, callback containment and inactive GL handling. Reviews add no runtime evidence.
+
+The root `.gitignore` excludes generated build, demo/fusion output and Python/macOS cache files. Curated `updated/assets/` and `updated/examples/` remain tracked; inspect the files rather than adding generated output trees.
